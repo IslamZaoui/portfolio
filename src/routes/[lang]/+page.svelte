@@ -67,7 +67,7 @@
 						class="flex w-full items-center gap-4 px-4 hover:underline"
 						href="/{data.lang}/blog/{post.slug}"
 					>
-						<div class="text-sm text-muted-foreground">{timeAgo(post.date)}</div>
+						<div class="text-sm text-muted-foreground">{timeAgo(post.date, data.lang)}</div>
 						<h3 class="text-lg font-semibold">{post.title}</h3>
 					</a>
 				{/each}
@@ -79,6 +79,6 @@
 		{/await}
 	</div>
 	<div>
-		<a class="text-md w-full text-right" href="/{data.lang}/blog">{$LL.READMORE()}</a>
+		<a class="text-md w-full text-right" title="Read more posts" href="/{data.lang}/blog">{$LL.READMORE()}</a>
 	</div>
 </section>

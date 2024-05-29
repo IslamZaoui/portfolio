@@ -15,8 +15,8 @@
 <section class="w-full space-y-4">
 	<div class="flex items-center gap-2">
 		<Mail size="36" />
-		<div class="flex flex-col">
-			<h2 class="text-xl font-semibold">{$LL.CONTACTS.EMAIL()}</h2>
+		<div class="flex flex-col gap-2">
+			<h2 class="text-lg font-semibold">{$LL.CONTACTS.EMAIL()}</h2>
 			<a href="mailto:{config.email}" class="hover:underline">{config.email}</a>
 		</div>
 	</div>

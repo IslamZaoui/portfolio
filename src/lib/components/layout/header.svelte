@@ -1,6 +1,6 @@
 <script lang="ts">
 	// @ts-nocheck
-	import { src, width, height } from '@assets/pfp.png?as=metadata';
+	import { src, width, height } from '@assets/pfp.png?as=metadata&format=avif&w=256&h=256';
 	import { Separator } from '@/components/ui/separator';
 	import HeaderButton from '@/components/custom/header-button.svelte';
 	import Twitter from 'lucide-svelte/icons/twitter';
@@ -17,19 +17,23 @@
 	const soicals = [
 		{
 			url: `https://x.com/${config.social_links.Twitter}`,
-			icon: Twitter
+			icon: Twitter,
+			title: 'Twitter Profile'
 		},
 		{
 			url: `https://github.com/${config.social_links.GitHub}`,
-			icon: Github
+			icon: Github,
+			title: 'GitHub Profile'
 		},
 		{
 			url: `https://linkedin.com/in/${config.social_links.LinkedIn}`,
-			icon: Linkedin
+			icon: Linkedin,
+			title: 'LinkedIn Profile'
 		},
 		{
 			url: `https://youtube.com/${config.social_links.YouTube}`,
-			icon: Youtube
+			icon: Youtube,
+			title: 'YouTube Channel'
 		}
 	];
 
@@ -37,22 +41,26 @@
 		{
 			name: $LL.ABOUT(),
 			href: `/${$page.data.lang}`,
-			selected: $page.data.url === `/${$page.data.lang}`
+			selected: $page.data.url === `/${$page.data.lang}`,
+			title: 'About me'
 		},
 		{
 			name: $LL.BLOG(),
 			href: `/${$page.data.lang}/blog`,
-			selected: $page.data.url.startsWith(`/${$page.data.lang}/blog`)
+			selected: $page.data.url.startsWith(`/${$page.data.lang}/blog`),
+			title: 'My blog posts'
 		},
 		{
 			name: $LL.USES(),
 			href: `/${$page.data.lang}/uses`,
-			selected: $page.data.url.startsWith(`/${$page.data.lang}/uses`)
+			selected: $page.data.url.startsWith(`/${$page.data.lang}/uses`),
+			title: 'What I uses'
 		},
 		{
 			name: $LL.CONTACT(),
 			href: `/${$page.data.lang}/contact`,
-			selected: $page.data.url.startsWith(`/${$page.data.lang}/contact`)
+			selected: $page.data.url.startsWith(`/${$page.data.lang}/contact`),
+			title: 'Contact me'
 		}
 	];
 
@@ -67,20 +75,21 @@
 	</div>
 	<nav class="my-5 flex w-full items-center justify-between">
 		<div class="flex w-full gap-3">
-			{#each soicals as { url, icon }}
-				<a href={url} target="_blank" rel="noreferrer">
+			{#each soicals as { url, icon, title }}
+				<a href={url} target="_blank" rel="noreferrer" {title}>
 					<svelte:component this={icon} />
 				</a>
 			{/each}
 		</div>
-		<div class="flex gap-3 items-center">
+		<div class="flex items-center gap-3">
 			<LightSwitch />
 			<LangSwitch />
 		</div>
 	</nav>
 	<Separator orientation="horizontal" />
 	{#key isBlogPost}
-		<nav class:hidden={isBlogPost}
+		<nav
+			class:hidden={isBlogPost}
 			class="mb-2 mt-6 flex gap-2"
 			in:fly={{ duration: 200, delay: 200, y: 20 }}
 			out:fly={{ duration: 200 }}

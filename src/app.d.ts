@@ -19,6 +19,8 @@ declare global {
 		published: boolean;
 		slug: string;
 	};
+
+	declare module 'lite-youtube-embed'
 }
 
 export {};
