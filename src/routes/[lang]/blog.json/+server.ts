@@ -3,9 +3,9 @@ import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
-export const GET: RequestHandler = async () => {
+export const GET: RequestHandler = async ({ params: { lang } }) => {
 	try {
-		return new Response(JSON.stringify(getPosts()), {
+		return new Response(JSON.stringify(getPosts(lang)), {
 			headers: {
 				'Content-Type': 'application/json'
 			}

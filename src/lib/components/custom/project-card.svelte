@@ -1,22 +1,30 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+
 	export let data: {
-		name: string;
+		content: {
+			[key in 'ar' | 'en']: {
+				name: string;
+				description: string;
+			};
+		};
 		url: string;
 		icon: any;
-		description: string;
 	};
 </script>
 
 <a
-	class="flex flex-col gap-1 mb-2 transform hover:-translate-y-1 transition"
+	class="mb-2 flex transform flex-col gap-1 transition hover:-translate-y-1"
 	href={data.url}
 	target="_blank"
-	rel="noreferrer">
+	rel="noreferrer"
+>
 	<div
-		class="size-[30px] flex justify-center items-center rounded-md bg-primary
-		text-primary-foreground">
+		class="flex size-[30px] items-center justify-center rounded-md bg-primary
+		text-primary-foreground"
+	>
 		<svelte:component this={data.icon} size="24" />
 	</div>
-	<h3>{data.name}</h3>
-	<p class="text-muted-foreground text-sm">{data.description}</p>
+	<h3>{data.content[$page.data.lang].name}</h3>
+	<p class="text-sm text-muted-foreground">{data.content[$page.data.lang].description}</p>
 </a>

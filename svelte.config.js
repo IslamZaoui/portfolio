@@ -25,6 +25,7 @@ const config = {
 			"@assets/*": "./user/assets/*",
 			"@posts/*": "./user/posts/*",
 			"@config": "./user/config.ts",
+			"@i18n/*": "./src/i18n/*",
 		}
 	}
 };

@@ -1,5 +1,12 @@
+import { dev } from '$app/environment';
 import brain from 'lucide-svelte/icons/brain';
 import megaphone from 'lucide-svelte/icons/megaphone';
+
+const site_url = dev ? 'http://localhost:5173' : ('https://islamzaoui.top' as const);
+const site_description = {
+	en: 'My Personal Portfolio and Blog',
+	ar: 'ملف الشخصي والمدونة'
+} as const;
 
 const social_links = {
 	Twitter: 'IslamZaoui_',
@@ -12,27 +19,51 @@ const email = 'contact@islamzaoui.top' as const;
 
 const experiences = [
 	{
-		title: 'Full Stack Web Developer',
-		at: "University of M'sila"
+		en: {
+			title: 'Full Stack Web Developer',
+			at: "University of M'sila"
+		},
+		ar: {
+			title: 'مطور ويب متكامب',
+			at: 'جامعة مسيلة'
+		}
 	}
 ] as const;
 
 const projects = [
 	{
-		name: 'Attendace Tracker',
-		description: 'app that allow teachers to take attendance',
+		content: {
+			en: {
+				name: 'Attendace Tracker',
+				description: 'app that allow teachers to take attendance'
+			},
+			ar: {
+				name: 'Attendace Tracker',
+				description: 'تطبيق يسمح للمعلمين بتسجيل الحضور'
+			}
+		},
 		url: 'https://github.com/IslamZaoui/Attendance-Tracker',
 		icon: megaphone
 	},
 	{
-		name: 'Intellect',
-		description: 'E-learning platform',
+		content: {
+			en: {
+				name: 'Intellect',
+				description: 'Web e-learning platform for students'
+			},
+			ar: {
+				name: 'Intellect',
+				description: 'منصة تعليم عن بعد للطلاب'
+			}
+		},
 		url: 'https://intellectweb.fly.dev',
 		icon: brain
 	}
 ] as const;
 
 export default {
+	site_url,
+	site_description,
 	social_links,
 	email,
 	experiences,

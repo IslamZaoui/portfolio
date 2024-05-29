@@ -1,5 +1,6 @@
 import { formatDistanceToNow } from 'date-fns';
 import { enUS, ar } from 'date-fns/locale';
+import { base } from '$app/paths';
 
 function getSlugFromPath(filePath: string): string | null {
 	const parts = filePath.split('/');
@@ -42,3 +43,17 @@ export function timeAgo(dateString: string, lang = 'en'): string {
 	const locale = lang === 'ar' ? ar : enUS;
 	return formatDistanceToNow(date, { locale, addSuffix: true });
 }
+
+export const replaceLocaleInUrl = (url: URL, locale: string, full = false): string => {
+	const [, , ...rest] = getPathnameWithoutBase(url).split('/');
+	const new_pathname = `/${[locale, ...rest].join('/')}`;
+	if (!full) {
+		return `${new_pathname}${url.search}`;
+	}
+	const newUrl = new URL(url.toString());
+	newUrl.pathname = base + new_pathname;
+	return newUrl.toString();
+};
+
+const REGEX_START_WITH_BASE = new RegExp(`^${base}`);
+export const getPathnameWithoutBase = (url: URL) => url.pathname.replace(REGEX_START_WITH_BASE, '');

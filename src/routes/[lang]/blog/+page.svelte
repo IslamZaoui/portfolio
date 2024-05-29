@@ -1,14 +1,25 @@
 <script lang="ts">
+	import Head from '@/components/custom/head.svelte';
+	import { LL } from '@i18n/i18n-svelte';
 	export let data;
 </script>
 
-<div class="w-full flex flex-col mx-auto gap-3">
-	{#each data.posts as post}
-		<a
-			href="/{data.lang}/blog/{post.slug}"
-			class="w-full rounded-md border bg-muted hover:bg-muted/50 p-3 transform hover:-translate-y-1 transition">
-			<h2 class="text-xl font-semibold">{post.title}</h2>
-			<p class="text-sm text-muted-foreground">{post.description}</p>
-		</a>
-	{/each}
+<Head title={$LL.BLOG()} />
+
+<div class="mx-auto flex w-full flex-col gap-3">
+	{#if data.posts.length === 0}
+		<div class="mb-8 w-full">
+			<span>{$LL.BLOG_NOTFOUND()}</span>
+		</div>
+	{:else}
+		{#each data.posts as post}
+			<a
+				href="/{data.lang}/blog/{post.slug}"
+				class="w-full transform rounded-md border bg-muted p-3 transition hover:-translate-y-1 hover:bg-muted/50"
+			>
+				<h2 class="text-xl font-semibold">{post.title}</h2>
+				<p class="text-sm text-muted-foreground">{post.description}</p>
+			</a>
+		{/each}
+	{/if}
 </div>

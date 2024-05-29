@@ -60,9 +60,6 @@ def hello_world():
 
 ~~Strikethrough~~
 
-- [x] Task List Item 1
-- [ ] Task List Item 2
-
 {% video src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" title="test" /%}
 
 {% youtube id="vi1VTiqtZTU" /%}
