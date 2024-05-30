@@ -1,6 +1,10 @@
 import { loadLocaleAsync } from '@i18n/i18n-util.async';
 import { i18nObject } from 'typesafe-i18n';
 
+export const config = {
+	runtime: 'edge'
+};
+
 export const ssr = false;
 export const prerender = true;
 
