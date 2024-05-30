@@ -26,6 +26,9 @@ const config = {
 			"@posts/*": "./user/posts/*",
 			"@config": "./user/config.ts",
 			"@i18n/*": "./src/i18n/*",
+		},
+		serviceWorker: {
+			register: false,
 		}
 	}
 };

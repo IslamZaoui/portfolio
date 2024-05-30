@@ -79,6 +79,6 @@
 		{/await}
 	</div>
 	<div>
-		<a class="text-md w-full text-right" title="Read more posts" href="/{data.lang}/blog">{$LL.READMORE()}</a>
+		<a class="text-md w-full text-right" href="/{data.lang}/blog">{$LL.READMORE()}</a>
 	</div>
 </section>

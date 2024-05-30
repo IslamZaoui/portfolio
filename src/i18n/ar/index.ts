@@ -19,7 +19,7 @@ const ar = {
 	PRESENT: 'حاليا',
 	PROJECTS: 'المشاريع',
 	LATEST: 'آخر المشاركات',
-	READMORE: 'اقرأ المزيد',
+	READMORE: 'اقرأ المزيد من المنشورات',
 	LOADING: 'جار التحميل...',
 	//Blog page
 	BACK: 'رجوع',

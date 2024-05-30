@@ -19,7 +19,7 @@ const en = {
 	PRESENT: 'present',
 	PROJECTS: 'Projects',
 	LATEST: 'Latest Posts',
-	READMORE: 'Read More',
+	READMORE: 'Read more posts',
 	LOADING: 'Loading...',
 	//Blog page
 	BACK: 'Back',

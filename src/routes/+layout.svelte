@@ -8,6 +8,7 @@
 	import { loadAllLocales } from '@i18n/i18n-util.sync';
 	import { setLocale, locale } from '@i18n/i18n-svelte';
 	import { i18n } from 'typesafe-i18n';
+	import { getSerwist } from "virtual:serwist";
 
 	loadAllLocales();
 	//@ts-ignore
@@ -34,6 +35,21 @@
 			});
 		} catch {}
 	});
+
+	$: {
+		const loadSerwist = async () => {
+			if ('serviceWorker' in navigator) {
+				const serwist = await getSerwist();
+
+				serwist?.addEventListener('installed', () => {
+					console.log('Serwist installed!');
+				});
+
+				void serwist?.register();
+			}
+		};
+		loadSerwist();
+	}
 </script>
 
 <ModeWatcher />
