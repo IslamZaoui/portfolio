@@ -36,8 +36,15 @@ function generateSitemap(arPosts: Post[], enPosts: Post[]) {
 	const sitemap = {
 		_declaration: { _attributes: { version: '1.0', encoding: 'utf-8' } },
 		urlset: {
-			_attributes: { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' },
-			url: urls.map((url) => ({ url }))
+			_attributes: {
+				xmlns: 'https://www.sitemaps.org/schemas/sitemap/0.9',
+				'xmlns:xhtml': 'https://www.w3.org/1999/xhtml',
+				'xmlns:mobile': 'https://www.google.com/schemas/sitemap-mobile/1.0',
+				'xmlns:news': 'https://www.google.com/schemas/sitemap-news/0.9',
+				'xmlns:image': 'https://www.google.com/schemas/sitemap-image/1.1',
+				'xmlns:video': 'https://www.google.com/schemas/sitemap-video/1.1'
+			},
+			url: urls.map(({ loc, lastmod }) => ({ loc, lastmod }))
 		}
 	};
 

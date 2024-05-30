@@ -67,7 +67,7 @@ type RootTranslation = {
 	 */
 	LATEST: string
 	/**
-	 * R​e​a​d​ ​M​o​r​e
+	 * R​e​a​d​ ​m​o​r​e​ ​p​o​s​t​s
 	 */
 	READMORE: string
 	/**
@@ -220,7 +220,7 @@ export type TranslationFunctions = {
 	 */
 	LATEST: () => LocalizedString
 	/**
-	 * Read More
+	 * Read more posts
 	 */
 	READMORE: () => LocalizedString
 	/**
