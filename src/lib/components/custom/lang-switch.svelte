@@ -5,7 +5,7 @@
 	import { setLocale, locale } from '@i18n/i18n-svelte';
 	import type { Locales } from '@i18n/i18n-types';
 	import { loadLocaleAsync } from '@i18n/i18n-util.async';
-	import Button from '../ui/button/button.svelte';
+	import { buttonVariants } from '$lib/components/ui/button';
 
 	const switchLocale = async (newLocale: Locales) => {
 		if (!newLocale || $locale === newLocale) return;
@@ -21,11 +21,10 @@
 	}
 </script>
 
-<Button
-	size="icon"
-	variant="ghost"
+<a
+	class={buttonVariants({ variant: 'ghost', size: 'icon' })}
 	title={$page.data.lang === 'en' ? 'Change to Arabic' : 'Change to English'}
 	href={replaceLocaleInUrl($page.url, $page.data.lang === 'en' ? 'ar' : 'en')}
 	rel="alternate"
-	hreflang={$page.data.lang === 'en' ? 'ar' : 'en'}>{$page.data.lang === 'en' ? 'AR' : 'EN'}</Button
+	hreflang={$page.data.lang === 'en' ? 'ar' : 'en'}>{$page.data.lang === 'en' ? 'AR' : 'EN'}</a
 >
