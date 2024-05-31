@@ -5,8 +5,9 @@ export const config = {
 	runtime: 'edge'
 };
 
-export const ssr = false;
+export const ssr = true;
 export const prerender = true;
+export const csr = true;
 
 export const load = async ({ data }) => {
 	await loadLocaleAsync(data.lang);
