@@ -1,6 +1,5 @@
 import { ImageResponse } from './response';
 import OG from './og.svelte';
-import { getPosts } from '@/index';
 
 const fontUrl = '/fonts/Tajawal-Bold.ttf';
 
@@ -21,7 +20,6 @@ function flipArabicText(text: string) {
 
 export const GET = async ({ params, fetch }) => {
 	const text = isStringArabic(params.text) ? flipArabicText(params.text) : params.text;
-
 	const fontData = await fetch(fontUrl).then((res) => res.arrayBuffer());
 
 	const imageResponse = new ImageResponse(
