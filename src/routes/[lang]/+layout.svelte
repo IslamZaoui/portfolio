@@ -13,9 +13,8 @@
 			<Header />
 			{#key data.url}
 				<main
-					in:fly={{ y: 20, duration: 200, delay: 200 }}
-					out:fly={{ duration: 200 }}
-					class="flex flex-grow flex-col items-center justify-start gap-8"
+					in:fly={{ duration: 200, y: 20 }}
+					class="flex flex-grow flex-col items-center justify-start gap-8 antialiased"
 				>
 					<slot />
 				</main>

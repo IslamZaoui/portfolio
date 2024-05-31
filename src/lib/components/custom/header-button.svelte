@@ -11,14 +11,14 @@
 	<a
 		href={data.href}
 		title={data.title}
-		class="relative z-10 px-2 py-1 text-sm"
+		class="relative z-10 px-2 py-1 text-sm transition-colors duration-300 ease-in-out"
 		class:text-primary-foreground={data.selected}
 	>
 		{data.name}
 	</a>
 	{#if data.selected}
 		<div
-			class="header-button absolute left-0 top-0 z-0 size-full rounded-md bg-primary"
+			class="header-button absolute left-0 top-0 z-0 h-full w-full rounded-md bg-primary"
 			data-flip-id="header-button"
 		/>
 	{/if}

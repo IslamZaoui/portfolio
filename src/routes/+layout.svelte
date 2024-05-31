@@ -6,6 +6,7 @@
 	// @ts-ignore
 	import { Flip } from 'gsap/dist/Flip';
 	import { ModeWatcher } from 'mode-watcher';
+	import config from '@config';
 	import { page } from '$app/stores';
 	import { loadAllLocales } from '@i18n/i18n-util.sync';
 	import { setLocale, locale } from '@i18n/i18n-svelte';
@@ -54,6 +55,23 @@
 		loadSerwist();
 	}
 </script>
+
+<svelte:head>
+	{@html `
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"url": "${config.site_url}",
+				"name": "Islam Zaoui",
+				"description": "${config.site_description[$page.data.lang]}",
+				"image": "${config.site_url}/OG/Islam Zaoui Portfolio",
+				"logo": "${config.site_url}/favicon.svg",
+				"email": "${config.email}",
+			}
+		</script>
+		`}
+</svelte:head>
 
 <ModeWatcher />
 <slot />

@@ -2,8 +2,6 @@ import { ImageResponse } from './response';
 import OG from './og.svelte';
 import { getPosts } from '@/index';
 
-export const prerender = true;
-
 const fontUrl = '/fonts/Tajawal-Bold.ttf';
 
 const height = 630;
@@ -44,23 +42,11 @@ export const GET = async ({ params, fetch }) => {
 		}
 	);
 
-	const headers = new Headers();
-	headers.append('Cache-Control', 'public, max-age=86400, immutable');
-	headers.append('Content-Type', 'image/png');
-
 	return new Response(imageResponse.body, {
 		status: 200,
-		headers: headers
+		headers: {
+			...imageResponse.headers,
+			'Cache-Control': 'public, max-age=86400, immutable'
+		}
 	});
-};
-
-export const entries = () => {
-	const ar_posts = getPosts('ar');
-	const en_posts = getPosts('en');
-	const all = [
-		{ text: 'Islam Zaoui Portfolio' },
-		...ar_posts.map((post) => ({ text: post.title })),
-		...en_posts.map((post) => ({ text: post.title }))
-	];
-	return all;
 };

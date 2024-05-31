@@ -1,6 +1,6 @@
 <script lang="ts">
 	// @ts-nocheck
-	import { src, width, height } from '@assets/pfp.png?as=metadata&format=avif&w=256&h=256';
+	import pfp from '@assets/pfp.png?enhanced';
 	import { Separator } from '@/components/ui/separator';
 	import HeaderButton from '@/components/custom/header-button.svelte';
 	import Twitter from 'lucide-svelte/icons/twitter';
@@ -68,8 +68,8 @@
 </script>
 
 <div class="my-8 flex flex-col items-start justify-between gap-2">
-	<div class="flex gap-3 items-center">
-		<img class="size-[60px] rounded-full" {src} {width} {height} alt="Profile" />
+	<div class="flex items-center gap-3">
+		<enhanced:img class="size-[60px] rounded-full" src={pfp} alt="profile" />
 		<div>
 			<h1 class="text-lg font-bold">Islam Zaoui</h1>
 			<p class="text-muted-foreground">{$LL.SUBTITLE()}</p>
@@ -90,12 +90,7 @@
 	</nav>
 	<Separator orientation="horizontal" />
 	{#key isBlogPost}
-		<nav
-			class:hidden={isBlogPost}
-			class="mb-2 mt-6 flex gap-2"
-			in:fly={{ duration: 200, delay: 200, y: 20 }}
-			out:fly={{ duration: 200 }}
-		>
+		<nav class:hidden={isBlogPost} class="mb-2 mt-6 flex gap-2" in:fly={{ duration: 200, y: 20 }}>
 			{#each nav as data}
 				<HeaderButton {data} />
 			{/each}

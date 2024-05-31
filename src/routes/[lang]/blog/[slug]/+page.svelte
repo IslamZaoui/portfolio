@@ -5,10 +5,12 @@
 	import Calendar from 'lucide-svelte/icons/calendar';
 	import { LL } from '@i18n/i18n-svelte';
 	import Head from '@/components/custom/head.svelte';
+	import PostBreadcrumbSd from '@/components/custom/post-breadcrumb-SD.svelte';
 	export let data;
 </script>
 
 <Head title={data.meta.title} description={data.meta.description} image="/OG/{data.meta.title}" />
+<PostBreadcrumbSd title={data.meta.title} date={data.meta.date} image="/OG/{data.meta.title}" />
 
 <header class="flex w-full flex-col gap-2">
 	<a href="/{data.lang}/blog" class="flex items-center text-sm">

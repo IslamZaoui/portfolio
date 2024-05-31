@@ -1,13 +1,19 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
-import { imagetools } from 'vite-imagetools';
+import { enhancedImages } from '@sveltejs/enhanced-img';
 import type { Plugin } from 'vite';
 import config from './svelte.config';
 import crypto from 'node:crypto';
 import os from 'node:os';
 import path from 'node:path';
 import { errors } from '@serwist/build';
-import { createApi, createContext, dev as devPlugin, main as mainPlugin, resolveEntry } from '@serwist/vite';
+import {
+	createApi,
+	createContext,
+	dev as devPlugin,
+	main as mainPlugin,
+	resolveEntry
+} from '@serwist/vite';
 import type { PluginOptions, SerwistViteApi, SerwistViteContext } from '@serwist/vite';
 
 // We do not rely on `@serwist/vite`'s built-in `buildPlugin` because
@@ -156,7 +162,7 @@ const serwist = (): Plugin[] => {
 };
 
 export default defineConfig({
-	plugins: [imagetools(), sveltekit(), serwist()],
+	plugins: [enhancedImages(), sveltekit(), serwist()],
 	server: {
 		fs: {
 			allow: [searchForWorkspaceRoot(process.cwd()), './user/*']
