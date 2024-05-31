@@ -9,6 +9,6 @@ export const load = async ({ data: { slug, lang } }) => {
 		};
 	} catch (err) {
 		console.log(err);
-		return error(500, `Failed to load post ${slug}`);
+		return error(404, `post ${slug} not found!`);
 	}
 };

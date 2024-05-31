@@ -7,7 +7,7 @@ export const load = async ({ params }) => {
 	};
 };
 
-export const entries = () => {
+const getEntries = () => {
 	const ar_posts = getPosts('ar');
 	const en_posts = getPosts('en');
 	const all = [
@@ -20,4 +20,8 @@ export const entries = () => {
 			lang: post.lang
 		};
 	});
+};
+
+export const entries = () => {
+	return getEntries();
 };

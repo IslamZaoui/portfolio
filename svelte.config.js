@@ -25,6 +25,9 @@ const config = {
 		},
 		serviceWorker: {
 			register: false,
+		},
+		prerender:{
+			handleHttpError: "warn"
 		}
 	}
 };
