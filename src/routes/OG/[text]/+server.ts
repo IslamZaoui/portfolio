@@ -22,7 +22,7 @@ export const GET = async ({ params, fetch }) => {
 	const text = isStringArabic(params.text) ? flipArabicText(params.text) : params.text;
 	const fontData = await fetch(fontUrl).then((res) => res.arrayBuffer());
 
-	const imageResponse = new ImageResponse(
+	return new ImageResponse(
 		OG as any,
 		{
 			width,
@@ -39,12 +39,4 @@ export const GET = async ({ params, fetch }) => {
 			text
 		}
 	);
-
-	return new Response(imageResponse.body, {
-		status: 200,
-		headers: {
-			...imageResponse.headers,
-			'Cache-Control': 'public, max-age=86400, immutable'
-		}
-	});
 };
