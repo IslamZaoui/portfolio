@@ -6,10 +6,15 @@
 
 <Head title={$LL.BLOG()} />
 
-<div class="mx-auto flex w-full flex-col gap-3">
+<div class="mb-8 w-full space-y-4">
+	<h1 class="text-3xl font-medium">{$LL.MYBLOG()}</h1>
+	<p>{$LL.BLOGTXT()}</p>
+</div>
+
+<section class="mx-auto flex w-full flex-col gap-3">
 	{#if data.posts.length === 0}
-		<div class="mb-8 w-full">
-			<span>{$LL.BLOG_NOTFOUND()}</span>
+		<div class="p-4 flex items-center justify-center w-full">
+			<span class="text-muted-foreground">{$LL.BLOG_NOTFOUND()}</span>
 		</div>
 	{:else}
 		{#each data.posts as post}
@@ -22,4 +27,4 @@
 			</a>
 		{/each}
 	{/if}
-</div>
+</section>

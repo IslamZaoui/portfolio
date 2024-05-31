@@ -3,7 +3,7 @@ import type { BaseTranslation } from '../i18n-types';
 const ar = {
 	//Error Page
 	ERROR: 'خطأ',
-	BACKBUTTON: 'العودة إلى الصفحة السابقة',
+	BACKBUTTON: 'الرجوع إلي الصفحة السابقة',
 	//Header
 	SUBTITLE: 'مطور ويب متكامل',
 	ABOUT: 'عني',
@@ -13,55 +13,54 @@ const ar = {
 	//Footer
 	FOOTER: '© 2024 - جميع الحقوق محفوظة',
 	//About Page
-	ABOUTTXT:
-		'مطور ويب كامل مبتدئ تخرج من جامعة المسيلة بشهادة اليسانس في علوم الكمبيوتر. شغوف بإنشاء الأدوات وتصميمات UI/UX وتطوير الويب.',
-	EXPERIENCES: 'التجارب',
+	ABOUTME: 'عني',
+	ABOUTTXT:"مطور ويب متكامل متخرج من جامعة محمد بوضياف مسيلة الجزائر بشهادة ليسانس في علوم الحاسوب, مهتم بتطوير الويب والتصميم والتطبيقات.",
+	EXPERIENCES: 'تجارب',
 	PRESENT: 'حاليا',
 	PROJECTS: 'المشاريع',
-	LATEST: 'آخر المشاركات',
-	READMORE: 'اقرأ المزيد من المنشورات',
-	LOADING: 'جار التحميل...',
+	LATEST: 'أخر المنشورات',
+	READMORE: 'قراءة المزيد',
+	LOADING: 'جاري التحميل...',
 	//Blog page
+	MYBLOG: 'مدونتي',
+	BLOGTXT: "هنا مدونتي, اكتب مقالات حول مشاريعي والتجاربي.",
 	BACK: 'رجوع',
-	BLOG_NOTFOUND:
-		'لا توجد مشاركة معينة في المدونة الخاصة بي. الرجاء التحقق من الحصول عليها في وقت لاحق. أو قم بتغيير اللغة.',
-	//Uses Page
+	BLOG_NOTFOUND: "لا يوجد شيء حاليا.",
+	//UsesPage
 	TOOLKIT: {
-		INTRO: 'مجموعة الأدوات التي أستخدمها لمساعدتي في بناء مشاريعي في كل من البرمجيات والأجهزة.',
+		USES: 'ماذا استخدم',
+		USESTXT: 'ادواتي التي استخدمها في بناء مشاريعي من البرمجيات والاجهزة.',
 		HARDWARE: 'الأجهزة',
 		HARDWARE_ITEMS: [
 			{
-				NAME: 'لاب توب Dell Latitude 3520 (شاشة 15.6", ذاكرة 8GB، قرص صلب SSD 256GB)',
-				DESCRIPTION: 'جهازي الأساسي'
+				NAME: 'Laptop Dell latitude 3520 (15.6", 8GB RAM, 256GB SSD)',
+				DESCRIPTION: 'جهاز الأساسي'
 			}
 		],
 		SOFTWARE: 'البرمجيات',
 		SOFTWARE_ITEMS: [
 			{
 				NAME: 'Cursor',
-				DESCRIPTION: 'بديل VS Code المدعوم بالذكاء الاصطناعي'
+				DESCRIPTION: 'بديل VS code مشغل بالذكاء الاصطناعي'
 			},
 			{
 				NAME: 'Chrome',
-				DESCRIPTION: 'أفضل متصفح على الإطلاق'
+				DESCRIPTION: 'افضل متصفح'
 			},
 			{
 				NAME: 'Photopea',
-				DESCRIPTION: 'بديل فوتوشوب عبر الإنترنت'
+				DESCRIPTION: 'بديل فوتوشوب'
 			},
 			{
 				NAME: 'Draw.io',
-				DESCRIPTION: 'أداة رسم تخطيطي عبر الإنترنت'
+				DESCRIPTION: 'اداة رسم المخططات'
 			}
 		]
 	},
 	//Contact Page
-	CONTACTS: {
-		TEXT1: 'هل لديك مشروع أو فكرة تريد مناقشتها؟ يسعدني سماع ذلك.',
-		TEXT2:
-			'لا تتردد في التواصل معي على أي من منصات التواصل الاجتماعي أعلاه أو عبر البريد الإلكتروني.',
-		EMAIL: 'البريد الإلكتروني'
-	}
+	EMAIL: 'البريد الالكتروني',
+	CONTACTME: 'تواصل معي',
+	CONTACTTXT: 'لديك فكرة او مشروع؟ تواصل معي عبر البريد الالكتروني او عبر وسائل التواصل الاجتماعي.',
 } satisfies BaseTranslation;
 
 export default ar;

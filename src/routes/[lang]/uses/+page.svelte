@@ -5,9 +5,10 @@
 
 <Head title={$LL.USES()} />
 
-<section class="mb-8 w-full">
-	<p>{$LL.TOOLKIT.INTRO()}</p>
-</section>
+<div class="mb-8 w-full space-y-4">
+	<h1 class="text-3xl font-medium">{$LL.TOOLKIT.USES()}</h1>
+	<p>{$LL.TOOLKIT.USESTXT()}</p>
+</div>
 
 <section class="w-full space-y-4">
 	<h2 class="text-xl font-semibold">{$LL.TOOLKIT.HARDWARE()}</h2>

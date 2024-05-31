@@ -12,9 +12,10 @@
 
 <Head title={$LL.ABOUT()} />
 
-<section class="mb-8 w-full">
+<div class="mb-8 w-full space-y-4">
+	<h1 class="text-3xl font-medium">{$LL.ABOUTME()}</h1>
 	<p>{$LL.ABOUTTXT()}</p>
-</section>
+</div>
 
 <section class="w-full space-y-4">
 	<h2 class="text-xl font-semibold">{$LL.EXPERIENCES()}</h2>
@@ -73,7 +74,7 @@
 				{/each}
 			{:else}
 				<div class="flex h-[72px] w-full items-center justify-center">
-					<span>{$LL.BLOG_NOTFOUND()}</span>
+					<span class="text-muted-foreground">{$LL.BLOG_NOTFOUND()}</span>
 				</div>
 			{/if}
 		{/await}

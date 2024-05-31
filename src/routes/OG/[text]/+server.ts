@@ -46,6 +46,7 @@ export const GET = async ({ params, fetch }) => {
 
 	const headers = new Headers();
 	headers.append('Cache-Control', 'public, max-age=86400, immutable');
+	headers.append('Content-Type', 'image/png');
 
 	return new Response(imageResponse.body, {
 		status: 200,

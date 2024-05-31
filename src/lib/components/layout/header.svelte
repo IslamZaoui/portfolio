@@ -68,10 +68,12 @@
 </script>
 
 <div class="my-8 flex flex-col items-start justify-between gap-2">
-	<img class="size-[50px] rounded-full" {src} {width} {height} alt="Profile" />
-	<div>
-		<h1 class="text-lg font-bold">Islam Zaoui</h1>
-		<p class="text-muted-foreground">{$LL.SUBTITLE()}</p>
+	<div class="flex gap-3 items-center">
+		<img class="size-[60px] rounded-full" {src} {width} {height} alt="Profile" />
+		<div>
+			<h1 class="text-lg font-bold">Islam Zaoui</h1>
+			<p class="text-muted-foreground">{$LL.SUBTITLE()}</p>
+		</div>
 	</div>
 	<nav class="my-5 flex w-full items-center justify-between">
 		<div class="flex w-full gap-3">

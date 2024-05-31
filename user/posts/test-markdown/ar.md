@@ -1,7 +1,7 @@
 ---
 title: TEST MARKDOC
 date: '2024-05-28'
-description: 'تم تصميم مدونة اختبار لمعالج MarkDoc المسبق'
+description: 'مدونة اختبار لمعالج MarkDoc'
 published: true
 ---
 

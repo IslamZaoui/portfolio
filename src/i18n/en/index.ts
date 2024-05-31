@@ -13,8 +13,9 @@ const en = {
 	//Footer
 	FOOTER: '© 2024 - All Rights Reserved',
 	//About Page
+	ABOUTME: 'About Me',
 	ABOUTTXT:
-		"Junior Full Stack Web Developer graduated from the University of M'sila with a degree in Computer Science. Passionate about creating tools, UI/UX designs and web development.",
+		"Junior Full Stack Web Developer graduated from the University of M'sila with a license degree in Computer Science. Passionate about creating tools, UI/UX designs and web development.",
 	EXPERIENCES: 'Experiences',
 	PRESENT: 'present',
 	PROJECTS: 'Projects',
@@ -22,11 +23,14 @@ const en = {
 	READMORE: 'Read more posts',
 	LOADING: 'Loading...',
 	//Blog page
+	MYBLOG: 'My Blogs',
+	BLOGTXT: "Here's my blog. I write about my projects and my experiences.",
 	BACK: 'Back',
-	BLOG_NOTFOUND:"There's no blog post yet. Please check back later or change the language.",
+	BLOG_NOTFOUND:"There's no blog post yet.\n Please check back later or change the language.",
 	//UsesPage
 	TOOLKIT: {
-		INTRO: 'My toolkit that I use to help me build my projects in both software and hardware.',
+		USES: 'What I use',
+		USESTXT: 'My toolkit that I use to help me build my projects in both software and hardware.',
 		HARDWARE: 'Hardware',
 		HARDWARE_ITEMS: [
 			{
@@ -55,11 +59,9 @@ const en = {
 		]
 	},
 	//Contact Page
-	CONTACTS: {
-		TEXT1: "You have a project or idea that you'd like to discuss? I'd love to hear from you.",
-		TEXT2: 'Feel free to contact me on any of the social media platforms above or via email.',
-		EMAIL: 'Email',
-	}
+	EMAIL: 'Email',
+	CONTACTME: 'Contact Me',
+	CONTACTTXT: 'You have an idea or a project. Let\'s talk about it, feel free to contact me with my email or social media account.',
 } satisfies BaseTranslation;
 
 export default en;

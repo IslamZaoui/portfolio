@@ -47,7 +47,11 @@ type RootTranslation = {
 	 */
 	FOOTER: string
 	/**
-	 * J​u​n​i​o​r​ ​F​u​l​l​ ​S​t​a​c​k​ ​W​e​b​ ​D​e​v​e​l​o​p​e​r​ ​g​r​a​d​u​a​t​e​d​ ​f​r​o​m​ ​t​h​e​ ​U​n​i​v​e​r​s​i​t​y​ ​o​f​ ​M​'​s​i​l​a​ ​w​i​t​h​ ​a​ ​d​e​g​r​e​e​ ​i​n​ ​C​o​m​p​u​t​e​r​ ​S​c​i​e​n​c​e​.​ ​P​a​s​s​i​o​n​a​t​e​ ​a​b​o​u​t​ ​c​r​e​a​t​i​n​g​ ​t​o​o​l​s​,​ ​U​I​/​U​X​ ​d​e​s​i​g​n​s​ ​a​n​d​ ​w​e​b​ ​d​e​v​e​l​o​p​m​e​n​t​.
+	 * A​b​o​u​t​ ​M​e
+	 */
+	ABOUTME: string
+	/**
+	 * J​u​n​i​o​r​ ​F​u​l​l​ ​S​t​a​c​k​ ​W​e​b​ ​D​e​v​e​l​o​p​e​r​ ​g​r​a​d​u​a​t​e​d​ ​f​r​o​m​ ​t​h​e​ ​U​n​i​v​e​r​s​i​t​y​ ​o​f​ ​M​'​s​i​l​a​ ​w​i​t​h​ ​a​ ​l​i​c​e​n​s​e​ ​d​e​g​r​e​e​ ​i​n​ ​C​o​m​p​u​t​e​r​ ​S​c​i​e​n​c​e​.​ ​P​a​s​s​i​o​n​a​t​e​ ​a​b​o​u​t​ ​c​r​e​a​t​i​n​g​ ​t​o​o​l​s​,​ ​U​I​/​U​X​ ​d​e​s​i​g​n​s​ ​a​n​d​ ​w​e​b​ ​d​e​v​e​l​o​p​m​e​n​t​.
 	 */
 	ABOUTTXT: string
 	/**
@@ -75,18 +79,31 @@ type RootTranslation = {
 	 */
 	LOADING: string
 	/**
+	 * M​y​ ​B​l​o​g​s
+	 */
+	MYBLOG: string
+	/**
+	 * H​e​r​e​'​s​ ​m​y​ ​b​l​o​g​.​ ​I​ ​w​r​i​t​e​ ​a​b​o​u​t​ ​m​y​ ​p​r​o​j​e​c​t​s​ ​a​n​d​ ​m​y​ ​e​x​p​e​r​i​e​n​c​e​s​.
+	 */
+	BLOGTXT: string
+	/**
 	 * B​a​c​k
 	 */
 	BACK: string
 	/**
-	 * T​h​e​r​e​'​s​ ​n​o​ ​b​l​o​g​ ​p​o​s​t​ ​y​e​t​.​ ​P​l​e​a​s​e​ ​c​h​e​c​k​ ​b​a​c​k​ ​l​a​t​e​r​ ​o​r​ ​c​h​a​n​g​e​ ​t​h​e​ ​l​a​n​g​u​a​g​e​.
+	 * T​h​e​r​e​'​s​ ​n​o​ ​b​l​o​g​ ​p​o​s​t​ ​y​e​t​.​
+​ ​P​l​e​a​s​e​ ​c​h​e​c​k​ ​b​a​c​k​ ​l​a​t​e​r​ ​o​r​ ​c​h​a​n​g​e​ ​t​h​e​ ​l​a​n​g​u​a​g​e​.
 	 */
 	BLOG_NOTFOUND: string
 	TOOLKIT: {
 		/**
+		 * W​h​a​t​ ​I​ ​u​s​e
+		 */
+		USES: string
+		/**
 		 * M​y​ ​t​o​o​l​k​i​t​ ​t​h​a​t​ ​I​ ​u​s​e​ ​t​o​ ​h​e​l​p​ ​m​e​ ​b​u​i​l​d​ ​m​y​ ​p​r​o​j​e​c​t​s​ ​i​n​ ​b​o​t​h​ ​s​o​f​t​w​a​r​e​ ​a​n​d​ ​h​a​r​d​w​a​r​e​.
 		 */
-		INTRO: string
+		USESTXT: string
 		/**
 		 * H​a​r​d​w​a​r​e
 		 */
@@ -150,20 +167,18 @@ type RootTranslation = {
 			}
 		}
 	}
-	CONTACTS: {
-		/**
-		 * Y​o​u​ ​h​a​v​e​ ​a​ ​p​r​o​j​e​c​t​ ​o​r​ ​i​d​e​a​ ​t​h​a​t​ ​y​o​u​'​d​ ​l​i​k​e​ ​t​o​ ​d​i​s​c​u​s​s​?​ ​I​'​d​ ​l​o​v​e​ ​t​o​ ​h​e​a​r​ ​f​r​o​m​ ​y​o​u​.
-		 */
-		TEXT1: string
-		/**
-		 * F​e​e​l​ ​f​r​e​e​ ​t​o​ ​c​o​n​t​a​c​t​ ​m​e​ ​o​n​ ​a​n​y​ ​o​f​ ​t​h​e​ ​s​o​c​i​a​l​ ​m​e​d​i​a​ ​p​l​a​t​f​o​r​m​s​ ​a​b​o​v​e​ ​o​r​ ​v​i​a​ ​e​m​a​i​l​.
-		 */
-		TEXT2: string
-		/**
-		 * E​m​a​i​l
-		 */
-		EMAIL: string
-	}
+	/**
+	 * E​m​a​i​l
+	 */
+	EMAIL: string
+	/**
+	 * C​o​n​t​a​c​t​ ​M​e
+	 */
+	CONTACTME: string
+	/**
+	 * Y​o​u​ ​h​a​v​e​ ​a​n​ ​i​d​e​a​ ​o​r​ ​a​ ​p​r​o​j​e​c​t​.​ ​L​e​t​'​s​ ​t​a​l​k​ ​a​b​o​u​t​ ​i​t​,​ ​f​e​e​l​ ​f​r​e​e​ ​t​o​ ​c​o​n​t​a​c​t​ ​m​e​ ​w​i​t​h​ ​m​y​ ​e​m​a​i​l​ ​o​r​ ​s​o​c​i​a​l​ ​m​e​d​i​a​ ​a​c​c​o​u​n​t​.
+	 */
+	CONTACTTXT: string
 }
 
 export type TranslationFunctions = {
@@ -200,7 +215,11 @@ export type TranslationFunctions = {
 	 */
 	FOOTER: () => LocalizedString
 	/**
-	 * Junior Full Stack Web Developer graduated from the University of M'sila with a degree in Computer Science. Passionate about creating tools, UI/UX designs and web development.
+	 * About Me
+	 */
+	ABOUTME: () => LocalizedString
+	/**
+	 * Junior Full Stack Web Developer graduated from the University of M'sila with a license degree in Computer Science. Passionate about creating tools, UI/UX designs and web development.
 	 */
 	ABOUTTXT: () => LocalizedString
 	/**
@@ -228,18 +247,31 @@ export type TranslationFunctions = {
 	 */
 	LOADING: () => LocalizedString
 	/**
+	 * My Blogs
+	 */
+	MYBLOG: () => LocalizedString
+	/**
+	 * Here's my blog. I write about my projects and my experiences.
+	 */
+	BLOGTXT: () => LocalizedString
+	/**
 	 * Back
 	 */
 	BACK: () => LocalizedString
 	/**
-	 * There's no blog post yet. Please check back later or change the language.
+	 * There's no blog post yet.
+ Please check back later or change the language.
 	 */
 	BLOG_NOTFOUND: () => LocalizedString
 	TOOLKIT: {
 		/**
+		 * What I use
+		 */
+		USES: () => LocalizedString
+		/**
 		 * My toolkit that I use to help me build my projects in both software and hardware.
 		 */
-		INTRO: () => LocalizedString
+		USESTXT: () => LocalizedString
 		/**
 		 * Hardware
 		 */
@@ -303,20 +335,18 @@ export type TranslationFunctions = {
 			}
 		}
 	}
-	CONTACTS: {
-		/**
-		 * You have a project or idea that you'd like to discuss? I'd love to hear from you.
-		 */
-		TEXT1: () => LocalizedString
-		/**
-		 * Feel free to contact me on any of the social media platforms above or via email.
-		 */
-		TEXT2: () => LocalizedString
-		/**
-		 * Email
-		 */
-		EMAIL: () => LocalizedString
-	}
+	/**
+	 * Email
+	 */
+	EMAIL: () => LocalizedString
+	/**
+	 * Contact Me
+	 */
+	CONTACTME: () => LocalizedString
+	/**
+	 * You have an idea or a project. Let's talk about it, feel free to contact me with my email or social media account.
+	 */
+	CONTACTTXT: () => LocalizedString
 }
 
 export type Formatters = {}
