@@ -1,14 +1,17 @@
 <script lang="ts">
 	import '../app.pcss';
 	import { afterNavigate, beforeNavigate, invalidateAll } from '$app/navigation';
-	import { gsap } from 'gsap';
-	import { Flip } from 'gsap/Flip';
+	// @ts-ignore
+	import { gsap } from 'gsap/dist/gsap';
+	// @ts-ignore
+	import { Flip } from 'gsap/dist/Flip';
 	import { ModeWatcher } from 'mode-watcher';
 	import { page } from '$app/stores';
 	import { loadAllLocales } from '@i18n/i18n-util.sync';
 	import { setLocale, locale } from '@i18n/i18n-svelte';
 	import { i18n } from 'typesafe-i18n';
-	import { getSerwist } from "virtual:serwist";
+	import { getSerwist } from 'virtual:serwist';
+	import { browser } from '$app/environment';
 
 	loadAllLocales();
 	//@ts-ignore
@@ -36,7 +39,7 @@
 		} catch {}
 	});
 
-	$: {
+	$: if (browser) {
 		const loadSerwist = async () => {
 			if ('serviceWorker' in navigator) {
 				const serwist = await getSerwist();
