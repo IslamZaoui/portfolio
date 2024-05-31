@@ -9,6 +9,7 @@
 	import Youtube from 'lucide-svelte/icons/youtube';
 	import LightSwitch from '@/components/custom/light-switch.svelte';
 	import LangSwitch from '@/components/custom/lang-switch.svelte';
+	import EvervaultCard from '@/components/ui/evervaultCard/evervault-card.svelte';
 	import { fly } from 'svelte/transition';
 	import config from '@config';
 	import { page } from '$app/stores';
@@ -68,13 +69,15 @@
 </script>
 
 <div class="my-8 flex flex-col items-start justify-between gap-2">
-	<div class="flex items-center gap-3">
-		<enhanced:img class="size-[60px] rounded-full" src={pfp} alt="profile" />
-		<div>
-			<h1 class="text-lg font-bold">Islam Zaoui</h1>
-			<p class="text-muted-foreground">{$LL.SUBTITLE()}</p>
+	<EvervaultCard>
+		<div class="flex items-center gap-3">
+			<enhanced:img class="size-[60px] rounded-full" src={pfp} alt="profile" />
+			<div>
+				<h1 class="text-lg font-bold">Islam Zaoui</h1>
+				<p class="text-muted-foreground">{$LL.SUBTITLE()}</p>
+			</div>
 		</div>
-	</div>
+	</EvervaultCard>
 	<nav class="my-5 flex w-full items-center justify-between">
 		<div class="flex w-full gap-3">
 			{#each soicals as { url, icon, title }}
