@@ -3,7 +3,7 @@ import { getPosts } from '@/index';
 export const load = async ({ params }) => {
 	return {
 		slug: params.slug,
-        lang: params.lang
+		lang: params.lang
 	};
 };
 
