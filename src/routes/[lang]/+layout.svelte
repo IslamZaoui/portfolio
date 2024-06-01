@@ -7,7 +7,7 @@
 	export let data;
 </script>
 
-<div class="flex min-h-screen flex-col px-4" dir={data.lang === 'en' ? 'ltr' : 'rtl'}>
+<div class="flex min-h-screen flex-col px-4 select-none" dir={data.lang === 'en' ? 'ltr' : 'rtl'}>
 	<div class="mx-auto flex w-full flex-grow items-start justify-center">
 		<div class="w-full max-w-3xl space-y-4">
 			<Header />

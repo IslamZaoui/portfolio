@@ -75,7 +75,7 @@
 		font-display: swap;
 	}
 	* {
-		@apply border-border text-notokufi;
+		@apply text-notokufi border-border;
 	}
 	body {
 		@apply bg-background text-foreground;
@@ -98,6 +98,12 @@
 
 	::-webkit-scrollbar-thumb:hover {
 		@apply bg-primary/75;
+	}
+}
+
+@layer components {
+	.anchor {
+		@apply transition-colors duration-300 ease-in-out hover:text-primary/50;
 	}
 }
 

@@ -41,22 +41,22 @@
 	<div
 		on:mousemove={onMouseMove}
 		role="presentation"
-		class="group/card relative flex w-full items-center overflow-hidden rounded-l-full bg-transparent"
+		class="group/card relative flex w-full items-center overflow-hidden rounded-full bg-transparent"
 	>
 		<div class="pointer-events-none">
 			<div
-				class="absolute inset-0 rounded-l-full [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-50"
+				class="absolute inset-0 rounded-full [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-50"
 			></div>
 			<Motion let:motion {style}>
 				<div
 					use:motion
-					class="absolute inset-0 rounded-l-full bg-gradient-to-r from-green-500 to-blue-700 opacity-0 backdrop-blur-xl transition duration-500 group-hover/card:opacity-100"
+					class="absolute inset-0 rounded-full bg-gradient-to-r from-green-500 to-blue-700 opacity-0 backdrop-blur-xl transition duration-500 group-hover/card:opacity-100"
 				/>
 			</Motion>
 			<Motion let:motion {style}>
 				<div
 					use:motion
-					class="absolute inset-0 rounded-l-full opacity-0 mix-blend-overlay group-hover/card:opacity-100"
+					class="absolute inset-0 rounded-full opacity-0 mix-blend-overlay group-hover/card:opacity-100"
 				>
 					<p
 						class="absolute inset-x-0 h-full whitespace-pre-wrap break-words font-mono text-xs font-bold text-white transition duration-500"

@@ -67,7 +67,7 @@
 				"description": "${config.site_description[$page.data.lang]}",
 				"image": "${config.site_url}/OG/Islam Zaoui Portfolio",
 				"logo": "${config.site_url}/favicon.svg",
-				"email": "${config.email}",
+				"email": "${config.email}"
 			}
 		</script>
 		`}

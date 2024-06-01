@@ -17,7 +17,7 @@
 		<Mail size="36" />
 		<div class="flex flex-col gap-2">
 			<h2 class="text-lg font-semibold">{$LL.EMAIL()}</h2>
-			<a href="mailto:{config.email}" class="hover:underline">{config.email}</a>
+			<a href="mailto:{config.email}" class="hover:underline anchor">{config.email}</a>
 		</div>
 	</div>
 </section>

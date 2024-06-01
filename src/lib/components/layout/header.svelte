@@ -81,7 +81,7 @@
 	<nav class="my-5 flex w-full items-center justify-between">
 		<div class="flex w-full gap-3">
 			{#each soicals as { url, icon, title }}
-				<a href={url} target="_blank" rel="noreferrer" {title}>
+				<a href={url} target="_blank" rel="noreferrer" {title} class="anchor">
 					<svelte:component this={icon} />
 				</a>
 			{/each}

@@ -11,7 +11,9 @@
 	<a
 		href={data.href}
 		title={data.title}
-		class="relative z-10 px-2 py-1 text-sm transition-colors duration-300 ease-in-out"
+		class="relative z-10 px-2 py-1 text-sm transition-colors duration-300 ease-in-out {data.selected
+			? ''
+			: 'hover:text-primary/50'}"
 		class:text-primary-foreground={data.selected}
 	>
 		{data.name}
