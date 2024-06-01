@@ -1,12 +1,15 @@
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
+import type { AvailableLanguageTag } from '../../lib/paraglide/runtime';
+import type { ParaglideLocals } from '@inlang/paraglide-sveltekit';
+
 declare global {
 	namespace App {
 		// interface Error {}
-		// interface Locals {}
+		interface Locals {
+			paraglide: ParaglideLocals<AvailableLanguageTag>;
+		}
 		interface PageData {
 			url: string;
-			lang: 'en' | 'ar';
+			lang: AvailableLanguageTag;
 		}
 		// interface PageState {}
 		// interface Platform {}
@@ -20,7 +23,7 @@ declare global {
 		slug: string;
 	};
 
-	declare module 'lite-youtube-embed'
+	declare module 'lite-youtube-embed';
 }
 
 export {};

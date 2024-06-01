@@ -21,13 +21,14 @@ const config = {
 			"@assets/*": "./user/assets/*",
 			"@posts/*": "./user/posts/*",
 			"@config": "./user/config.ts",
-			"@i18n/*": "./src/i18n/*",
+			"@i18n": "./src/lib/paraglide/messages.js"
 		},
 		serviceWorker: {
 			register: false,
 		},
-		prerender:{
-			handleHttpError: "warn"
+		prerender: {
+			handleHttpError: "warn",
+			origin: 'https://islamzaoui.top'
 		}
 	}
 };

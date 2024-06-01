@@ -1,3 +1,4 @@
+import { paraglide } from '@inlang/paraglide-sveltekit/vite'
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
 import { enhancedImages } from '@sveltejs/enhanced-img';
@@ -162,7 +163,7 @@ const serwist = (): Plugin[] => {
 };
 
 export default defineConfig({
-	plugins: [enhancedImages(), sveltekit(), serwist()],
+	plugins: [paraglide({ project: './project.inlang', outdir: './src/lib/paraglide' }),enhancedImages(), sveltekit(), serwist()],
 	server: {
 		fs: {
 			allow: [searchForWorkspaceRoot(process.cwd()), './user/*']

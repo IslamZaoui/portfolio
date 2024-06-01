@@ -44,16 +44,11 @@ export function timeAgo(dateString: string, lang = 'en'): string {
 	return formatDistanceToNow(date, { locale, addSuffix: true });
 }
 
-export const replaceLocaleInUrl = (url: URL, locale: string, full = false): string => {
-	const [, , ...rest] = getPathnameWithoutBase(url).split('/');
-	const new_pathname = `/${[locale, ...rest].join('/')}`;
-	if (!full) {
-		return new_pathname;
-	}
-	const newUrl = new URL(url.toString());
-	newUrl.pathname = base + new_pathname;
-	return newUrl.toString();
+export const getPostsSlug = () => {
+	const ar_posts = getPosts('ar');
+	const en_posts = getPosts('en');
+	const all = [...ar_posts, ...en_posts];
+	return all.map((post) => {
+		return post.slug;
+	});
 };
-
-const REGEX_START_WITH_BASE = new RegExp(`^${base}`);
-export const getPathnameWithoutBase = (url: URL) => url.pathname.replace(REGEX_START_WITH_BASE, '');

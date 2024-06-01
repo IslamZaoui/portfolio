@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
+	import { i18n } from '$lib/i18n';
+	import { page } from '$app/stores';
 	import '../app.pcss';
 	import { afterNavigate, beforeNavigate, invalidateAll } from '$app/navigation';
 	// @ts-ignore
@@ -7,17 +10,12 @@
 	import { Flip } from 'gsap/dist/Flip';
 	import { ModeWatcher } from 'mode-watcher';
 	import config from '@config';
-	import { page } from '$app/stores';
-	import { loadAllLocales } from '@i18n/i18n-util.sync';
-	import { setLocale, locale } from '@i18n/i18n-svelte';
-	import { i18n } from 'typesafe-i18n';
 	import { getSerwist } from 'virtual:serwist';
+	import Header from '@/components/layout/header.svelte';
+	import Footer from '@/components/layout/footer.svelte';
+	import GoToTop from '@/components/custom/go-to-top.svelte';
+	import { fly } from 'svelte/transition';
 	import { browser } from '$app/environment';
-
-	loadAllLocales();
-	//@ts-ignore
-	i18n($locale, 'en');
-	setLocale($page.data.lang);
 
 	gsap.registerPlugin(Flip);
 	let state: Flip.FlipState;
@@ -54,6 +52,9 @@
 		};
 		loadSerwist();
 	}
+
+	export let data;
+	$: lang = $page.data.lang as 'ar' | 'en';
 </script>
 
 <svelte:head>
@@ -64,7 +65,7 @@
 				"@type": "Organization",
 				"url": "${config.site_url}",
 				"name": "Islam Zaoui",
-				"description": "${config.site_description[$page.data.lang]}",
+				"description": "${config.site_description[lang]}",
 				"image": "${config.site_url}/OG/Islam Zaoui Portfolio",
 				"logo": "${config.site_url}/favicon.svg",
 				"email": "${config.email}"
@@ -74,4 +75,24 @@
 </svelte:head>
 
 <ModeWatcher />
-<slot />
+
+<ParaglideJS {i18n}>
+	<div class="flex min-h-screen select-none flex-col px-4">
+		<div class="mx-auto flex w-full flex-grow items-start justify-center">
+			<div class="w-full max-w-3xl space-y-4">
+				<Header />
+				{#key data.url}
+					<main
+						in:fly={{ duration: 200, y: 20 }}
+						class="flex flex-grow flex-col items-center justify-start gap-8 antialiased"
+					>
+						<slot />
+					</main>
+				{/key}
+			</div>
+		</div>
+		<Footer />
+	</div>
+
+	<GoToTop />
+</ParaglideJS>

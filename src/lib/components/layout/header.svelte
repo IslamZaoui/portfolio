@@ -11,9 +11,10 @@
 	import LangSwitch from '@/components/custom/lang-switch.svelte';
 	import EvervaultCard from '@/components/ui/evervaultCard/evervault-card.svelte';
 	import { fly } from 'svelte/transition';
+	import { i18n } from '@/i18n';
 	import config from '@config';
 	import { page } from '$app/stores';
-	import { LL } from '@i18n/i18n-svelte';
+	import * as m from '@i18n';
 
 	const soicals = [
 		{
@@ -40,32 +41,34 @@
 
 	$: nav = [
 		{
-			name: $LL.ABOUT(),
-			href: `/${$page.data.lang}`,
-			selected: $page.data.url === `/${$page.data.lang}`,
+			name: m.ABOUT(),
+			href: `/`,
+			selected:
+				$page.data.url + ($page.data.lang == 'ar' ? '/' : '') ==
+				i18n.resolveRoute('/', $page.data.lang),
 			title: 'About me'
 		},
 		{
-			name: $LL.BLOG(),
-			href: `/${$page.data.lang}/blog`,
-			selected: $page.data.url.startsWith(`/${$page.data.lang}/blog`),
+			name: m.BLOG(),
+			href: `/blog`,
+			selected: $page.data.url.startsWith(i18n.resolveRoute('/blog', $page.data.lang)),
 			title: 'My blog posts'
 		},
 		{
-			name: $LL.USES(),
-			href: `/${$page.data.lang}/uses`,
-			selected: $page.data.url.startsWith(`/${$page.data.lang}/uses`),
+			name: m.USES(),
+			href: `/uses`,
+			selected: $page.data.url.startsWith(i18n.resolveRoute('/uses', $page.data.lang)),
 			title: 'What I uses'
 		},
 		{
-			name: $LL.CONTACT(),
-			href: `/${$page.data.lang}/contact`,
-			selected: $page.data.url.startsWith(`/${$page.data.lang}/contact`),
+			name: m.CONTACT(),
+			href: `/contact`,
+			selected: $page.data.url.startsWith(i18n.resolveRoute('/contact', $page.data.lang)),
 			title: 'Contact me'
 		}
 	];
 
-	$: isBlogPost = /^\/[a-z]{2}\/blog\/.+/.test($page.data.url);
+	$: isBlogPost = /^\/(ar\/)?blog\/[\w-]+$/.test($page.data.url);
 </script>
 
 <div class="my-8 flex flex-col items-start justify-between gap-2">
@@ -74,7 +77,7 @@
 			<enhanced:img class="size-[60px] rounded-full" src={pfp} alt="profile" />
 			<div>
 				<h1 class="text-lg font-bold">Islam Zaoui</h1>
-				<p class="text-muted-foreground">{$LL.SUBTITLE()}</p>
+				<p class="text-muted-foreground">{m.SUBTITLE()}</p>
 			</div>
 		</div>
 	</EvervaultCard>

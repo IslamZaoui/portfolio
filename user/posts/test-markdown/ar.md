@@ -58,6 +58,6 @@ def hello_world():
 
 {% video src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" title="test" /%}
 
-{% youtube id="vi1VTiqtZTU" /%}
+{% youtube id="RhScu3uqGd0" /%}
 
 ![test3](./testimage.jpg)
