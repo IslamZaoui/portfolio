@@ -21,27 +21,7 @@ type SitemapParams = {
 function sitemap(params: SitemapParams): string {
 	const { origin, staticvalues, dynamicvalues, changefreq, priority, lang } = params;
 
-	const createUrlElement = (loc: string, alternates: string[]): string => {
-		const lastmod = new Date().toISOString();
-		const alternateLinks = alternates
-			.map((alt) => {
-				const altLoc = loc.replace(`/${lang.default}`, `/${alt}`);
-				return `<xhtml:link rel="alternate" hreflang="${alt}" href="${altLoc}" />`;
-			})
-			.join('\n');
-
-		return `
-		<url>
-		  <loc>${loc}</loc>
-		  ${alternateLinks}
-		  <changefreq>${changefreq}</changefreq>
-		  <priority>${priority.toFixed(1)}</priority>
-		  <lastmod>${lastmod}</lastmod>
-		</url>
-	  `;
-	};
-
-	const createUrlElementWithoutAlternates = (loc: string): string => {
+	const createUrlElement = (loc: string): string => {
 		const lastmod = new Date().toISOString();
 		return `
 		<url>
@@ -55,11 +35,15 @@ function sitemap(params: SitemapParams): string {
 
 	let urlset = '<?xml version="1.0" encoding="UTF-8"?>\n';
 	urlset +=
-		'<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="https://www.w3.org/1999/xhtml" xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0" xmlns:news="https://www.google.com/schemas/sitemap-news/0.9" xmlns:image="https://www.google.com/schemas/sitemap-image/1.1" xmlns:video="https://www.google.com/schemas/sitemap-video/1.1">\n';
+		'<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0" xmlns:news="https://www.google.com/schemas/sitemap-news/0.9" xmlns:image="https://www.google.com/schemas/sitemap-image/1.1" xmlns:video="https://www.google.com/schemas/sitemap-video/1.1">\n';
 
 	staticvalues.forEach((path) => {
 		const defaultLoc = `${origin}/${lang.default}${path}`;
-		urlset += createUrlElement(defaultLoc, lang.alternates);
+		urlset += createUrlElement(defaultLoc);
+		lang.alternates.forEach((alternateLang) => {
+			const alternateLoc = `${origin}/${alternateLang}${path}`;
+			urlset += createUrlElement(alternateLoc);
+		});
 	});
 
 	for (const path in dynamicvalues) {
@@ -67,7 +51,7 @@ function sitemap(params: SitemapParams): string {
 			slug.forEach((slugValue) => {
 				const dynamicPath = path.replace('[slug]', slugValue);
 				const loc = `${origin}/${itemLang}${dynamicPath}`;
-				urlset += createUrlElementWithoutAlternates(loc);
+				urlset += createUrlElement(loc);
 			});
 		});
 	}
