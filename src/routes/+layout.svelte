@@ -16,10 +16,19 @@
 	import GoToTop from '@/components/custom/go-to-top.svelte';
 	import { fly } from 'svelte/transition';
 	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
+	import { Toaster, toast } from 'svelte-sonner';
+	import { getFlash } from 'sveltekit-flash-message';
 
 	gsap.registerPlugin(Flip);
 	let state: Flip.FlipState;
 	let targets = ['.header-button'].join(', ');
+
+	let loading = true;
+
+	onMount(() => {
+		loading = false;
+	});
 
 	beforeNavigate(async () => {
 		state = Flip.getState(targets);
@@ -55,6 +64,28 @@
 
 	export let data;
 	$: lang = $page.data.lang as 'ar' | 'en';
+
+	const flash = getFlash(page);
+	$: if ($flash) {
+		switch ($flash.type) {
+			case 'success':
+				toast.success($flash.message, { description: $flash.description });
+				break;
+			case 'error':
+				toast.error($flash.message, { description: $flash.description });
+				break;
+			case 'warning':
+				toast.warning($flash.message, { description: $flash.description });
+				break;
+			case 'info':
+				toast.info($flash.message, { description: $flash.description });
+				break;
+			default:
+				toast($flash.message, { description: $flash.description });
+				break;
+		}
+		$flash = undefined;
+	}
 </script>
 
 <svelte:head>
@@ -74,6 +105,7 @@
 		`}
 </svelte:head>
 
+<Toaster richColors />
 <ModeWatcher />
 
 <ParaglideJS {i18n}>
@@ -95,4 +127,30 @@
 	</div>
 
 	<GoToTop />
+
+	{#if loading}
+		<div
+			class="fixed inset-0 z-50 flex select-none items-center justify-center bg-gray-500 bg-opacity-50 text-[100px] font-bold"
+		>
+			{#each ['<', '/', '>'] as item, index}
+				<span class="loading-span" style="animation-delay: {index * 0.3}s"> {item} </span>
+			{/each}
+		</div>
+	{/if}
 </ParaglideJS>
+
+<style>
+	.loading-span {
+		animation: scaleAnimation 0.5s ease infinite;
+	}
+
+	@keyframes scaleAnimation {
+		0%,
+		100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.2);
+		}
+	}
+</style>

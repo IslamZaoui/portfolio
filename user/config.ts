@@ -17,6 +17,11 @@ const social_links = {
 
 const email = 'contact@islamzaoui.top' as const;
 
+const location = {
+	en: 'Algeria - Blida',
+	ar: 'الجزائر - البليدة'
+};
+
 const experiences = [
 	{
 		en: {
@@ -66,6 +71,7 @@ export default {
 	site_description,
 	social_links,
 	email,
+	location,
 	experiences,
 	projects
 };

@@ -36,5 +36,15 @@
 	"TK_SW_3_DESC": "online diagraming tool",
 	"EMAIL": "Email",
 	"CONTACTME": "Contact Me",
-	"CONTACTTXT": "You have an idea or a project. Let's talk about it, feel free to contact me with my email or social media account."
+	"CONTACTTXT": "You have an idea or a project. Let's talk about it, feel free to contact me with my email or social media account.",
+	"LOCATION": "Location",
+	"MESSAGE_SENT": "Message Sent",
+	"MESSAGE_ERROR": "Message Error",
+	"SUBJECT_CONTACT": "Contact",
+	"SUBJECT_REQUEST": "Request",
+	"SUBJECT_OTHER": "Other",
+	"NAME": "Name",
+	"SUBJECT": "Subject",
+	"MESSAGE": "Message",
+	"SEND": "Send"
 }
