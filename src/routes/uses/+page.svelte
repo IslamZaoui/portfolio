@@ -6,7 +6,7 @@
 <Head title={m.USES()} />
 
 <div class="mb-8 w-full space-y-4">
-	<h1 class="text-3xl font-medium">{m.TK_USES()}</h1>
+	<h2 class="text-3xl font-medium">{m.TK_USES()}</h2>
 	<p>{m.TK_USESTXT()}</p>
 </div>
 

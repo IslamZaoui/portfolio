@@ -74,7 +74,7 @@ export const GET: RequestHandler = async () => {
 	return new Response(
 		sitemap({
 			origin: config.site_url,
-			staticvalues: ['/', '/blog', '/uses', '/contact'],
+			staticvalues: ['', '/blog', '/uses', '/contact'],
 			dynamicvalues: {
 				'/blog/[slug]': [
 					{

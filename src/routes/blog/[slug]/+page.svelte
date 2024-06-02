@@ -17,7 +17,7 @@
 		<svelte:component this={data.lang === 'en' ? BackEN : BackAR} size={16} />
 		{m.BACK()}
 	</a>
-	<h1 class="text-3xl font-medium">{data.meta.title}</h1>
+	<h2 class="text-3xl font-medium">{data.meta.title}</h2>
 	<p class="flex items-center justify-between text-sm text-muted-foreground">
 		<span>{data.meta.description}</span>
 		<span class="flex items-center gap-2"

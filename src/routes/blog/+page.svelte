@@ -7,7 +7,7 @@
 <Head title={m.BLOG()} />
 
 <div class="mb-8 w-full space-y-4">
-	<h1 class="text-3xl font-medium">{m.MYBLOG()}</h1>
+	<h2 class="text-3xl font-medium">{m.MYBLOG()}</h2>
 	<p>{m.BLOGTXT()}</p>
 </div>
 

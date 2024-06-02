@@ -12,7 +12,7 @@
 <Head title={m.ABOUT()} />
 
 <div class="mb-8 w-full space-y-4">
-	<h1 class="text-3xl font-medium">{m.ABOUTME()}</h1>
+	<h2 class="text-3xl font-medium">{m.ABOUTME()}</h2>
 	<p>{m.ABOUTTXT()}</p>
 </div>
 

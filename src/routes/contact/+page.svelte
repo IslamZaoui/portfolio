@@ -13,7 +13,7 @@
 <Head title={m.CONTACT()} />
 
 <div class="mb-8 w-full space-y-4">
-	<h1 class="text-3xl font-medium">{m.CONTACTME()}</h1>
+	<h2 class="text-3xl font-medium">{m.CONTACTME()}</h2>
 	<p>{m.CONTACTTXT()}</p>
 </div>
 
