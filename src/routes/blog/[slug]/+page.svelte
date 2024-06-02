@@ -26,6 +26,6 @@
 	</p>
 </header>
 
-<article class="prose max-w-full dark:prose-invert select-text">
+<article class="prose max-w-full dark:prose-invert select-text" dir="auto">
 	<svelte:component this={data.content} />
 </article>
