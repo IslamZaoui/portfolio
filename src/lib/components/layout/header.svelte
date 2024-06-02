@@ -46,25 +46,25 @@
 			selected:
 				$page.data.url + ($page.data.lang == 'ar' ? '/' : '') ==
 				i18n.resolveRoute('/', $page.data.lang),
-			title: 'About me'
+			title: m.ABOUTME()
 		},
 		{
 			name: m.BLOG(),
 			href: `/blog`,
 			selected: $page.data.url.startsWith(i18n.resolveRoute('/blog', $page.data.lang)),
-			title: 'My blog posts'
+			title: m.MYBLOG()
 		},
 		{
 			name: m.USES(),
 			href: `/uses`,
 			selected: $page.data.url.startsWith(i18n.resolveRoute('/uses', $page.data.lang)),
-			title: 'What I uses'
+			title: m.TK_USES()
 		},
 		{
 			name: m.CONTACT(),
 			href: `/contact`,
 			selected: $page.data.url.startsWith(i18n.resolveRoute('/contact', $page.data.lang)),
-			title: 'Contact me'
+			title: m.CONTACTME()
 		}
 	];
 
@@ -84,7 +84,7 @@
 	<nav class="my-5 flex w-full items-center justify-between">
 		<div class="flex w-full gap-3">
 			{#each soicals as { url, icon, title }}
-				<a href={url} target="_blank" rel="noreferrer" {title} class="anchor">
+				<a href={url} target="_blank" rel="noreferrer" {title} class="social-anchor">
 					<svelte:component this={icon} />
 				</a>
 			{/each}

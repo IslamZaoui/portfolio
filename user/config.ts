@@ -8,6 +8,8 @@ const site_description = {
 	ar: 'ملف الشخصي والمدونة'
 } as const;
 
+const repo = 'https://github.com/IslamZaoui/portfolio' as const;
+
 const social_links = {
 	Twitter: 'IslamZaoui_',
 	GitHub: 'IslamZaoui',
@@ -69,6 +71,7 @@ const projects = [
 export default {
 	site_url,
 	site_description,
+	repo,
 	social_links,
 	email,
 	location,

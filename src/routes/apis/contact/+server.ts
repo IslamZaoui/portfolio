@@ -16,7 +16,11 @@ const contactSchema = z.object({
 		.max(255, { message: 'Message must be less than 255 characters' })
 		.min(10, { message: 'Message must be at least 10 characters' })
 		.trim(),
-	subject: z.enum(['contact', 'request', 'other'], { required_error: 'subject is required' })
+	subject: z
+		.string({ required_error: 'Subject is required' })
+		.min(3, { message: 'Subject must be at least 3 characters' })
+		.max(20, { message: 'Subject must be less than 40 characters' })
+		.trim()
 });
 
 type ContactForm = z.infer<typeof contactSchema>;
@@ -30,10 +34,10 @@ export const POST: RequestHandler = async ({ request, fetch }) => {
 
 	const from = {
 		...result.data,
-		subject: `Subject ${result.data.subject} from ${result.data.name}`,
 		accessKey: env.STATIC_FORM_KEY,
 		replyTo: '@'
 	};
+
 	try {
 		const response = await fetch('https://api.staticforms.xyz/submit', {
 			method: 'POST',

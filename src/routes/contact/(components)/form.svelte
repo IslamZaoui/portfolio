@@ -14,10 +14,14 @@
 			.max(255, { message: 'Message must be less than 255 characters' })
 			.min(10, { message: 'Message must be at least 10 characters' })
 			.trim(),
-		subject: z.enum(['contact', 'request', 'other'], { required_error: 'subject is required' })
+		subject: z
+			.string({ required_error: 'Subject is required' })
+			.min(3, { message: 'Subject must be at least 3 characters' })
+			.max(20, { message: 'Subject must be less than 40 characters' })
+			.trim()
 	});
 
-	type ContactSchema = z.infer<typeof contactSchema>;
+	type ContactForm = z.infer<typeof contactSchema>;
 </script>
 
 <script lang="ts">
@@ -25,7 +29,6 @@
 	import { Textarea } from '$lib/components/ui/textarea';
 	import * as Form from '@/components/ui/form';
 	import { Input } from '@/components/ui/input';
-	import * as Select from '@/components/ui/select';
 	import { zod } from 'sveltekit-superforms/adapters';
 	import { getFlash } from 'sveltekit-flash-message';
 	import SendIcon from 'lucide-svelte/icons/send-horizontal';
@@ -33,13 +36,12 @@
 	import { page } from '$app/stores';
 	import * as m from '@i18n';
 	import Button from '@/components/ui/button/button.svelte';
-	import type { Selected } from 'bits-ui';
 
 	const flash = getFlash(page);
 
 	const data = defaults(zod(contactSchema));
 
-	const form = superForm<ContactSchema, { status: number; text: string }>(data, {
+	const form = superForm<ContactForm, { status: number; text: string }>(data, {
 		SPA: true,
 		resetForm: true,
 		clearOnSubmit: 'errors-and-message',
@@ -72,37 +74,11 @@
 	});
 
 	const { form: formData, enhance, delayed } = form;
-
-	const selectData = {
-		contact: {
-			label: m.SUBJECT_CONTACT(),
-			value: 'contact'
-		},
-		request: {
-			label: m.SUBJECT_REQUEST(),
-			value: 'request'
-		},
-		other: {
-			label: m.SUBJECT_OTHER(),
-			value: 'other'
-		}
-	};
-
-	$: selectSubject = $formData.subject
-		? {
-				label: selectData[$formData.subject].label,
-				value: selectData[$formData.subject].value
-			}
-		: undefined;
-
-	function onSelectedChange(v: Selected<string> | undefined) {
-		v && ($formData.subject = v.value as 'contact' | 'request' | 'other');
-	}
 </script>
 
 <form use:enhance method="post" class="flex w-full flex-col gap-4 px-4 md:px-0">
 	<div class="flex w-full flex-col gap-4 md:flex-row">
-		<Form.Field {form} name="name" class="w-full rounded-xl bg-muted p-3">
+		<Form.Field {form} name="name" class="group w-full rounded-xl bg-muted p-3">
 			<Form.Control let:attrs>
 				<Form.Label class="pl-3">{m.NAME()}</Form.Label>
 				<Input
@@ -128,19 +104,11 @@
 	<Form.Field {form} name="subject" class="rounded-xl bg-muted p-3">
 		<Form.Control let:attrs>
 			<Form.Label class="pl-3">{m.SUBJECT()}</Form.Label>
-			<Select.Root bind:selected={selectSubject} {onSelectedChange}>
-				<Select.Trigger
-					class="border-none bg-muted focus:ring-0 focus:ring-card focus:ring-offset-0"
-				>
-					<Select.Value placeholder="select a subject" />
-				</Select.Trigger>
-				<Select.Content>
-					<Select.Item value="contact">{m.SUBJECT_CONTACT()}</Select.Item>
-					<Select.Item value="request">{m.SUBJECT_REQUEST()}</Select.Item>
-					<Select.Item value="other">{m.SUBJECT_OTHER()}</Select.Item>
-				</Select.Content>
-			</Select.Root>
-			<input hidden bind:value={$formData.subject} name={attrs.name} />
+			<Input
+				class="border-none bg-muted focus-visible:ring-0 focus-visible:ring-card focus-visible:ring-offset-0"
+				{...attrs}
+				bind:value={$formData.subject}
+			/>
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
