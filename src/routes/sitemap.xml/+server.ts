@@ -38,8 +38,10 @@ function sitemap(params: SitemapParams): string {
 		'<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0" xmlns:news="https://www.google.com/schemas/sitemap-news/0.9" xmlns:image="https://www.google.com/schemas/sitemap-image/1.1" xmlns:video="https://www.google.com/schemas/sitemap-video/1.1">\n';
 
 	staticvalues.forEach((path) => {
-		const defaultLoc = `${origin}/${lang.default}${path}`;
+		// Default language without prefix
+		const defaultLoc = `${origin}${path}`;
 		urlset += createUrlElement(defaultLoc);
+		// Alternate languages with prefix
 		lang.alternates.forEach((alternateLang) => {
 			const alternateLoc = `${origin}/${alternateLang}${path}`;
 			urlset += createUrlElement(alternateLoc);
@@ -50,7 +52,11 @@ function sitemap(params: SitemapParams): string {
 		dynamicvalues[path].forEach(({ slug, lang: itemLang }) => {
 			slug.forEach((slugValue) => {
 				const dynamicPath = path.replace('[slug]', slugValue);
-				const loc = `${origin}/${itemLang}${dynamicPath}`;
+				// Default language without prefix
+				const loc =
+					itemLang === lang.default
+						? `${origin}${dynamicPath}`
+						: `${origin}/${itemLang}${dynamicPath}`;
 				urlset += createUrlElement(loc);
 			});
 		});
