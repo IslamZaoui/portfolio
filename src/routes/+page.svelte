@@ -17,7 +17,7 @@
 </div>
 
 <section class="w-full space-y-4">
-	<h2 class="text-xl font-semibold">{m.EXPERIENCES()}</h2>
+	<h3 class="text-xl font-semibold">{m.EXPERIENCES()}</h3>
 	<ol class="relative border-s border-muted">
 		{#each config.experiences as xp, i}
 			<li class="mb-10 ms-4">
@@ -44,7 +44,7 @@
 </section>
 
 <section class="mb-8 w-full space-y-4">
-	<h2 class="mb-7 text-xl font-semibold">{m.PROJECTS()}</h2>
+	<h3 class="mb-7 text-xl font-semibold">{m.PROJECTS()}</h3>
 	<div class="grid grid-cols-2 gap-11 md:grid-cols-3">
 		{#each config.projects as data}
 			<ProjectCard {data} />
@@ -53,7 +53,7 @@
 </section>
 
 <section class="w-full space-y-6">
-	<h2 class="text-xl font-semibold">{m.LATEST()}</h2>
+	<h3 class="text-xl font-semibold">{m.LATEST()}</h3>
 	<div class="flex flex-col gap-4">
 		{#await data.posts}
 			<div>

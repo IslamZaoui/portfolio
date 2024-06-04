@@ -11,6 +11,8 @@
 		url: string;
 		icon: any;
 	};
+
+	$: lang = $page.data.lang as 'ar' | 'en';
 </script>
 
 <a
@@ -25,6 +27,6 @@
 	>
 		<svelte:component this={data.icon} size="24" />
 	</div>
-	<h3>{data.content[$page.data.lang].name}</h3>
-	<p class="text-sm text-muted-foreground">{data.content[$page.data.lang].description}</p>
+	<h3>{data.content[lang].name}</h3>
+	<p class="text-sm text-muted-foreground">{data.content[lang].description}</p>
 </a>

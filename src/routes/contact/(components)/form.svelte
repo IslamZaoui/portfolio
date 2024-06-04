@@ -76,7 +76,7 @@
 	const { form: formData, enhance, delayed } = form;
 </script>
 
-<form use:enhance method="post" class="flex w-full flex-col gap-4 px-4 md:px-0">
+<form use:enhance method="post" class="flex w-full flex-col gap-4">
 	<div class="flex w-full flex-col gap-4 md:flex-row">
 		<Form.Field {form} name="name" class="group w-full rounded-xl bg-muted p-3">
 			<Form.Control let:attrs>

@@ -18,13 +18,13 @@
 </div>
 
 <section class="w-full space-y-8">
-	<div class="flex w-full items-center justify-evenly gap-2">
+	<div class="flex w-full flex-col items-start justify-evenly gap-2 md:flex-row">
 		<div class="flex items-center gap-2">
 			<div class="rounded-xl bg-primary p-3 text-primary-foreground">
 				<Mail size="36" />
 			</div>
 			<div class="flex flex-col gap-2">
-				<h2 class="text-lg font-semibold">{m.EMAIL()}</h2>
+				<h3 class="text-lg font-semibold">{m.EMAIL()}</h3>
 				<a href="mailto:{config.email}" class="anchor hover:underline">{config.email}</a>
 			</div>
 		</div>
@@ -33,7 +33,7 @@
 				<Location size="36" />
 			</div>
 			<div class="flex flex-col gap-2">
-				<h2 class="text-lg font-semibold">{m.LOCATION()}</h2>
+				<h3 class="text-lg font-semibold">{m.LOCATION()}</h3>
 				<span>{config.location[lang]}</span>
 			</div>
 		</div>
