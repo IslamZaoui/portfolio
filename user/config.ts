@@ -27,12 +27,12 @@ const location = {
 const experiences = [
 	{
 		en: {
-			title: 'Full Stack Web Developer',
-			at: "University of M'sila"
+			title: 'Freelance Full Stack Web Developer',
+			at: ""
 		},
 		ar: {
-			title: 'مطور ويب متكامب',
-			at: 'جامعة مسيلة'
+			title: 'مطور ويب متكامل مستقل',
+			at: ''
 		}
 	}
 ] as const;

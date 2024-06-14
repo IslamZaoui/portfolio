@@ -13,6 +13,7 @@
 	import { getSerwist } from 'virtual:serwist';
 	import Header from '@/components/layout/header.svelte';
 	import Footer from '@/components/layout/footer.svelte';
+	import Loading from '@/components/layout/loading.svelte';
 	import GoToTop from '@/components/custom/go-to-top.svelte';
 	import { fly } from 'svelte/transition';
 	import { browser } from '$app/environment';
@@ -109,14 +110,14 @@
 <ModeWatcher />
 
 <ParaglideJS {i18n}>
-	<div class="flex min-h-screen select-none flex-col px-4">
+	<div id="main" class="flex min-h-screen select-none flex-col px-4 antialiased">
 		<div class="mx-auto flex w-full flex-grow items-start justify-center">
 			<div class="w-full max-w-3xl space-y-4">
 				<Header />
 				{#key data.url}
 					<main
 						in:fly={{ duration: 200, y: 20 }}
-						class="flex flex-grow flex-col items-center justify-start gap-8 antialiased"
+						class="flex flex-grow flex-col items-center justify-start gap-8"
 					>
 						<slot />
 					</main>
@@ -127,30 +128,5 @@
 	</div>
 
 	<GoToTop />
-
-	{#if loading}
-		<div
-			class="fixed inset-0 z-50 flex select-none items-center justify-center bg-gray-500 bg-opacity-50 text-[100px] font-bold"
-		>
-			{#each ['<', '/', '>'] as item, index}
-				<span class="loading-span" style="animation-delay: {index * 0.3}s"> {item} </span>
-			{/each}
-		</div>
-	{/if}
+	<Loading bind:loading />
 </ParaglideJS>
-
-<style>
-	.loading-span {
-		animation: scaleAnimation 0.5s ease infinite;
-	}
-
-	@keyframes scaleAnimation {
-		0%,
-		100% {
-			transform: scale(1);
-		}
-		50% {
-			transform: scale(1.2);
-		}
-	}
-</style>
