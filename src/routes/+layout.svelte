@@ -1,13 +1,9 @@
 <script lang="ts">
+	import '../app.pcss';
 	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
 	import { i18n } from '$lib/i18n';
 	import { page } from '$app/stores';
-	import '../app.pcss';
-	import { afterNavigate, beforeNavigate, invalidateAll } from '$app/navigation';
-	// @ts-ignore
-	import { gsap } from 'gsap/dist/gsap';
-	// @ts-ignore
-	import { Flip } from 'gsap/dist/Flip';
+	import { afterNavigate, invalidateAll, onNavigate } from '$app/navigation';
 	import { ModeWatcher } from 'mode-watcher';
 	import config from '@config';
 	import { getSerwist } from 'virtual:serwist';
@@ -21,31 +17,14 @@
 	import { Toaster, toast } from 'svelte-sonner';
 	import { getFlash } from 'sveltekit-flash-message';
 
-	gsap.registerPlugin(Flip);
-	let state: Flip.FlipState;
-	let targets = ['.header-button'].join(', ');
-
 	let loading = true;
 
 	onMount(() => {
 		loading = false;
 	});
 
-	beforeNavigate(async () => {
-		state = Flip.getState(targets);
-	});
-
-	afterNavigate(async () => {
-		invalidateAll();
-		try {
-			await Flip.from(state, {
-				targets,
-				duration: 0.3,
-				scale: true,
-				ease: 'power1.easeOut',
-				yoyo: true
-			});
-		} catch {}
+	onNavigate(async () => {
+		await invalidateAll();
 	});
 
 	$: if (browser) {

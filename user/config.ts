@@ -28,11 +28,11 @@ const experiences = [
 	{
 		en: {
 			title: 'Freelance Full Stack Web Developer',
-			at: ""
+			at: "from home"
 		},
 		ar: {
 			title: 'مطور ويب متكامل مستقل',
-			at: ''
+			at: 'من المنزل'
 		}
 	}
 ] as const;

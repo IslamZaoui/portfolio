@@ -1,6 +1,6 @@
 <script>
 	import { Button } from '@/components/ui/button';
-	import { getHighlighter } from 'shiki';
+	import { getSingletonHighlighter  } from 'shiki';
 	import copy from 'lucide-svelte/icons/copy';
 	import check from 'lucide-svelte/icons/check';
 	import Loading from 'lucide-svelte/icons/loader-circle';
@@ -17,7 +17,7 @@
 	 */
 	export let language;
 
-	const highlighter = getHighlighter({
+	const highlighter = getSingletonHighlighter({
 		themes: ['github-dark'],
 		langs: [language]
 	});

@@ -20,8 +20,7 @@
 	</a>
 	{#if data.selected}
 		<div
-			class="header-button absolute left-0 top-0 z-0 h-full w-full rounded-md bg-primary"
-			data-flip-id="header-button"
+			class="header-button absolute left-0 top-0 z-0  "
 		/>
 	{/if}
 </div>
