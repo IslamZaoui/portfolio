@@ -40,7 +40,7 @@
 	"CONTACTTXT": "You have an idea or a project. Let's talk about it, feel free to contact me with my email or social media account.",
 	"LOCATION": "Location",
 	"MESSAGE_SENT": "Message Sent",
-	"MESSAGE_ERROR": "Message Error",
+	"MESSAGE_ERROR": "Failed to send message",
 	"SUBJECT_CONTACT": "Contact",
 	"SUBJECT_REQUEST": "Request",
 	"SUBJECT_OTHER": "Other",

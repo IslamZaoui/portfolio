@@ -54,6 +54,8 @@
 					body: JSON.stringify(form.data)
 				});
 
+				console.dir(response, { depth: 100 });
+
 				if (response.ok)
 					$flash = {
 						type: 'success',
@@ -65,6 +67,7 @@
 						message: m.MESSAGE_ERROR()
 					};
 			} catch (e) {
+				console.error(e);
 				$flash = {
 					type: 'error',
 					message: m.MESSAGE_ERROR()
