@@ -52,5 +52,6 @@
 	"SUBMIT_SUCCESS": "Form submitted successfully.",
 	"SUBMIT_ERROR": "Failed to send form. Please try again later.",
 	"FORM_NOT_VALID": "Form not valid. Please try again.",
-	"RATE_LIMITED": "Rate limit exceeded. Please try again later."
+	"RATE_LIMITED": "Rate limit exceeded. Please try again later.",
+	"INVALID_CSRF_TOKEN": "Invalid CSRF token."
 }

@@ -13,8 +13,10 @@ export const GET: RequestHandler = () => {
 };
 
 export const POST: RequestHandler = async (event) => {
+	const form = await superValidate(event, zod(contactSchema));
+
 	function responseSonner(
-		type: 'API_KEY_NOT_FOUND' | 'SUCCESS' | 'ERROR' | 'FORM_NOT_VALID' | 'RATE_LIMITED'
+		type: 'API_KEY_NOT_FOUND' | 'SUCCESS' | 'ERROR' | 'FORM_NOT_VALID' | 'RATE_LIMITED' | 'INVALID_CSRF_TOKEN'
 	) {
 		const languageTag = lang();
 		const messages = {
@@ -22,7 +24,8 @@ export const POST: RequestHandler = async (event) => {
 			SUCCESS: m.SUBMIT_SUCCESS({}, { languageTag }),
 			ERROR: m.SUBMIT_ERROR({}, { languageTag }),
 			FORM_NOT_VALID: m.FORM_NOT_VALID({}, { languageTag }),
-			RATE_LIMITED: m.RATE_LIMITED({}, { languageTag })
+			RATE_LIMITED: m.RATE_LIMITED({}, { languageTag }),
+			INVALID_CSRF_TOKEN: m.INVALID_CSRF_TOKEN({}, { languageTag })
 		};
 		setFlash({ type: type === 'SUCCESS' ? 'success' : 'error', message: messages[type] }, event);
 	}
@@ -30,18 +33,30 @@ export const POST: RequestHandler = async (event) => {
 	const isRateLimited = await contactRateLimiter.isLimited(event);
 	if (isRateLimited) {
 		responseSonner('RATE_LIMITED');
-		return actionResult('error', { form: null });
+		return actionResult('failure', { form }, {
+			status: 429
+		});
 	}
 
 	if (!STATIC_FORM_KEY) {
 		responseSonner('API_KEY_NOT_FOUND');
-		return actionResult('error', { form: null });
+		return actionResult('failure', { form }, {
+			status: 403
+		});
 	}
 
-	const form = await superValidate(event, zod(contactSchema));
 	if (!form.valid) {
 		responseSonner('FORM_NOT_VALID');
-		return actionResult('failure', { form });
+		return actionResult('failure', { form }, {
+			status: 400
+		});
+	}
+
+	if (!form.data.csrf_token || form.data.csrf_token !== event.locals.csrfToken) {
+		responseSonner('INVALID_CSRF_TOKEN');
+		return actionResult('failure', { form }, {
+			status: 400
+		});
 	}
 
 	const staticFormData = {
@@ -63,7 +78,9 @@ export const POST: RequestHandler = async (event) => {
 			const errorMessage = await response.text();
 			console.error('Submission failed:', errorMessage);
 			responseSonner('ERROR');
-			return actionResult('error', { form });
+			return actionResult('failure', { form }, {
+				status: response.status
+			});
 		}
 
 		responseSonner('SUCCESS');

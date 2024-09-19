@@ -38,5 +38,5 @@
 			</div>
 		</div>
 	</div>
-	<ContactForm data={data.form} />
+	<ContactForm csrfToken={data.csrfToken} data={data.form} />
 </section>

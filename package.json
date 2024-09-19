@@ -13,6 +13,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
+		"@faranglao/sveltekit-security-headers": "^0.2.2",
 		"@inlang/paraglide-js": "1.10.1",
 		"@serwist/build": "^9.0.8",
 		"@serwist/vite": "^9.0.8",
@@ -30,6 +31,7 @@
 		"eslint": "^9.10.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.44.0",
+		"nanoid": "^5.0.7",
 		"postcss": "^8.4.47",
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.6",

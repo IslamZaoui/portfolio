@@ -6,6 +6,7 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			paraglide: ParaglideLocals<AvailableLanguageTag>;
+			csrfToken: string;
 		}
 		interface PageData {
 			flash?: {
@@ -31,4 +32,4 @@ declare global {
 	declare module 'lite-youtube-embed';
 }
 
-export {};
+export { };

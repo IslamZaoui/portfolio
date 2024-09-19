@@ -11,6 +11,7 @@
 	import { contactSchema, type ContactForm } from '@/schemas/contact';
 
 	export let data: SuperValidated<Infer<ContactForm>>;
+	export let csrfToken: string;
 
 	const form = superForm(data, {
 		validators: zod(contactSchema)
@@ -68,6 +69,7 @@
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
+	<input type="hidden" name="csrf_token" bind:value={csrfToken} />
 	<Button
 		title="send message"
 		dir="ltr"

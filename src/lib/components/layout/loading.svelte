@@ -41,7 +41,8 @@
 />
 
 {#if loading}
-	<div
+	<div 
+		dir="ltr"
 		out:fade={{ duration: 200 }}
 		class="fixed inset-0 z-50 flex w-screen select-none items-center justify-center bg-gray-500 bg-opacity-50 text-[100px] font-bold"
 	>
