@@ -2,20 +2,6 @@ import { sequence } from '@sveltejs/kit/hooks';
 import { i18n } from '$lib/i18n';
 import type { Handle } from '@sveltejs/kit';
 import { nanoid } from 'nanoid';
-import config from '@config';
-
-const handleSecurityHeaders: Handle = async ({ event, resolve }) => {
-    const response = await resolve(event)
-
-    response.headers.set('X-Frame-Options', 'SAMEORIGIN')
-    response.headers.set('X-Content-Type-Options', 'nosniff')
-    response.headers.set('Referrer-Policy', 'no-referrer-when-downgrade')
-    response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
-    response.headers.set('Access-Control-Allow-Origin', config.site_url || '*')
-
-    return response
-}
-
 
 const handleAntiCSRFToken: Handle = async ({ event, resolve }) => {
     const csrfToken = event.cookies.get('csrfToken');
@@ -39,6 +25,5 @@ const handleAntiCSRFToken: Handle = async ({ event, resolve }) => {
 
 export const handle = sequence(
     i18n.handle(),
-    handleAntiCSRFToken,
-    handleSecurityHeaders
+    handleAntiCSRFToken
 );
