@@ -15,15 +15,7 @@
 		<span class="text-2xl text-muted-foreground">{$page.error?.message}</span>
 	{/if}
 
-	<Button
-		on:click={() => {
-			if (window.history.length > 1 && document.referrer) {
-				window.history.back();
-			} else {
-				window.location.href = '/en';
-			}
-		}}
-	>
+	<Button href="/">
 		{m.BACKBUTTON()}
 	</Button>
 </div>

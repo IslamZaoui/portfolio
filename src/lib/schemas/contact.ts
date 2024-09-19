@@ -17,8 +17,7 @@ export const contactSchema = z.object({
 		.string({ required_error: 'Subject is required' })
 		.min(3, { message: 'Subject must be at least 3 characters' })
 		.max(100, { message: 'Subject must be less than 100 characters' })
-		.trim(),
-	csrf_token: z.string().optional()
+		.trim()
 });
 
 export type ContactForm = typeof contactSchema;

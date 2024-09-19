@@ -1,7 +1,7 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"ERROR": "Error",
-	"BACKBUTTON": "Back to Previous Page",
+	"BACKBUTTON": "Back to Home page",
 	"SUBTITLE": "Full Stack Web Developer",
 	"ABOUT": "About",
 	"BLOG": "Blog",
@@ -52,6 +52,5 @@
 	"SUBMIT_SUCCESS": "Form submitted successfully.",
 	"SUBMIT_ERROR": "Failed to send form. Please try again later.",
 	"FORM_NOT_VALID": "Form not valid. Please try again.",
-	"RATE_LIMITED": "Rate limit exceeded. Please try again later.",
-	"INVALID_CSRF_TOKEN": "Invalid CSRF token."
+	"RATE_LIMITED": "Rate limit exceeded. Please try again later."
 }

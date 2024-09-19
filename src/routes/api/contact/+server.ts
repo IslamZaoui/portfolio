@@ -16,7 +16,7 @@ export const POST: RequestHandler = async (event) => {
 	const form = await superValidate(event, zod(contactSchema));
 
 	function responseSonner(
-		type: 'API_KEY_NOT_FOUND' | 'SUCCESS' | 'ERROR' | 'FORM_NOT_VALID' | 'RATE_LIMITED' | 'INVALID_CSRF_TOKEN'
+		type: 'API_KEY_NOT_FOUND' | 'SUCCESS' | 'ERROR' | 'FORM_NOT_VALID' | 'RATE_LIMITED'
 	) {
 		const languageTag = lang();
 		const messages = {
@@ -24,17 +24,15 @@ export const POST: RequestHandler = async (event) => {
 			SUCCESS: m.SUBMIT_SUCCESS({}, { languageTag }),
 			ERROR: m.SUBMIT_ERROR({}, { languageTag }),
 			FORM_NOT_VALID: m.FORM_NOT_VALID({}, { languageTag }),
-			RATE_LIMITED: m.RATE_LIMITED({}, { languageTag }),
-			INVALID_CSRF_TOKEN: m.INVALID_CSRF_TOKEN({}, { languageTag })
+			RATE_LIMITED: m.RATE_LIMITED({}, { languageTag })
 		};
 		setFlash({ type: type === 'SUCCESS' ? 'success' : 'error', message: messages[type] }, event);
 	}
 
-	const isRateLimited = await contactRateLimiter.isLimited(event);
-	if (isRateLimited) {
-		responseSonner('RATE_LIMITED');
+	if (!form.valid) {
+		responseSonner('FORM_NOT_VALID');
 		return actionResult('failure', { form }, {
-			status: 429
+			status: 400
 		});
 	}
 
@@ -45,17 +43,11 @@ export const POST: RequestHandler = async (event) => {
 		});
 	}
 
-	if (!form.valid) {
-		responseSonner('FORM_NOT_VALID');
+	const isRateLimited = await contactRateLimiter.isLimited(event);
+	if (isRateLimited) {
+		responseSonner('RATE_LIMITED');
 		return actionResult('failure', { form }, {
-			status: 400
-		});
-	}
-
-	if (!form.data.csrf_token || form.data.csrf_token !== event.locals.csrfToken) {
-		responseSonner('INVALID_CSRF_TOKEN');
-		return actionResult('failure', { form }, {
-			status: 400
+			status: 429
 		});
 	}
 
