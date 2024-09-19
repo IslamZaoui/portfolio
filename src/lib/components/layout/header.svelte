@@ -101,7 +101,7 @@
 	<nav class="my-5 flex w-full items-center justify-between">
 		<div class="flex w-full gap-3">
 			{#each socials as { url, icon, title }}
-				<a href={url} target="_blank" rel="noreferrer" {title} class="social-anchor">
+				<a href={url} target="_blank" rel="noreferrer" class="social-anchor" {title}>
 					<svelte:component this={icon} />
 				</a>
 			{/each}
@@ -112,9 +112,8 @@
 		</div>
 	</nav>
 	<Separator orientation="horizontal" />
-	{#key isBlogPost}
+	{#if !isBlogPost}
 		<nav
-			class:hidden={isBlogPost}
 			class="nav-container mb-2 mt-6 flex gap-2"
 			style="--nav-width: {$navDim.width}px; --nav-offset: {$navDim.offset}px;"
 			in:fly={{ duration: 200, y: 20 }}
@@ -133,7 +132,7 @@
 				</a>
 			{/each}
 		</nav>
-	{/key}
+	{/if}
 </div>
 
 <style lang="postcss">

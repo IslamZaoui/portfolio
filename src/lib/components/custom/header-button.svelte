@@ -19,8 +19,6 @@
 		{data.name}
 	</a>
 	{#if data.selected}
-		<div
-			class="header-button absolute left-0 top-0 z-0  "
-		/>
+		<div class="header-button absolute left-0 top-0 z-0" />
 	{/if}
 </div>

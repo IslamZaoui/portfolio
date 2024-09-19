@@ -1,6 +1,6 @@
 <script>
 	import { Button } from '@/components/ui/button';
-	import { getSingletonHighlighter  } from 'shiki';
+	import { getSingletonHighlighter } from 'shiki';
 	import copy from 'lucide-svelte/icons/copy';
 	import check from 'lucide-svelte/icons/check';
 	import Loading from 'lucide-svelte/icons/loader-circle';

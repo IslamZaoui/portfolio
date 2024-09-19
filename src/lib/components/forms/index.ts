@@ -1,5 +1,3 @@
-import ContactForm from "./contact-form.svelte";
+import ContactForm from './contact-form.svelte';
 
-export {
-    ContactForm,
-}
+export { ContactForm };

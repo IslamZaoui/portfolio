@@ -28,7 +28,7 @@ const experiences = [
 	{
 		en: {
 			title: 'Freelance Full Stack Web Developer',
-			at: "from home"
+			at: 'from home'
 		},
 		ar: {
 			title: 'مطور ويب متكامل مستقل',

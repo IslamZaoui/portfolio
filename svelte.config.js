@@ -17,17 +17,17 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			"@/*": "./src/lib/*",
-			"@assets/*": "./user/assets/*",
-			"@posts/*": "./user/posts/*",
-			"@config": "./user/config.ts",
-			"@i18n": "./src/lib/paraglide/messages.js"
+			'@/*': './src/lib/*',
+			'@assets/*': './user/assets/*',
+			'@posts/*': './user/posts/*',
+			'@config': './user/config.ts',
+			'@i18n': './src/lib/paraglide/messages.js'
 		},
 		serviceWorker: {
-			register: false,
+			register: false
 		},
 		prerender: {
-			handleHttpError: "warn",
+			handleHttpError: 'warn',
 			origin: 'https://islamzaoui.top'
 		}
 	}

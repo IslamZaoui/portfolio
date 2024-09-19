@@ -10,17 +10,19 @@ import { contactRateLimiter } from '@/server/rate-limiter';
 
 export const GET: RequestHandler = () => {
 	return new Response('This is an API endpoint for sending a contact form.');
-}
+};
 
 export const POST: RequestHandler = async (event) => {
-	function responseSonner(type: 'API_KEY_NOT_FOUND' | 'SUCCESS' | 'ERROR' | 'FORM_NOT_VALID' | 'RATE_LIMITED') {
+	function responseSonner(
+		type: 'API_KEY_NOT_FOUND' | 'SUCCESS' | 'ERROR' | 'FORM_NOT_VALID' | 'RATE_LIMITED'
+	) {
 		const languageTag = lang();
 		const messages = {
-			'API_KEY_NOT_FOUND': m.API_KEY_NOT_FOUND({}, { languageTag }),
-			'SUCCESS': m.SUBMIT_SUCCESS({}, { languageTag }),
-			'ERROR': m.SUBMIT_ERROR({}, { languageTag }),
-			'FORM_NOT_VALID': m.FORM_NOT_VALID({}, { languageTag }),
-			'RATE_LIMITED': m.RATE_LIMITED({}, { languageTag })
+			API_KEY_NOT_FOUND: m.API_KEY_NOT_FOUND({}, { languageTag }),
+			SUCCESS: m.SUBMIT_SUCCESS({}, { languageTag }),
+			ERROR: m.SUBMIT_ERROR({}, { languageTag }),
+			FORM_NOT_VALID: m.FORM_NOT_VALID({}, { languageTag }),
+			RATE_LIMITED: m.RATE_LIMITED({}, { languageTag })
 		};
 		setFlash({ type: type === 'SUCCESS' ? 'success' : 'error', message: messages[type] }, event);
 	}
@@ -28,12 +30,12 @@ export const POST: RequestHandler = async (event) => {
 	const isRateLimited = await contactRateLimiter.isLimited(event);
 	if (isRateLimited) {
 		responseSonner('RATE_LIMITED');
-		return actionResult("error", { form: null });
+		return actionResult('error', { form: null });
 	}
 
 	if (!STATIC_FORM_KEY) {
 		responseSonner('API_KEY_NOT_FOUND');
-		return actionResult("error", { form: null });
+		return actionResult('error', { form: null });
 	}
 
 	const form = await superValidate(event, zod(contactSchema));
@@ -61,14 +63,14 @@ export const POST: RequestHandler = async (event) => {
 			const errorMessage = await response.text();
 			console.error('Submission failed:', errorMessage);
 			responseSonner('ERROR');
-			return actionResult("error", { form });
+			return actionResult('error', { form });
 		}
 
 		responseSonner('SUCCESS');
-		return actionResult("success", { form });
+		return actionResult('success', { form });
 	} catch (e) {
 		console.error('Fetch error:', e);
 		responseSonner('ERROR');
-		return actionResult("error", { form });
+		return actionResult('error', { form });
 	}
 };

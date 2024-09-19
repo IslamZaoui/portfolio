@@ -2,12 +2,14 @@
 	import { page } from '$app/stores';
 	import { i18n } from '@/i18n.js';
 	import { buttonVariants } from '$lib/components/ui/button';
+	import { invalidate } from '$app/navigation';
 
 	$: currentPathWithoutLanguage = i18n.route($page.url.pathname);
 </script>
 
 <a
 	class={buttonVariants({ variant: 'ghost', size: 'icon' })}
+	on:mousedown={() => invalidate('paraglide:lang')}
 	title={$page.data.lang === 'en' ? 'Change to Arabic' : 'Change to English'}
 	href={currentPathWithoutLanguage}
 	rel="alternate"

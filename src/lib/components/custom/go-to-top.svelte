@@ -33,8 +33,9 @@
 			size="icon"
 			on:click={gotoTop}
 			title="Go to top"
-			class="fixed md:bottom-6 bottom-4 right-4 z-50 rounded-xl transition-transform duration-300
-			hover:translate-y-[-10px]">
+			class="fixed bottom-4 right-4 z-50 rounded-xl transition-transform duration-300 hover:translate-y-[-10px]
+			md:bottom-6"
+		>
 			<ArrowUpIcon />
 		</Button>
 	</div>

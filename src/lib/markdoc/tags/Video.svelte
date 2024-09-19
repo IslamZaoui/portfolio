@@ -4,7 +4,7 @@
 </script>
 
 <div class="my-2">
-	<video {src} {title} class="aspect-video rounded-xl w-full" playsinline controls>
+	<video {src} {title} class="aspect-video w-full rounded-xl" playsinline controls>
 		<track kind="captions" />
 	</video>
 </div>

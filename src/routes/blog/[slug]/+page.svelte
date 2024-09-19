@@ -3,7 +3,7 @@
 	import BackEN from 'lucide-svelte/icons/chevron-left';
 	import BackAR from 'lucide-svelte/icons/chevron-right';
 	import Calendar from 'lucide-svelte/icons/calendar';
-	import * as m from '@i18n'
+	import * as m from '@i18n';
 	import Head from '@/components/custom/head.svelte';
 	import PostBreadcrumbSd from '@/components/custom/post-breadcrumb-SD.svelte';
 	export let data;
@@ -26,6 +26,6 @@
 	</p>
 </header>
 
-<article class="prose max-w-full dark:prose-invert select-text" dir="auto">
+<article class="prose max-w-full select-text dark:prose-invert" dir="auto">
 	<svelte:component this={data.content} />
 </article>

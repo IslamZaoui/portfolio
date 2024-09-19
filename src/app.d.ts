@@ -8,7 +8,11 @@ declare global {
 			paraglide: ParaglideLocals<AvailableLanguageTag>;
 		}
 		interface PageData {
-			flash?: { type: 'success' | 'error' | 'info' | 'warning' | 'message'; message: string; description?: string };
+			flash?: {
+				type: 'success' | 'error' | 'info' | 'warning' | 'message';
+				message: string;
+				description?: string;
+			};
 			url: string;
 			lang: AvailableLanguageTag;
 		}
@@ -27,4 +31,4 @@ declare global {
 	declare module 'lite-youtube-embed';
 }
 
-export { };
+export {};

@@ -1,12 +1,12 @@
 [
-    {
-        "id": "portfolio",
-        "path": "docs/content",
-        "schema": {
-            "path": ".svelte-kit/markdoc_schema.js",
-            "type": "esm",
-            "property": "default",
-            "watch": true
-        }
-    }
+	{
+		"id": "portfolio",
+		"path": "docs/content",
+		"schema": {
+			"path": ".svelte-kit/markdoc_schema.js",
+			"type": "esm",
+			"property": "default",
+			"watch": true
+		}
+	}
 ]

@@ -1,6 +1,8 @@
 import { getPostsSlug } from '@/index';
 
-export const load = async ({ params, locals }) => {
+export const load = async ({ params, locals, depends }) => {
+	depends('paraglide:lang');
+
 	return {
 		slug: params.slug,
 		lang: locals.paraglide.lang
