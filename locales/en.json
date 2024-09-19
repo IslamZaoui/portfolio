@@ -47,5 +47,10 @@
 	"NAME": "Name",
 	"SUBJECT": "Subject",
 	"MESSAGE": "Message",
-	"SEND": "Send"
+	"SEND": "Send",
+	"API_KEY_NOT_FOUND": "Site not configured yet for contact form submission.",
+	"SUBMIT_SUCCESS": "Form submitted successfully.",
+	"SUBMIT_ERROR": "Failed to send form. Please try again later.",
+	"FORM_NOT_VALID": "Form not valid. Please try again.",
+	"RATE_LIMITED": "Rate limit exceeded. Please try again later."
 }

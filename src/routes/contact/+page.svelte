@@ -2,7 +2,7 @@
 	import config from '@config';
 	import Mail from 'lucide-svelte/icons/mail';
 	import Location from 'lucide-svelte/icons/map-pin';
-	import Form from './(components)/form.svelte';
+	import { ContactForm } from '@/components/forms';
 	import * as m from '@i18n';
 	import Head from '@/components/custom/head.svelte';
 
@@ -38,5 +38,5 @@
 			</div>
 		</div>
 	</div>
-	<Form />
+	<ContactForm data={data.form} />
 </section>

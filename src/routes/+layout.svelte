@@ -3,7 +3,7 @@
 	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
 	import { i18n } from '$lib/i18n';
 	import { page } from '$app/stores';
-	import { afterNavigate, invalidateAll, onNavigate } from '$app/navigation';
+	import { invalidateAll, onNavigate } from '$app/navigation';
 	import { ModeWatcher } from 'mode-watcher';
 	import config from '@config';
 	import { getSerwist } from 'virtual:serwist';
