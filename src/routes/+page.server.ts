@@ -1,10 +1,20 @@
-import { i18n } from '@/i18n.js';
+import { getPosts } from '@/index.js';
+import { languageTag } from '@/paraglide/runtime.js'
 
-export async function load({ fetch, locals, depends }) {
+async function getExperices(): Promise<Experience[]> {
+	return (await import(`@experiences/${languageTag()}.yaml`)).default;
+}
+
+async function getProjects(): Promise<Project[]> {
+	return (await import(`@projects/${languageTag()}.yaml`)).default;
+}
+
+export async function load({ depends }) {
 	depends('paraglide:lang');
+
 	return {
-		posts: fetch(i18n.resolveRoute('/blog.json', locals.paraglide.lang)).then((res) =>
-			res.json().then((data) => data.slice(0, 2))
-		)
+		posts: getPosts(languageTag()).slice(0, 5),
+		experiences: await getExperices(),
+		projects: await getProjects(),
 	};
 }

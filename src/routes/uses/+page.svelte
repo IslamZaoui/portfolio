@@ -1,6 +1,8 @@
 <script lang="ts">
-	import Head from '@/components/custom/head.svelte';
+	import Head from '@/components/custom/seo.svelte';
 	import * as m from '@i18n';
+
+	export let data;
 </script>
 
 <Head title={m.USES()} />
@@ -11,17 +13,23 @@
 </div>
 
 <section class="w-full space-y-4">
-	<h3 class="text-xl font-semibold">{m.TK_HW()}</h3>
-	<ul class="ml-5 list-disc space-y-3">
-		<li>
-			{m.TK_HW_0_NAME()} - <span class="text-muted-foreground">{m.TK_HW_0_DESC()}</span>
-		</li>
-	</ul>
-	<h3 class="text-xl font-semibold">{m.TK_SW()}</h3>
-	<ul class="ml-5 list-disc space-y-3">
-		<li>{m.TK_SW_0_NAME()} - <span class="text-muted-foreground">{m.TK_SW_0_DESC()}</span></li>
-		<li>{m.TK_SW_1_NAME()} - <span class="text-muted-foreground">{m.TK_SW_1_DESC()}</span></li>
-		<li>{m.TK_SW_2_NAME()} - <span class="text-muted-foreground">{m.TK_SW_2_DESC()}</span></li>
-		<li>{m.TK_SW_3_NAME()} - <span class="text-muted-foreground">{m.TK_SW_3_DESC()}</span></li>
-	</ul>
+	{#each Object.entries(data.uses) as [title, tools]}
+		<h3 class="text-xl font-semibold">{title}</h3>
+		<ul class="ml-5 list-disc space-y-3">
+			{#each tools as tool}
+				<li>
+					<svelte:element
+						this={tool.url ? 'a' : 'span'}
+						class={tool.url ? 'hover:underline' : ''}
+						href={tool.url}
+						target="_blank"
+					>
+						{tool.name}
+					</svelte:element>
+					-
+					<span class="text-muted-foreground">{tool.description}</span>
+				</li>
+			{/each}
+		</ul>
+	{/each}
 </section>

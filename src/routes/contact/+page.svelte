@@ -4,10 +4,10 @@
 	import Location from 'lucide-svelte/icons/map-pin';
 	import { ContactForm } from '@/components/forms';
 	import * as m from '@i18n';
-	import Head from '@/components/custom/head.svelte';
+	import Head from '@/components/custom/seo.svelte';
+	import { languageTag } from '@/paraglide/runtime.js';
 
 	export let data;
-	$: lang = data.lang as 'ar' | 'en';
 </script>
 
 <Head title={m.CONTACT()} />
@@ -25,7 +25,7 @@
 			</div>
 			<div class="flex flex-col gap-2">
 				<h3 class="text-lg font-semibold">{m.EMAIL()}</h3>
-				<a href="mailto:{config.email}" class="anchor hover:underline">{config.email}</a>
+				<a href="mailto:{config.EMAIL}" class="anchor hover:underline">{config.EMAIL}</a>
 			</div>
 		</div>
 		<div class="flex items-center gap-2">
@@ -34,7 +34,7 @@
 			</div>
 			<div class="flex flex-col gap-2">
 				<h3 class="text-lg font-semibold">{m.LOCATION()}</h3>
-				<span>{config.location[lang]}</span>
+				<span>{config.LOCATION[languageTag()]}</span>
 			</div>
 		</div>
 	</div>

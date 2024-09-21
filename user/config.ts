@@ -1,80 +1,42 @@
 import { dev } from '$app/environment';
-import brain from 'lucide-svelte/icons/brain';
-import megaphone from 'lucide-svelte/icons/megaphone';
 
-const site_url = dev ? 'http://localhost:5173' : ('https://islamzaoui.top' as const);
-const site_description = {
+const SITE_URL = dev ? 'http://localhost:5173' : 'https://islamzaoui.top';
+
+const SITE_NAME = 'Islam Zaoui';
+
+const SITE_KEYWORDS = {
+	en: "Islam Zaoui, Portfolio, Web Developer, Software Engineer",
+	ar: "Islam Zaoui, ملف الشخصي, مطور ويب, مهندس برمجيات"
+}
+
+const SITE_DESCRIPTION = {
 	en: 'My Personal Portfolio and Blog',
 	ar: 'ملف الشخصي والمدونة'
-} as const;
+};
 
-const repo = 'https://github.com/IslamZaoui/portfolio' as const;
+const REPOSITORY = 'https://github.com/IslamZaoui/portfolio';
 
-const social_links = {
-	Twitter: 'IslamZaoui_',
-	GitHub: 'IslamZaoui',
-	LinkedIn: 'zaouiislam',
-	YouTube: '@IslamZaoui_'
-} as const;
+const SOCIAL_LINKS = {
+	TWITTER: 'IslamZaoui_',
+	GITHUB: 'IslamZaoui',
+	LINKEDIN: 'islamzaoui',
+	YOUTUBE: '@IslamZaoui_'
+};
 
-const email = 'contact@islamzaoui.top' as const;
+const EMAIL = 'contact@islamzaoui.top';
 
-const location = {
+const LOCATION = {
 	en: 'Algeria - Blida',
 	ar: 'الجزائر - البليدة'
 };
 
-const experiences = [
-	{
-		en: {
-			title: 'Freelance Full Stack Web Developer',
-			at: 'from home'
-		},
-		ar: {
-			title: 'مطور ويب متكامل مستقل',
-			at: 'من المنزل'
-		}
-	}
-] as const;
-
-const projects = [
-	{
-		content: {
-			en: {
-				name: 'Attendace Tracker',
-				description: 'app that allow teachers to take attendance'
-			},
-			ar: {
-				name: 'Attendace Tracker',
-				description: 'تطبيق يسمح للمعلمين بتسجيل الحضور'
-			}
-		},
-		url: 'https://github.com/IslamZaoui/Attendance-Tracker',
-		icon: megaphone
-	},
-	{
-		content: {
-			en: {
-				name: 'Intellect',
-				description: 'Web e-learning platform for students'
-			},
-			ar: {
-				name: 'Intellect',
-				description: 'منصة تعليم عن بعد للطلاب'
-			}
-		},
-		url: 'https://intellectweb.fly.dev',
-		icon: brain
-	}
-] as const;
-
 export default {
-	site_url,
-	site_description,
-	repo,
-	social_links,
-	email,
-	location,
-	experiences,
-	projects
+	SITE_URL,
+	SITE_DESCRIPTION,
+	REPOSITORY,
+	SOCIAL_LINKS,
+	EMAIL,
+	LOCATION,
+	SITE_NAME,
+	SITE_KEYWORDS
 };

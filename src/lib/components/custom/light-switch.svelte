@@ -5,9 +5,7 @@
 	import { Button } from '@/components/ui/button/index';
 
 	const toggleModeWithTransition = () => {
-		// @ts-ignore
 		if (document.startViewTransition) {
-			// @ts-ignore
 			document.startViewTransition(() => {
 				toggleMode();
 			});

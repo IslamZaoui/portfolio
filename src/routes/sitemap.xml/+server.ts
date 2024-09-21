@@ -12,10 +12,7 @@ type SitemapParams = {
 	};
 	changefreq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
 	priority: number;
-	lang: {
-		default: string;
-		alternates: string[];
-	};
+	lang: string[];
 };
 
 function sitemap(params: SitemapParams): string {
@@ -38,12 +35,8 @@ function sitemap(params: SitemapParams): string {
 		'<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0" xmlns:news="https://www.google.com/schemas/sitemap-news/0.9" xmlns:image="https://www.google.com/schemas/sitemap-image/1.1" xmlns:video="https://www.google.com/schemas/sitemap-video/1.1">\n';
 
 	staticvalues.forEach((path) => {
-		// Default language without prefix
-		const defaultLoc = `${origin}${path}`;
-		urlset += createUrlElement(defaultLoc);
-		// Alternate languages with prefix
-		lang.alternates.forEach((alternateLang) => {
-			const alternateLoc = `${origin}/${alternateLang}${path}`;
+		lang.forEach((lang) => {
+			const alternateLoc = `${origin}/${lang}${path}`;
 			urlset += createUrlElement(alternateLoc);
 		});
 	});
@@ -52,12 +45,7 @@ function sitemap(params: SitemapParams): string {
 		dynamicvalues[path].forEach(({ slug, lang: itemLang }) => {
 			slug.forEach((slugValue) => {
 				const dynamicPath = path.replace('[slug]', slugValue);
-				// Default language without prefix
-				const loc =
-					itemLang === lang.default
-						? `${origin}${dynamicPath}`
-						: `${origin}/${itemLang}${dynamicPath}`;
-				urlset += createUrlElement(loc);
+				urlset += createUrlElement(`${origin}/${itemLang}${dynamicPath}`);
 			});
 		});
 	}
@@ -73,7 +61,7 @@ export const GET: RequestHandler = async () => {
 
 	return new Response(
 		sitemap({
-			origin: config.site_url,
+			origin: config.SITE_URL,
 			staticvalues: ['', '/blog', '/uses', '/contact'],
 			dynamicvalues: {
 				'/blog/[slug]': [
@@ -89,14 +77,12 @@ export const GET: RequestHandler = async () => {
 			},
 			changefreq: 'daily',
 			priority: 0.7,
-			lang: {
-				default: 'en',
-				alternates: ['ar']
-			}
+			lang: ["en", "ar"]
 		}),
 		{
 			headers: {
-				'Content-Type': 'application/xml'
+				'Content-Type': 'application/xml',
+				'Cache-Control': 'max-age=0, s-maxage=3600'
 			}
 		}
 	);

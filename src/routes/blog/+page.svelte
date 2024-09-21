@@ -1,6 +1,8 @@
 <script lang="ts">
-	import Head from '@/components/custom/head.svelte';
+	import Head from '@/components/custom/seo.svelte';
+	import PostCard from '@/components/custom/post-card.svelte';
 	import * as m from '@i18n';
+
 	export let data;
 </script>
 
@@ -12,19 +14,11 @@
 </div>
 
 <section class="mx-auto flex w-full flex-col gap-3">
-	{#if data.posts.length === 0}
+	{#each data.posts as post}
+		<PostCard {post} />
+	{:else}
 		<div class="flex w-full items-center justify-center p-4">
 			<span class="text-muted-foreground">{m.BLOG_NOTFOUND()}</span>
 		</div>
-	{:else}
-		{#each data.posts as post}
-			<a
-				href="/blog/{post.slug}"
-				class="w-full transform rounded-md border bg-muted p-3 transition hover:-translate-y-1 hover:bg-muted/50"
-			>
-				<h3 class="text-xl font-semibold">{post.title}</h3>
-				<p class="text-sm text-muted-foreground">{post.description}</p>
-			</a>
-		{/each}
-	{/if}
+	{/each}
 </section>

@@ -1,6 +1,5 @@
 import { formatDistanceToNow } from 'date-fns';
 import { enUS, ar } from 'date-fns/locale';
-import { base } from '$app/paths';
 
 function getSlugFromPath(filePath: string): string | null {
 	const parts = filePath.split('/');

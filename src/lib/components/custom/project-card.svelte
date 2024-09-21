@@ -1,32 +1,16 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-
-	export let data: {
-		content: {
-			[key in 'ar' | 'en']: {
-				name: string;
-				description: string;
-			};
-		};
-		url: string;
-		icon: any;
-	};
-
-	$: lang = $page.data.lang as 'ar' | 'en';
+	export let project: Project;
 </script>
 
 <a
 	class="mb-2 flex transform flex-col gap-1 transition hover:-translate-y-1"
-	href={data.url}
+	href={project.url}
 	target="_blank"
 	rel="noreferrer"
 >
-	<div
-		class="flex size-[30px] items-center justify-center rounded-md bg-primary
-		text-primary-foreground"
-	>
-		<svelte:component this={data.icon} size="24" />
+	<div class="flex size-[40px] items-center justify-center p-1 rounded-md border-2 bg-white">
+		<img src={project.icon} alt="{project.name} logo" />
 	</div>
-	<h3>{data.content[lang].name}</h3>
-	<p class="text-sm text-muted-foreground">{data.content[lang].description}</p>
+	<h3>{project.name}</h3>
+	<p class="text-sm text-muted-foreground">{project.description}</p>
 </a>

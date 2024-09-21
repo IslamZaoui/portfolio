@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { i18n } from '@/i18n.js';
-	import { buttonVariants } from '$lib/components/ui/button';
+	import { buttonVariants } from '@/components/ui/button';
 	import { invalidate } from '$app/navigation';
+	import { languageTag } from '@/paraglide/runtime.js';
 
 	$: currentPathWithoutLanguage = i18n.route($page.url.pathname);
 </script>
@@ -10,8 +11,8 @@
 <a
 	class={buttonVariants({ variant: 'ghost', size: 'icon' })}
 	on:mousedown={() => invalidate('paraglide:lang')}
-	title={$page.data.lang === 'en' ? 'Change to Arabic' : 'Change to English'}
+	title={languageTag() === 'en' ? 'Change to Arabic' : 'Change to English'}
 	href={currentPathWithoutLanguage}
 	rel="alternate"
-	hreflang={$page.data.lang === 'en' ? 'ar' : 'en'}>{$page.data.lang === 'en' ? 'AR' : 'EN'}</a
+	hreflang={languageTag() === 'en' ? 'ar' : 'en'}>{languageTag() === 'en' ? 'AR' : 'EN'}</a
 >

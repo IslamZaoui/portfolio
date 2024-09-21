@@ -9,9 +9,12 @@
 	let scrollHeight = 0;
 	let showGotoTop = false;
 
-	const gotoTop = () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	};
+	function scrollToTop() {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	}
 
 	onMount(() => {
 		const handleScroll = () => {
@@ -31,7 +34,7 @@
 	<div in:fade out:fade>
 		<Button
 			size="icon"
-			on:click={gotoTop}
+			on:click={scrollToTop}
 			title="Go to top"
 			class="fixed bottom-4 right-4 z-50 rounded-xl transition-transform duration-300 hover:translate-y-[-10px]
 			md:bottom-6"

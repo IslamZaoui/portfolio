@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { superForm, type SuperValidated, type Infer } from 'sveltekit-superforms/client';
-	import { Textarea } from '$lib/components/ui/textarea';
+	import { Textarea } from '@/components/ui/textarea';
 	import * as Form from '@/components/ui/form';
 	import { Input } from '@/components/ui/input';
 	import { zod } from 'sveltekit-superforms/adapters';

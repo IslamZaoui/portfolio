@@ -1,0 +1,19 @@
+Hardware:
+  - name: 'Laptop Dell latitude 3510 (15.6", 16GB RAM, 256GB SSD)'
+    description: "My primary device"
+
+Software:
+  - name: "Cursor"
+    description: "AI powered VSCode alternative"
+    url: "https://cursor.com"
+
+  - name: "Google Chrome"
+    description: "I just can't leave it"
+
+  - name: "Photopea"
+    description: "Photoshop alternative"
+    url: "https://photopea.com"
+
+  - name: "Excalidraw"
+    description: "Drawing app"
+    url: "https://excalidraw.com"

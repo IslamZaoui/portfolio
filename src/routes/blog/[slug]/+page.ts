@@ -1,7 +1,8 @@
 import { error } from '@sveltejs/kit';
+import { languageTag } from '@/paraglide/runtime.js'
 
-export const load = async ({ data: { slug, lang } }) => {
-	const fallbackLang = lang === 'ar' ? 'en' : 'ar';
+export const load = async ({ data: { slug } }) => {
+	const fallbackLang = languageTag() === 'ar' ? 'en' : 'ar';
 
 	const loadContent = async (language: string) => {
 		try {
@@ -12,7 +13,7 @@ export const load = async ({ data: { slug, lang } }) => {
 		}
 	};
 
-	const contentData = (await loadContent(lang)) || (await loadContent(fallbackLang));
+	const contentData = (await loadContent(languageTag())) || (await loadContent(fallbackLang));
 	if (contentData) {
 		return contentData;
 	}

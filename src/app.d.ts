@@ -1,13 +1,10 @@
-import type { AvailableLanguageTag } from '../../lib/paraglide/runtime';
+import type { AvailableLanguageTag } from '@/paraglide/runtime';
 import type { ParaglideLocals } from '@inlang/paraglide-sveltekit';
 
 declare global {
 	namespace App {
 		// interface Error {}
-		interface Locals {
-			paraglide: ParaglideLocals<AvailableLanguageTag>;
-			csrfToken: string;
-		}
+		// interface Locals {}
 		interface PageData {
 			flash?: {
 				type: 'success' | 'error' | 'info' | 'warning' | 'message';
@@ -15,7 +12,6 @@ declare global {
 				description?: string;
 			};
 			url: string;
-			lang: AvailableLanguageTag;
 		}
 		// interface PageState {}
 		// interface Platform {}
@@ -29,7 +25,28 @@ declare global {
 		slug: string;
 	};
 
-	declare module 'lite-youtube-embed';
+	type Experience = {
+		title: string;
+		at: string;
+		time?: Date;
+	}
+
+	type Project = {
+		name: string;
+		description: string;
+		url: string;
+		icon: string;
+	};
+
+	type Tool = {
+		name: string;
+		description: string;
+		url?: string;
+	}
+
+	type Uses = {
+		[key: string]: Tool[];
+	}
 }
 
 export { };

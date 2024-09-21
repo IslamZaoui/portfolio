@@ -14,9 +14,8 @@
 	},
 	"devDependencies": {
 		"@inlang/paraglide-js": "1.10.1",
-		"@serwist/build": "^9.0.8",
-		"@serwist/vite": "^9.0.8",
-		"@serwist/window": "^9.0.8",
+		"@modyfi/vite-plugin-yaml": "^1.1.0",
+		"@shikijs/transformers": "^1.18.0",
 		"@sveltejs/adapter-vercel": "^5.4.4",
 		"@sveltejs/enhanced-img": "^0.3.8",
 		"@sveltejs/kit": "^2.5.28",

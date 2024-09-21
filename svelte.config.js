@@ -21,10 +21,10 @@ const config = {
 			'@assets/*': './user/assets/*',
 			'@posts/*': './user/posts/*',
 			'@config': './user/config.ts',
+			'@uses/*': './user/uses/*',
+			'@experiences/*': './user/experiences/*',
+			'@projects/*': './user/projects/*',
 			'@i18n': './src/lib/paraglide/messages.js'
-		},
-		serviceWorker: {
-			register: false
 		},
 		prerender: {
 			handleHttpError: 'warn',

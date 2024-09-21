@@ -1,10 +1,8 @@
 <script>
 	import { Button } from '@/components/ui/button';
-	import { getSingletonHighlighter } from 'shiki';
+	import { codeToHtml } from '../shiki';
 	import copy from 'lucide-svelte/icons/copy';
 	import check from 'lucide-svelte/icons/check';
-	import Loading from 'lucide-svelte/icons/loader-circle';
-	import * as m from '@i18n';
 	import { fade } from 'svelte/transition';
 
 	/**
@@ -17,17 +15,18 @@
 	 */
 	export let language;
 
-	const highlighter = getSingletonHighlighter({
-		themes: ['github-dark'],
-		langs: [language]
-	});
+	/**
+	 * @type {boolean}
+	 */
+	export let process;
 
-	const transform = async () => {
-		return (await highlighter).codeToHtml(content, {
-			lang: language,
-			theme: 'github-dark'
-		});
-	};
+	let html = '';
+
+	try {
+		html = codeToHtml(content, language);
+	} catch {
+		process = false;
+	}
 
 	let copyState = false;
 
@@ -41,43 +40,51 @@
 </script>
 
 <section class="not-prose relative w-full" dir="ltr">
-	{#await transform()}
-		<div
-			class="flex h-[150px] w-full items-center justify-center gap-2 rounded-xl bg-muted text-muted-foreground"
+	<div class="absolute right-0 top-3 flex w-full items-center justify-between px-4">
+		<span class="text-lg font-bold text-primary">{language}</span>
+		<Button
+			size="icon"
+			variant="ghost"
+			title="copy button"
+			on:click={onCopyClick}
+			class="rounded-xl hover:bg-transparent"
 		>
-			<Loading class="animate-spin" />
-			<span>{m.LOADING()}</span>
-		</div>
-	{:then html}
-		<div class="absolute right-0 top-3 flex w-full items-center justify-between px-4">
-			<span class="text-lg font-bold text-white">{language}</span>
-			<Button
-				size="icon"
-				variant="outline"
-				title="copy button"
-				on:click={onCopyClick}
-				class="rounded-xl"
-			>
-				{#key copyState}
-					<span in:fade={{ duration: 200 }}>
-						<svelte:component this={copyState ? check : copy} />
-					</span>
-				{/key}
-			</Button>
-		</div>
-		<div class="overflow-x-auto">
-			{@html html}
-		</div>
-	{/await}
+			{#key copyState}
+				<span in:fade={{ duration: 200 }}>
+					<svelte:component this={copyState ? check : copy} />
+				</span>
+			{/key}
+		</Button>
+	</div>
+	{#if process}
+		{@html html}
+	{:else}
+		<pre class="shiki bg-muted">
+			<code>
+				<slot />
+			</code>
+		</pre>
+	{/if}
 </section>
 
 <style lang="postcss">
 	:global(.shiki) {
 		@apply rounded-xl p-4 pb-8 pt-14;
-		overflow-x: auto;
-		white-space: pre;
 	}
-	:global(.shiki pre) {
-		white-space: pre-wrap;
+
+	:global(.shiki code) {
+		@apply text-wrap;
+		counter-reset: step;
+		counter-increment: step 0;
+	}
+
+	:global(.shiki code .line::before) {
+		content: counter(step);
+		counter-increment: step;
+		width: 1rem;
+		margin-right: 1.5rem;
+		display: inline-block;
+		text-align: right;
+		color: rgba(115, 138, 148, 0.4);
 	}
 </style>

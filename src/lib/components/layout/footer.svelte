@@ -14,7 +14,7 @@
 		<span
 			><a
 				class="anchor text-sm font-bold"
-				href={config.repo}
+				href={config.REPOSITORY}
 				target="_blank"
 				rel="noopener noreferrer">{m.SOURCE()}</a
 			></span

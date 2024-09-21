@@ -1,7 +1,7 @@
 import { createI18n } from '@inlang/paraglide-sveltekit';
-import * as runtime from '$lib/paraglide/runtime.js';
+import * as runtime from '@/paraglide/runtime.js';
 
 export const i18n = createI18n(runtime, {
-	prefixDefaultLanguage: 'never',
-	exclude: ['/sitemap.xml', '/OG']
+	prefixDefaultLanguage: 'always',
+	exclude: ['/sitemap.xml', /^\/OG\/.*/, '/robots.txt'],
 });
