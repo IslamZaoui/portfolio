@@ -10,5 +10,5 @@ Sitemap: ${config.SITE_URL}/sitemap.xml
 `.trim();
 
 export const GET = async () => {
-    return new Response(text);
+	return new Response(text);
 };

@@ -8,7 +8,7 @@
 	target="_blank"
 	rel="noreferrer"
 >
-	<div class="flex size-[40px] items-center justify-center p-1 rounded-md border-2 bg-white">
+	<div class="flex size-[40px] items-center justify-center rounded-md border-2 bg-white p-1">
 		<img src={project.icon} alt="{project.name} logo" />
 	</div>
 	<h3>{project.name}</h3>

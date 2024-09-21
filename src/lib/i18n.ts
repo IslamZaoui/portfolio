@@ -3,5 +3,5 @@ import * as runtime from '@/paraglide/runtime.js';
 
 export const i18n = createI18n(runtime, {
 	prefixDefaultLanguage: 'always',
-	exclude: ['/sitemap.xml', /^\/OG\/.*/, '/robots.txt'],
+	exclude: ['/sitemap.xml', /^\/OG\/.*/, '/robots.txt']
 });

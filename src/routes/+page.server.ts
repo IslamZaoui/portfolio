@@ -1,5 +1,5 @@
 import { getPosts } from '@/index.js';
-import { languageTag } from '@/paraglide/runtime.js'
+import { languageTag } from '@/paraglide/runtime.js';
 
 async function getExperices(): Promise<Experience[]> {
 	return (await import(`@experiences/${languageTag()}.yaml`)).default;
@@ -15,6 +15,6 @@ export async function load({ depends }) {
 	return {
 		posts: getPosts(languageTag()).slice(0, 5),
 		experiences: await getExperices(),
-		projects: await getProjects(),
+		projects: await getProjects()
 	};
 }

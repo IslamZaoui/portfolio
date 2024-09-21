@@ -31,24 +31,36 @@ export const POST: RequestHandler = async (event) => {
 
 	if (!form.valid) {
 		responseSonner('FORM_NOT_VALID');
-		return actionResult('failure', { form }, {
-			status: 400
-		});
+		return actionResult(
+			'failure',
+			{ form },
+			{
+				status: 400
+			}
+		);
 	}
 
 	if (!STATIC_FORM_KEY) {
 		responseSonner('API_KEY_NOT_FOUND');
-		return actionResult('failure', { form }, {
-			status: 403
-		});
+		return actionResult(
+			'failure',
+			{ form },
+			{
+				status: 403
+			}
+		);
 	}
 
 	const isRateLimited = await contactRateLimiter.isLimited(event);
 	if (isRateLimited) {
 		responseSonner('RATE_LIMITED');
-		return actionResult('failure', { form }, {
-			status: 429
-		});
+		return actionResult(
+			'failure',
+			{ form },
+			{
+				status: 429
+			}
+		);
 	}
 
 	const staticFormData = {
@@ -70,9 +82,13 @@ export const POST: RequestHandler = async (event) => {
 			const errorMessage = await response.text();
 			console.error('Submission failed:', errorMessage);
 			responseSonner('ERROR');
-			return actionResult('failure', { form }, {
-				status: response.status
-			});
+			return actionResult(
+				'failure',
+				{ form },
+				{
+					status: response.status
+				}
+			);
 		}
 
 		responseSonner('SUCCESS');

@@ -77,7 +77,7 @@ export const GET: RequestHandler = async () => {
 			},
 			changefreq: 'daily',
 			priority: 0.7,
-			lang: ["en", "ar"]
+			lang: ['en', 'ar']
 		}),
 		{
 			headers: {

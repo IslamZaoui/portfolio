@@ -5,9 +5,9 @@ const SITE_URL = dev ? 'http://localhost:5173' : 'https://islamzaoui.top';
 const SITE_NAME = 'Islam Zaoui';
 
 const SITE_KEYWORDS = {
-	en: "Islam Zaoui, Portfolio, Web Developer, Software Engineer",
-	ar: "Islam Zaoui, ملف الشخصي, مطور ويب, مهندس برمجيات"
-}
+	en: 'Islam Zaoui, Portfolio, Web Developer, Software Engineer',
+	ar: 'Islam Zaoui, ملف الشخصي, مطور ويب, مهندس برمجيات'
+};
 
 const SITE_DESCRIPTION = {
 	en: 'My Personal Portfolio and Blog',

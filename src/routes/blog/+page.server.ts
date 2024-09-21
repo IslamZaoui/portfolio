@@ -1,5 +1,5 @@
 import { getPosts } from '@/index';
-import { languageTag } from '@/paraglide/runtime.js'
+import { languageTag } from '@/paraglide/runtime.js';
 
 export const load = async (event) => {
 	event.depends('paraglide:lang');

@@ -1,19 +1,19 @@
 الأجهزة:
   - name: 'لابتوب ديل لاتيتيود 3510 (15.6"، 16 جيجابايت رام، 256 جيجابايت SSD)'
-    description: "جهازي الأساسي"
+    description: 'جهازي الأساسي'
 
 البرامج:
-  - name: "Cursor"
-    description: "بديل VSCode المدعوم بالذكاء الاصطناعي"
-    url: "https://cursor.com"
+  - name: 'Cursor'
+    description: 'بديل VSCode المدعوم بالذكاء الاصطناعي'
+    url: 'https://cursor.com'
 
-  - name: "Google Chrome"
-    description: "لا أستطيع الاستغناء عنه"
+  - name: 'Google Chrome'
+    description: 'لا أستطيع الاستغناء عنه'
 
-  - name: "Photopea"
-    description: "بديل فوتوشوب"
-    url: "https://photopea.com"
+  - name: 'Photopea'
+    description: 'بديل فوتوشوب'
+    url: 'https://photopea.com'
 
-  - name: "Excalidraw"
-    description: "تطبيق رسم"
-    url: "https://excalidraw.com"
+  - name: 'Excalidraw'
+    description: 'تطبيق رسم'
+    url: 'https://excalidraw.com'

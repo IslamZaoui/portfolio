@@ -29,7 +29,7 @@ declare global {
 		title: string;
 		at: string;
 		time?: Date;
-	}
+	};
 
 	type Project = {
 		name: string;
@@ -42,11 +42,11 @@ declare global {
 		name: string;
 		description: string;
 		url?: string;
-	}
+	};
 
 	type Uses = {
 		[key: string]: Tool[];
-	}
+	};
 }
 
-export { };
+export {};

@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { languageTag } from '@/paraglide/runtime.js'
+import { languageTag } from '@/paraglide/runtime.js';
 
 export const load = async ({ data: { slug } }) => {
 	const fallbackLang = languageTag() === 'ar' ? 'en' : 'ar';

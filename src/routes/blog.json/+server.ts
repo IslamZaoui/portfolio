@@ -1,7 +1,7 @@
 import { getPosts } from '@/index';
 import type { RequestHandler } from './$types';
 import { error } from '@sveltejs/kit';
-import { languageTag } from '@/paraglide/runtime.js'
+import { languageTag } from '@/paraglide/runtime.js';
 
 export const prerender = true;
 
