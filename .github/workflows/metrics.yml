@@ -26,3 +26,4 @@ jobs:
           plugin_pagespeed_detailed: yes
           plugin_pagespeed_pwa: yes
           plugin_pagespeed_url: https://islamzaoui.top/en
+          debug: yes
