@@ -1,8 +1,8 @@
 # Visit https://github.com/lowlighter/metrics#-documentation for full reference
 name: Metrics
 on:
-  # Schedule updates (onec a month)
-  schedule: [{ cron: '0 0 1 * *' }]
+  # Schedule updates (each month)
+  schedule: [{ cron: '0 1 1 * *' }]
   # Lines below let you run workflow manually and on each commit
   workflow_dispatch:
   push: { branches: ['main'] }
@@ -21,7 +21,7 @@ jobs:
           user: IslamZaoui
           template: classic
           base: ''
-          config_timezone: Africa/Algiers
+          config_timezone: Etc/GMT-1
           plugin_pagespeed: yes
           plugin_pagespeed_detailed: yes
           plugin_pagespeed_pwa: yes
