@@ -1,6 +1,6 @@
 <script>
 	import { Button } from '@/components/ui/button';
-	import { codeToHtml } from '../shiki';
+	import { availableLanguages, codeToHtml } from '../shiki';
 	import copy from 'lucide-svelte/icons/copy';
 	import check from 'lucide-svelte/icons/check';
 	import { fade } from 'svelte/transition';
@@ -20,13 +20,7 @@
 	 */
 	export let process;
 
-	let html = '';
-
-	try {
-		html = codeToHtml(content, language);
-	} catch {
-		process = false;
-	}
+	let html = codeToHtml(content, availableLanguages.includes(language) ? language : 'plaintext');
 
 	let copyState = false;
 
@@ -41,7 +35,7 @@
 
 <section class="not-prose relative w-full" dir="ltr">
 	<div class="absolute right-0 top-3 flex w-full items-center justify-between px-4">
-		<span class="text-lg font-bold text-primary">{language}</span>
+		<span class="text-lg font-bold text-white">{language}</span>
 		<Button
 			size="icon"
 			variant="ghost"
@@ -69,22 +63,10 @@
 
 <style lang="postcss">
 	:global(.shiki) {
-		@apply rounded-xl p-4 pb-8 pt-14;
+		@apply rounded-xl p-4 pb-8 pt-16;
 	}
 
 	:global(.shiki code) {
-		@apply text-wrap;
-		counter-reset: step;
-		counter-increment: step 0;
-	}
-
-	:global(.shiki code .line::before) {
-		content: counter(step);
-		counter-increment: step;
-		width: 1rem;
-		margin-right: 1.5rem;
-		display: inline-block;
-		text-align: right;
-		color: rgba(115, 138, 148, 0.4);
+		@apply text-wrap break-words;
 	}
 </style>

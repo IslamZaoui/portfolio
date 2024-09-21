@@ -19,6 +19,8 @@ const shiki = createHighlighterCoreSync({
 	engine: createJavaScriptRegexEngine()
 });
 
+export const availableLanguages = shiki.getLoadedLanguages()
+
 export const codeToHtml = (content: string, language: string) => {
 	return shiki.codeToHtml(content, {
 		lang: language,

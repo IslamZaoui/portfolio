@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { writable } from 'svelte/store';
+	import { writable, type Unsubscriber } from 'svelte/store';
 	import { page } from '$app/stores';
 	import * as m from '@i18n';
 	import { i18n } from '@/i18n';
 	import { fly } from 'svelte/transition';
+	import { onDestroy } from 'svelte';
 
 	$: nav = [
 		{
@@ -34,20 +35,29 @@
 
 	let selectedIndex = writable(0);
 	let navRefs: HTMLAnchorElement[] = [];
-	const position = writable({ width: 0, left: 0 });
+	const position = writable({ width: 0, left: 0, opacity: 0 });
+
+	let pageUnsubscribe: Unsubscriber;
+	let selectedIndexUnsubscribe: Unsubscriber;
 
 	$: if (nav) {
-		page.subscribe(() => {
+		pageUnsubscribe = page.subscribe(() => {
 			$selectedIndex = nav.findIndex((item) => item.selected);
 		});
 
-		selectedIndex.subscribe((index) => {
+		selectedIndexUnsubscribe = selectedIndex.subscribe((index) => {
 			position.set({
 				width: navRefs[index]?.offsetWidth,
-				left: navRefs[index]?.offsetLeft
+				left: navRefs[index]?.offsetLeft,
+				opacity: navRefs[index] ? 1 : 0
 			});
 		});
 	}
+
+	onDestroy(() => {
+		pageUnsubscribe?.();
+		selectedIndexUnsubscribe?.();
+	});
 </script>
 
 <nav class="relative mb-2 mt-6 flex w-fit gap-2" in:fly={{ duration: 200, y: 20 }}>
@@ -57,7 +67,7 @@
 			bind:this={navRefs[i]}
 			{title}
 			class:text-background={selected}
-			class="relative z-10 p-2 px-3 text-sm font-medium"
+			class="relative z-10 p-2 px-3 text-sm font-medium transition-colors duration-300"
 		>
 			{name}
 		</a>
@@ -65,6 +75,6 @@
 
 	<span
 		class="transition-position absolute bottom-0 top-0 z-0 rounded-xl bg-foreground duration-300"
-		style="width: {$position.width}px; left: {$position.left}px"
+		style="width: {$position.width}px; left: {$position.left}px; opacity: {$position.opacity}"
 	/>
 </nav>

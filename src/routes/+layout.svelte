@@ -43,6 +43,5 @@
 		<slot slot="page" />
 		<Layout.Footer slot="footer" />
 	</Layout.Root>
-
 	<GoToTop />
 </ParaglideJS>

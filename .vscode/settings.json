@@ -3,6 +3,5 @@
 		"./user/experiences/schema.json": ["experiences/*.yaml"],
 		"./user/projects/schema.json": ["projects/*.yaml"],
 		"./user/uses/schema.json": ["uses/*.yaml"]
-	},
-	"typescript.tsdk": "node_modules\\typescript\\lib"
+	}
 }

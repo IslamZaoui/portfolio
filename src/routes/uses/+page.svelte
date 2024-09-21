@@ -15,7 +15,7 @@
 <section class="w-full space-y-4">
 	{#each Object.entries(data.uses) as [title, tools]}
 		<h3 class="text-xl font-semibold">{title}</h3>
-		<ul class="ml-5 list-disc space-y-3">
+		<ul class="mx-9 list-disc space-y-3">
 			{#each tools as tool}
 				<li>
 					<svelte:element
