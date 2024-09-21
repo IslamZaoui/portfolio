@@ -8,8 +8,6 @@
 Simply Awesome <b>Blazingly Fast</b> Portfolio built with <b>SvelteKit</b> and <b>❤</b>
 </p>
 
-<p align="center"><a href="https://pagespeed.web.dev/analysis?url=https://islamzaoui.top/&form_factor=desktop"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://github.com/islamzaoui/portfolio/blob/main/github-metrics.svg"></a></p>
-
 ## Used Technologies
 
 - **SvelteKit**: A framework for building web applications.
