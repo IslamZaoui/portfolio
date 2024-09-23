@@ -1,6 +1,6 @@
 {
 	"$schema": "https://openapi.vercel.sh/vercel.json",
-	"installCommand": "chmod +x vercel.bash && ./vercel.bash && pnpm install",
+	"installCommand": "chmod +x vercel.bash && ./vercel.bash && yarn install",
 	"headers": [
 		{
 			"source": "/(.*)",
