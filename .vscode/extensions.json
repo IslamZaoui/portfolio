@@ -1,10 +1,10 @@
 {
-  "recommendations": [
-    "svelte.svelte-vscode",
-    "inlang.vs-code-extension",
-    "stripe.markdoc-language-support",
-    "esbenp.prettier-vscode",
-    "csstools.postcss",
-    "bradlc.vscode-tailwindcss"
-  ]
+	"recommendations": [
+		"svelte.svelte-vscode",
+		"inlang.vs-code-extension",
+		"stripe.markdoc-language-support",
+		"esbenp.prettier-vscode",
+		"csstools.postcss",
+		"bradlc.vscode-tailwindcss"
+	]
 }

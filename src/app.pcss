@@ -69,14 +69,8 @@
 }
 
 @layer base {
-	@font-face {
-		font-family: 'Noto Kufi';
-		src: url('/fonts/NotoKufiArabic-VariableFont_wght.ttf') format('truetype');
-		font-display: swap;
-	}
-
 	* {
-		@apply text-notokufi border-border;
+		@apply border-border;
 	}
 
 	body {
@@ -111,10 +105,6 @@
 }
 
 @layer utilities {
-	.text-notokufi {
-		font-family: 'Noto Kufi', sans-serif;
-	}
-
 	.prose {
 		@apply prose-img:aspect-video prose-img:w-full prose-img:rounded-xl;
 

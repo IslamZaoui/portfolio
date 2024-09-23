@@ -1,5 +1,4 @@
 <script lang="ts">
-	import pfp from '@assets/pfp.png?enhanced';
 	import { Separator } from '@/components/ui/separator';
 	import LightSwitch from '@/components/custom/light-switch.svelte';
 	import LangSwitch from '@/components/custom/lang-switch.svelte';
@@ -13,7 +12,7 @@
 
 <div class="my-8 flex flex-col items-start justify-between gap-2">
 	<div class="flex items-center gap-3">
-		<enhanced:img class="size-[60px] rounded-full" src={pfp} alt="profile" />
+		<enhanced:img class="size-[60px] rounded-full" src="@assets/pfp.png" alt="profile" />
 		<div>
 			<h1 class="text-lg font-bold">Islam Zaoui</h1>
 			<p class="text-muted-foreground">{m.SUBTITLE()}</p>

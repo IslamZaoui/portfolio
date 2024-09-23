@@ -1,8 +1,6 @@
 import { ImageResponse } from './response';
 import OG from './og.svelte';
 
-const fontUrl = '/fonts/Tajawal-Bold.ttf';
-
 const height = 630;
 const width = 1200;
 
@@ -18,22 +16,14 @@ function flipArabicText(text: string) {
 	return reversedText;
 }
 
-export const GET = async ({ params, fetch }) => {
+export const GET = async ({ params }) => {
 	const text = isStringArabic(params.text) ? flipArabicText(params.text) : params.text;
-	const fontData = await fetch(fontUrl).then((res) => res.arrayBuffer());
 
 	return new ImageResponse(
-		OG as any,
+		OG,
 		{
 			width,
-			height,
-			fonts: [
-				{
-					name: 'Tajawal',
-					data: fontData,
-					style: 'normal'
-				}
-			]
+			height
 		},
 		{
 			text

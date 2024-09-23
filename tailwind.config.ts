@@ -57,8 +57,7 @@ const config: Config = {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				sans: [...fontFamily.sans],
-				notokufi: ['Noto Kufi', 'sans-serif']
+				sans: [...fontFamily.sans]
 			}
 		}
 	}

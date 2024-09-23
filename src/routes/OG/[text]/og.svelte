@@ -22,5 +22,6 @@
 		text-align: center;
 		font-size: 5.5rem;
 		color: white;
+		font-weight: bold;
 	}
 </style>

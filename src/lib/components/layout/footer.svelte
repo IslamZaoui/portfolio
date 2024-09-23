@@ -1,12 +1,10 @@
 <script>
 	import config from '@config';
-	// @ts-ignore
-	import image from '@assets/palestine.webp?enhance';
 	import * as m from '@i18n';
 </script>
 
 <footer class="mt-16 flex flex-col items-center justify-center gap-2 p-4 pb-8">
-	<img src={image} alt="palestine" class="size-[90px]" />
+	<enhanced:img src="@assets/palestine.webp" alt="palestine" class="size-[90px]" />
 	<p class="text-sm">
 		{m.COPYRIGHT()}
 	</p>

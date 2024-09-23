@@ -1,5 +1,4 @@
 // copied from https://github.com/jdgamble555/sveltekit-vercel-og
-
 import { ImageResponse as VercelOGImageResponse } from '@vercel/og';
 import type { ComponentProps, ComponentType, SvelteComponent } from 'svelte';
 import { html } from 'satori-html';
@@ -34,7 +33,6 @@ export class ImageResponse<T extends SvelteComponent> extends VercelOGImageRespo
 	) {
 		const result = (component as unknown as SvelteComponentSSR<T>).render(props);
 		const element = html(unescapeHtml(`${result.html}<style>${result.css.code}</style>`));
-		// @ts-ignore
 		super(element, options);
 	}
 }
