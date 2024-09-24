@@ -15,11 +15,6 @@
 	 */
 	export let language;
 
-	/**
-	 * @type {boolean}
-	 */
-	export let process;
-
 	let html = codeToHtml(content, availableLanguages.includes(language) ? language : 'plaintext');
 
 	let copyState = false;
@@ -33,7 +28,7 @@
 	}
 </script>
 
-<section class="not-prose relative w-full" dir="ltr">
+<div class="not-prose relative w-full" dir="ltr">
 	<div class="absolute right-0 top-3 flex w-full items-center justify-between px-4">
 		<span class="text-lg font-bold text-white">{language}</span>
 		<Button
@@ -50,16 +45,8 @@
 			{/key}
 		</Button>
 	</div>
-	{#if process}
-		{@html html}
-	{:else}
-		<pre class="shiki bg-muted">
-			<code>
-				<slot />
-			</code>
-		</pre>
-	{/if}
-</section>
+	{@html html}
+</div>
 
 <style lang="postcss">
 	:global(.shiki) {

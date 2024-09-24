@@ -2,20 +2,19 @@ import { createHighlighterCoreSync } from 'shiki/core';
 import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
 import {
 	transformerNotationDiff,
-	transformerMetaHighlight,
-	transformerNotationFocus,
-	transformerNotationErrorLevel
+	transformerNotationErrorLevel,
+	transformerNotationHighlight
 } from '@shikijs/transformers';
 
 import java from 'shiki/langs/java.mjs';
-import pyhton from 'shiki/langs/python.mjs';
+import python from 'shiki/langs/python.mjs';
 import bash from 'shiki/langs/bash.mjs';
 
 import githubDark from 'shiki/themes/github-dark.mjs';
 
 const shiki = createHighlighterCoreSync({
 	themes: [githubDark],
-	langs: [java, pyhton, bash],
+	langs: [java, python, bash],
 	engine: createJavaScriptRegexEngine()
 });
 
@@ -27,9 +26,8 @@ export const codeToHtml = (content: string, language: string) => {
 		theme: 'github-dark',
 		transformers: [
 			transformerNotationDiff(),
-			transformerNotationFocus(),
 			transformerNotationErrorLevel(),
-			transformerMetaHighlight()
+			transformerNotationHighlight()
 		]
 	});
 };

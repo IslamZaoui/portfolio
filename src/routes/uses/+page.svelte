@@ -17,7 +17,7 @@
 		<h3 class="text-xl font-semibold">{title}</h3>
 		<ul class="mx-9 list-disc space-y-3">
 			{#each tools as tool}
-				<li>
+				<li class="flex items-center gap-2">
 					<svelte:element
 						this={tool.url ? 'a' : 'span'}
 						class={tool.url ? 'hover:underline' : ''}
@@ -26,8 +26,10 @@
 					>
 						{tool.name}
 					</svelte:element>
-					-
-					<span class="text-muted-foreground">{tool.description}</span>
+					{#if tool.description}
+						-
+						<span class="text-muted-foreground">{tool.description}</span>
+					{/if}
 				</li>
 			{/each}
 		</ul>

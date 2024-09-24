@@ -19,7 +19,8 @@
 					"format": "uri"
 				}
 			},
-			"required": ["name", "description"]
+			"required": ["name"],
+			"additionalProperties": false
 		}
 	}
 }

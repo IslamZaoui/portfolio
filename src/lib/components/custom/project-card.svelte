@@ -11,6 +11,6 @@
 	<div class="flex size-[40px] items-center justify-center rounded-md border-2 bg-white p-1">
 		<img src={project.icon} alt="{project.name} logo" />
 	</div>
-	<h3>{project.name}</h3>
+	<h4>{project.name}</h4>
 	<p class="text-sm text-muted-foreground">{project.description}</p>
 </a>

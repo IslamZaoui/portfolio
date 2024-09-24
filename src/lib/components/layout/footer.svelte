@@ -4,7 +4,7 @@
 </script>
 
 <footer class="mt-16 flex flex-col items-center justify-center gap-2 p-4 pb-8">
-	<enhanced:img src="@assets/palestine.webp" alt="palestine" class="size-[90px]" />
+	<enhanced:img src="@assets/palestine.webp" width="90" height="90" alt="palestine" />
 	<p class="text-sm">
 		{m.COPYRIGHT()}
 	</p>

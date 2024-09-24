@@ -74,7 +74,7 @@
 	{/each}
 
 	<span
-		class="transition-position absolute bottom-0 top-0 z-0 rounded-xl bg-foreground duration-300"
+		class="transition-position absolute z-0 h-full rounded-xl bg-foreground duration-300"
 		style="width: {$position.width}px; left: {$position.left}px; opacity: {$position.opacity}"
 	/>
 </nav>

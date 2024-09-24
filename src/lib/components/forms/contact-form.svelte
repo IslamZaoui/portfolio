@@ -26,6 +26,7 @@
 				<Form.Label class="pl-3">{m.NAME()}</Form.Label>
 				<Input
 					class="border-none bg-muted focus-visible:ring-0 focus-visible:ring-card focus-visible:ring-offset-0"
+					autocomplete="name"
 					{...attrs}
 					bind:value={$formData.name}
 				/>
@@ -36,6 +37,7 @@
 			<Form.Control let:attrs>
 				<Form.Label class="pl-3">{m.EMAIL()}</Form.Label>
 				<Input
+					autocomplete="email"
 					class="border-none bg-muted focus-visible:ring-0 focus-visible:ring-card focus-visible:ring-offset-0"
 					{...attrs}
 					bind:value={$formData.email}

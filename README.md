@@ -60,7 +60,7 @@ bun dev
 ## Acknowledges
 
 - [ansubkhan](https://ansubkhan.com/) for the inspiration
-- [shadcn-svelte](https://github.com/shadcn-svelte) for the best UI library
+- [shadcn-svelte](https://github.com/shadcn-svelte) best UI library
 
 ## License
 

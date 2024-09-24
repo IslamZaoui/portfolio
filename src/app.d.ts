@@ -37,7 +37,7 @@ declare global {
 
 	type Tool = {
 		name: string;
-		description: string;
+		description?: string;
 		url?: string;
 	};
 
