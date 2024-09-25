@@ -26,9 +26,8 @@ const config = {
 			'@projects/*': './user/projects/*',
 			'@i18n': './src/lib/paraglide/messages.js'
 		},
-		prerender: {
-			handleHttpError: 'warn',
-			origin: 'https://islamzaoui.top'
+		csp: {
+			mode: 'nonce'
 		}
 	}
 };

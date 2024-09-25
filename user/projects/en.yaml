@@ -1,9 +1,9 @@
 - name: 'Attendance Tracker'
   description: 'An app that allows you to track your students attendance.'
   url: 'https://github.com/IslamZaoui/Attendance-Tracker'
-  icon: 'https://www.svgrepo.com/show/502413/attendance.svg'
+  icon: '/assets/icons/attendance-tracker.png'
 
 - name: 'Intellect'
   description: 'Web E-learning platform.'
   url: 'https://github.com/IslamZaoui/Intellect'
-  icon: 'https://www.svgrepo.com/show/40999/brain.svg'
+  icon: '/assets/icons/intellect.png'

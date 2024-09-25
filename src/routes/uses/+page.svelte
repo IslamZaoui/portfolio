@@ -17,9 +17,10 @@
 		<h3 class="text-xl font-semibold">{title}</h3>
 		<ul class="mx-9 list-disc space-y-3">
 			{#each tools as tool}
-				<li class="flex items-center gap-2">
+				<li>
 					<svelte:element
 						this={tool.url ? 'a' : 'span'}
+						dir="ltr"
 						class={tool.url ? 'hover:underline' : ''}
 						href={tool.url}
 						target="_blank"
