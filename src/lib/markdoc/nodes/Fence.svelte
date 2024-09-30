@@ -36,7 +36,7 @@
 			variant="ghost"
 			title="copy button"
 			on:click={onCopyClick}
-			class="rounded-xl hover:bg-transparent"
+			class="rounded-xl text-white hover:text-gray-300 hover:bg-transparent"
 		>
 			{#key copyState}
 				<span in:fade={{ duration: 200 }}>

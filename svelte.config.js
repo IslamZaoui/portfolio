@@ -27,7 +27,24 @@ const config = {
 			'@i18n': './src/lib/paraglide/messages.js'
 		},
 		csp: {
-			mode: 'nonce'
+			mode: 'auto',
+			directives: {
+				'base-uri': ["'self'"],
+				'child-src': ["'self'"],
+				'connect-src': ["'self'", 'ws://localhost:*', "wss://ws-us3.pusher.com", "https://sockjs-us3.pusher.com"],
+				'img-src': ["'self'", 'https:'],
+				'font-src': ["'self'"],
+				'form-action': ["'self'"],
+				'frame-ancestors': ["'self'"],
+				'frame-src': ["'self'", 'https://www.youtube-nocookie.com', "https://vercel.live"],
+				'manifest-src': ["'self'"],
+				'media-src': ["'self'", 'https:'],
+				'object-src': ["'none'"],
+				'style-src': ["'self'", "'unsafe-inline'"],
+				'default-src': ["'self'"],
+				'script-src': ["'self'", "https://vercel.live"],
+				'worker-src': ["'self'"]
+			}
 		}
 	}
 };

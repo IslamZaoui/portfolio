@@ -1,5 +1,5 @@
 <script lang="ts">
-	import config from '@config';
+	import { EMAIL, LOCATION } from '@config';
 	import Mail from 'lucide-svelte/icons/mail';
 	import Location from 'lucide-svelte/icons/map-pin';
 	import { ContactForm } from '@/components/forms';
@@ -25,7 +25,7 @@
 			</div>
 			<div class="flex flex-col gap-2">
 				<h3 class="text-lg font-semibold">{m.EMAIL()}</h3>
-				<a href="mailto:{config.EMAIL}" class="anchor hover:underline">{config.EMAIL}</a>
+				<a href="mailto:{EMAIL}" class="anchor hover:underline">{EMAIL}</a>
 			</div>
 		</div>
 		<div class="flex items-center gap-2">
@@ -34,7 +34,7 @@
 			</div>
 			<div class="flex flex-col gap-2">
 				<h3 class="text-lg font-semibold">{m.LOCATION()}</h3>
-				<span>{config.LOCATION[languageTag()]}</span>
+				<span>{LOCATION[languageTag()]}</span>
 			</div>
 		</div>
 	</div>

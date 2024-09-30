@@ -1,4 +1,4 @@
-import config from '@config';
+import { SITE_URL } from '@config';
 
 export const prerender = true;
 
@@ -6,7 +6,7 @@ const text = `
 User-agent: *
 Allow: /
 
-Sitemap: ${config.SITE_URL}/sitemap.xml
+Sitemap: ${SITE_URL}/sitemap.xml
 `.trim();
 
 export const GET = async () => {

@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import config from '@config';
+import { SITE_URL } from '@config';
 import { getPosts } from '@/index';
 
 export const prerender = true;
@@ -61,7 +61,7 @@ export const GET: RequestHandler = async () => {
 
 	return new Response(
 		sitemap({
-			origin: config.SITE_URL,
+			origin: SITE_URL,
 			staticvalues: ['', '/blog', '/uses', '/contact'],
 			dynamicvalues: {
 				'/blog/[slug]': [

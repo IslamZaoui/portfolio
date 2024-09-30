@@ -1,46 +1,46 @@
 Hardware:
   - name: 'Laptop Dell latitude 3510 (15.6", 16GB RAM, 256GB SSD)'
-    description: "جهازي الأساسي"
+    description: 'جهازي الأساسي'
 
 Software:
-  - name: "Powershell 7"
-    description: "بيئة اوامر قوية"
-    url: "https://github.com/PowerShell/PowerShell"
+  - name: 'Powershell 7'
+    description: 'بيئة اوامر قوية'
+    url: 'https://github.com/PowerShell/PowerShell'
 
-  - name: "Oh My Posh"
-    description: "مظهر لبيئة اوامر"
-    url: "https://ohmyposh.dev/"
+  - name: 'Oh My Posh'
+    description: 'مظهر لبيئة اوامر'
+    url: 'https://ohmyposh.dev/'
 
-  - name: "Cursor"
-    description: "بديل VSCode المدعوم بالذكاء الاصطناعي"
-    url: "https://cursor.com"
+  - name: 'Cursor'
+    description: 'بديل VSCode المدعوم بالذكاء الاصطناعي'
+    url: 'https://cursor.com'
 
-  - name: "StartIsBack / StartAllBack"
-    description: "لإصلاح واجهة Windows 10/11"
+  - name: 'StartIsBack / StartAllBack'
+    description: 'لإصلاح واجهة Windows 10/11'
 
-  - name: "Nilesoft Shell"
-    description: "مدير قائمة سياق قوي ومجاني ومفتوح المصدر"
-    url: "https://nilesoft.org/"
+  - name: 'Nilesoft Shell'
+    description: 'مدير قائمة سياق قوي ومجاني ومفتوح المصدر'
+    url: 'https://nilesoft.org/'
 
-  - name: "Excalidraw"
-    description: "تطبيق رسم"
-    url: "https://excalidraw.com"
+  - name: 'Excalidraw'
+    description: 'تطبيق رسم'
+    url: 'https://excalidraw.com'
 
 Config:
-  - name: "مظهر Oh My Posh"
-    description: "Clean detailed"
-    url: "https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/clean-detailed.omp.json"
+  - name: 'مظهر Oh My Posh'
+    description: 'Clean detailed'
+    url: 'https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/clean-detailed.omp.json'
 
-  - name: "خلفية بيئة الاوامر"
-    description: "AOT - To be continued..."
-    url: "/config/terminal/a4xrlmdihbha1-transformed.png"
+  - name: 'خلفية بيئة الاوامر'
+    description: 'AOT - To be continued...'
+    url: '/config/terminal/a4xrlmdihbha1-transformed.png'
 
-  - name: "خط بيئة الاوامر"
-    description: "FiraCode Nerd Font"
-    url: "https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode"
+  - name: 'خط بيئة الاوامر'
+    description: 'FiraCode Nerd Font'
+    url: 'https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode'
 
-  - name: "إعدادات VSCode"
-    url: "/config/vscode/settings.json"
+  - name: 'إعدادات VSCode'
+    url: '/config/vscode/settings.json'
 
-  - name: "إضافات VSCode"
-    url: "/config/vscode/extensions.json"
+  - name: 'إضافات VSCode'
+    url: '/config/vscode/extensions.json'

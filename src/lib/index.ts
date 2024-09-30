@@ -1,3 +1,4 @@
+import { dev } from '$app/environment';
 import { formatDistanceToNow } from 'date-fns';
 import { enUS, ar } from 'date-fns/locale';
 
@@ -26,7 +27,7 @@ export function getPosts(lang: 'en' | 'ar' = 'en'): Post[] {
 		if (file && typeof file === 'object' && 'frontmatter' in file && slug) {
 			const frontmatter = file.frontmatter as Post;
 			const post = { ...frontmatter, slug } satisfies Post;
-			post.published && posts.push(post);
+			if (post.published || dev) posts.push(post);
 		}
 	}
 

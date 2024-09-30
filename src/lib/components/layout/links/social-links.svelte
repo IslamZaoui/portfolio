@@ -3,26 +3,26 @@
 	import Github from 'lucide-svelte/icons/github';
 	import Linkedin from 'lucide-svelte/icons/linkedin';
 	import Youtube from 'lucide-svelte/icons/youtube';
-	import config from '@config';
+	import { SOCIAL_LINKS } from '@config';
 
 	const socials = [
 		{
-			url: `https://x.com/${config.SOCIAL_LINKS.TWITTER}`,
+			url: `https://x.com/${SOCIAL_LINKS.TWITTER}`,
 			icon: Twitter,
 			title: 'Twitter Profile'
 		},
 		{
-			url: `https://github.com/${config.SOCIAL_LINKS.GITHUB}`,
+			url: `https://github.com/${SOCIAL_LINKS.GITHUB}`,
 			icon: Github,
 			title: 'GitHub Profile'
 		},
 		{
-			url: `https://linkedin.com/in/${config.SOCIAL_LINKS.LINKEDIN}`,
+			url: `https://linkedin.com/in/${SOCIAL_LINKS.LINKEDIN}`,
 			icon: Linkedin,
 			title: 'LinkedIn Profile'
 		},
 		{
-			url: `https://youtube.com/${config.SOCIAL_LINKS.YOUTUBE}`,
+			url: `https://youtube.com/${SOCIAL_LINKS.YOUTUBE}`,
 			icon: Youtube,
 			title: 'YouTube Channel'
 		}

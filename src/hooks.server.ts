@@ -1,18 +1,21 @@
 import { sequence } from '@sveltejs/kit/hooks';
 import { i18n } from '@/i18n';
-import { SvelteKitSecurityHeaders, RuleSet } from '@faranglao/sveltekit-security-headers';
-import config from '@config';
+import { securityHeaders, rules } from '@islamzaoui/securekit';
+import { SITE_URL } from '@config';
+import { dev } from '$app/environment';
 
-const securityHeaders = SvelteKitSecurityHeaders({
-	headers: [
-		...RuleSet.SvelteKitSpecific,
-		...RuleSet.OwaspRecommendedMinimal,
-		{
-			name: 'Access-Control-Allow-Origin',
-			value: config.SITE_URL
-		}
-	],
-	verbose: false
-});
-
-export const handle = sequence(i18n.handle(), securityHeaders.handle);
+export const handle = sequence(
+	i18n.handle(),
+	securityHeaders({
+		headers: {
+			...rules.defaultHeaders,
+			'Access-Control-Allow-Origin': SITE_URL
+		},
+		csp: {
+			directives: {
+				'default-src': [SITE_URL]
+			}
+		},
+		debug: dev
+	}).handle
+);

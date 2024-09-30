@@ -1,5 +1,5 @@
 <script>
-	import config from '@config';
+	import { REPOSITORY } from '@config';
 	import * as m from '@i18n';
 </script>
 
@@ -12,7 +12,7 @@
 		<span
 			><a
 				class="anchor text-sm font-bold"
-				href={config.REPOSITORY}
+				href={REPOSITORY}
 				target="_blank"
 				rel="noopener noreferrer">{m.SOURCE()}</a
 			></span
