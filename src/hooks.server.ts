@@ -9,7 +9,11 @@ export const handle = sequence(
 	securityHeaders({
 		headers: {
 			...rules.defaultHeaders,
-			'Access-Control-Allow-Origin': SITE_URL
+			'X-XSS-Protection': '1; mode=block',
+			'Access-Control-Allow-Origin': SITE_URL,
+			'Cross-Origin-Embedder-Policy': 'require-corp',
+			'Cross-Origin-Opener-Policy': 'same-origin',
+			'Cross-Origin-Resource-Policy': 'cross-origin'
 		},
 		csp: {
 			directives: {
