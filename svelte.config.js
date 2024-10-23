@@ -3,6 +3,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { markdoc } from 'svelte-markdoc-preprocess';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import highlighter from './src/lib/markdoc/shiki.js';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,7 +11,8 @@ const config = {
 		vitePreprocess(),
 		markdoc({
 			tags: join(dirname(fileURLToPath(import.meta.url)), './src/lib/markdoc/tags/Tags.svelte'),
-			nodes: join(dirname(fileURLToPath(import.meta.url)), './src/lib/markdoc/nodes/Nodes.svelte')
+			nodes: join(dirname(fileURLToPath(import.meta.url)), './src/lib/markdoc/nodes/Nodes.svelte'),
+			highlighter
 		})
 	],
 	extensions: ['.svelte', '.md'],

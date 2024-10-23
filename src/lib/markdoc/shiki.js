@@ -18,11 +18,17 @@ const shiki = createHighlighterCoreSync({
 	engine: createJavaScriptRegexEngine()
 });
 
-export const availableLanguages = shiki.getLoadedLanguages();
+const availableLanguages = shiki.getLoadedLanguages();
 
-export const codeToHtml = (content: string, language: string) => {
+/**
+ * @param {string} content Code content as a string.
+ * @param {string} language Language to use for highlighting.
+ * @returns {Promise<string>} The highlighted HTML.
+ */
+export default async (content, language) => {
+	const lang = availableLanguages.includes(language) ? language : 'plaintext';
 	return shiki.codeToHtml(content, {
-		lang: language,
+		lang,
 		theme: 'github-dark',
 		transformers: [
 			transformerNotationDiff(),

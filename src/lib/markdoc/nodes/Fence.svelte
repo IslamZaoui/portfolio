@@ -1,6 +1,5 @@
 <script>
 	import { Button } from '@/components/ui/button';
-	import { availableLanguages, codeToHtml } from '../shiki';
 	import copy from 'lucide-svelte/icons/copy';
 	import check from 'lucide-svelte/icons/check';
 	import { fade } from 'svelte/transition';
@@ -14,8 +13,6 @@
 	 * @type {string}
 	 */
 	export let language;
-
-	let html = codeToHtml(content, availableLanguages.includes(language) ? language : 'plaintext');
 
 	let copyState = false;
 
@@ -45,7 +42,7 @@
 			{/key}
 		</Button>
 	</div>
-	{@html html}
+	<slot />
 </div>
 
 <style lang="postcss">
