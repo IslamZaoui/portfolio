@@ -5,16 +5,21 @@
 	import Calendar from 'lucide-svelte/icons/calendar';
 	import * as m from '@i18n';
 	import Head from '@/components/custom/seo.svelte';
-	import { languageTag } from '$lib/paraglide/runtime.js';
+	import { languageTag } from '$lib/paraglide/runtime';
 
-	export let data;
+	let { data } = $props();
+	let Content = $derived(data.content);
 </script>
 
 <Head title={data.meta.title} description={data.meta.description} image="/OG/{data.meta.title}" />
 
 <header class="flex w-full flex-col gap-3">
 	<a href="/blog" class="flex items-center text-[16px]" title={m.BACK()}>
-		<svelte:component this={languageTag() === 'en' ? BackEN : BackAR} size={16} />
+		{#if languageTag() === 'en'}
+			<BackEN />
+		{:else}
+			<BackAR />
+		{/if}
 		{m.BACK()}
 	</a>
 	<h2 class="text-4xl font-bold">{data.meta.title}</h2>
@@ -28,5 +33,5 @@
 </header>
 
 <article class="prose max-w-full select-text dark:prose-invert" dir="auto">
-	<svelte:component this={data.content} />
+	{@render Content()}
 </article>

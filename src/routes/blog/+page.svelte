@@ -3,7 +3,7 @@
 	import PostCard from '@/components/custom/post-card.svelte';
 	import * as m from '@i18n';
 
-	export let data;
+	let { data } = $props();
 </script>
 
 <Head title={m.BLOG()} />

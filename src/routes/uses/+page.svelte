@@ -2,7 +2,7 @@
 	import Head from '@/components/custom/seo.svelte';
 	import * as m from '@i18n';
 
-	export let data;
+	let { data } = $props();
 </script>
 
 <Head title={m.USES()} />

@@ -9,29 +9,31 @@
 	import { getFlash } from 'sveltekit-flash-message';
 	import GoToTop from '@/components/custom/go-to-top.svelte';
 
-	export let data;
+	let { data, children } = $props();
 
 	const flash = getFlash(page);
-	$: if ($flash) {
-		switch ($flash.type) {
-			case 'success':
-				toast.success($flash.message, { description: $flash.description });
-				break;
-			case 'error':
-				toast.error($flash.message, { description: $flash.description });
-				break;
-			case 'warning':
-				toast.warning($flash.message, { description: $flash.description });
-				break;
-			case 'info':
-				toast.info($flash.message, { description: $flash.description });
-				break;
-			default:
-				toast($flash.message, { description: $flash.description });
-				break;
+	$effect(() => {
+		if ($flash) {
+			switch ($flash.type) {
+				case 'success':
+					toast.success($flash.message, { description: $flash.description });
+					break;
+				case 'error':
+					toast.error($flash.message, { description: $flash.description });
+					break;
+				case 'warning':
+					toast.warning($flash.message, { description: $flash.description });
+					break;
+				case 'info':
+					toast.info($flash.message, { description: $flash.description });
+					break;
+				default:
+					toast($flash.message, { description: $flash.description });
+					break;
+			}
+			$flash = undefined;
 		}
-		$flash = undefined;
-	}
+	});
 </script>
 
 <Toaster richColors />
@@ -39,9 +41,13 @@
 
 <ParaglideJS {i18n}>
 	<Layout.Root url={data.url}>
-		<Layout.Header slot="header" />
-		<slot slot="page" />
-		<Layout.Footer slot="footer" />
+		{#snippet header()}
+			<Layout.Header />
+		{/snippet}
+		{@render children()}
+		{#snippet footer()}
+			<Layout.Footer />
+		{/snippet}
 	</Layout.Root>
 	<GoToTop />
 </ParaglideJS>

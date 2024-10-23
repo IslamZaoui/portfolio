@@ -10,7 +10,7 @@
 	import Button from '@/components/ui/button/button.svelte';
 	import { contactSchema, type ContactForm } from '@/schemas/contact';
 
-	export let data: SuperValidated<Infer<ContactForm>>;
+	let { data }: { data: SuperValidated<Infer<ContactForm>> } = $props();
 
 	const form = superForm(data, {
 		validators: zod(contactSchema)

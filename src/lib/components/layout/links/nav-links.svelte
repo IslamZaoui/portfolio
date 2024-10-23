@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { writable, type Unsubscriber } from 'svelte/store';
 	import { page } from '$app/stores';
 	import * as m from '@i18n';
 	import { i18n } from '@/i18n';
 	import { fly } from 'svelte/transition';
-	import { onDestroy } from 'svelte';
 
-	$: nav = [
+	let nav = $derived([
 		{
 			name: m.ABOUT(),
 			href: `/`,
@@ -31,32 +29,18 @@
 			selected: $page.data.url.startsWith(i18n.resolveRoute('/contact')),
 			title: m.CONTACTME()
 		}
-	];
+	]);
 
-	let selectedIndex = writable(0);
+	let selectedIndex = $derived(nav.findIndex((item) => item.selected));
 	let navRefs: HTMLAnchorElement[] = [];
-	const position = writable({ width: 0, left: 0, opacity: 0 });
+	let position = $state({ width: 0, left: 0, opacity: 0 });
 
-	let pageUnsubscribe: Unsubscriber;
-	let selectedIndexUnsubscribe: Unsubscriber;
-
-	$: if (nav) {
-		pageUnsubscribe = page.subscribe(() => {
-			$selectedIndex = nav.findIndex((item) => item.selected);
-		});
-
-		selectedIndexUnsubscribe = selectedIndex.subscribe((index) => {
-			position.set({
-				width: navRefs[index]?.offsetWidth,
-				left: navRefs[index]?.offsetLeft,
-				opacity: navRefs[index] ? 1 : 0
-			});
-		});
-	}
-
-	onDestroy(() => {
-		pageUnsubscribe?.();
-		selectedIndexUnsubscribe?.();
+	$effect(() => {
+		position = {
+			width: navRefs[selectedIndex]?.offsetWidth ?? 0,
+			left: navRefs[selectedIndex]?.offsetLeft ?? 0,
+			opacity: navRefs[selectedIndex] ? 1 : 0
+		};
 	});
 </script>
 
@@ -75,6 +59,6 @@
 
 	<span
 		class="transition-position absolute z-0 h-full rounded-xl bg-foreground duration-300"
-		style="width: {$position.width}px; left: {$position.left}px; opacity: {$position.opacity}"
-	/>
+		style="width: {position.width}px; left: {position.left}px; opacity: {position.opacity}"
+	></span>
 </nav>

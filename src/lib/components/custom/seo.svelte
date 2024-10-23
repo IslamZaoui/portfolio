@@ -3,12 +3,20 @@
 	import { page } from '$app/stores';
 	import { languageTag } from '@/paraglide/runtime';
 
-	export let title: string | undefined = undefined;
-	export let description: string = SITE_DESCRIPTION[languageTag()];
-	export let image: string = '/OG/Islam%20Zaoui%20Portfolio';
+	interface Props {
+		title?: string;
+		description?: string;
+		image?: string;
+	}
 
-	$: url = new URL($page.url.pathname, SITE_URL).href;
-	$: fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+	let {
+		title = undefined,
+		description = SITE_DESCRIPTION[languageTag()],
+		image = '/OG/Islam%20Zaoui%20Portfolio'
+	}: Props = $props();
+
+	let url = $derived(new URL($page.url.pathname, SITE_URL).href);
+	let fullTitle = $derived(title ? `${title} | ${SITE_NAME}` : SITE_NAME);
 </script>
 
 <svelte:head>

@@ -5,12 +5,12 @@
 	import { invalidate } from '$app/navigation';
 	import { languageTag } from '@/paraglide/runtime.js';
 
-	$: currentPathWithoutLanguage = i18n.route($page.url.pathname);
+	let currentPathWithoutLanguage = $derived(i18n.route($page.url.pathname));
 </script>
 
 <a
 	class={buttonVariants({ variant: 'ghost', size: 'icon' })}
-	on:mousedown={() => invalidate('paraglide:lang')}
+	onmousedown={() => invalidate('paraglide:lang')}
 	title={languageTag() === 'en' ? 'Change to Arabic' : 'Change to English'}
 	href={currentPathWithoutLanguage}
 	rel="alternate"

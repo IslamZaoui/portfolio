@@ -7,7 +7,7 @@
 	import Head from '@/components/custom/seo.svelte';
 	import { languageTag } from '@/paraglide/runtime.js';
 
-	export let data;
+	let { data } = $props();
 </script>
 
 <Head title={m.CONTACT()} />

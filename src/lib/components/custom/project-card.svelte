@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let project: Project;
+	let { project } = $props<{ project: Project }>();
 </script>
 
 <a

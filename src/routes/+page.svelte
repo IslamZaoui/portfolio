@@ -5,7 +5,7 @@
 	import ExperienceItem from '@/components/custom/experience-item.svelte';
 	import PostCard from '@/components/custom/post-card.svelte';
 
-	export let data;
+	let { data } = $props();
 </script>
 
 <Head title={m.ABOUT()} />

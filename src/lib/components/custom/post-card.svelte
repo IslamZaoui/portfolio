@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
-	export let post: Post;
+	let { post } = $props<{ post: Post }>();
 
-	let isBlog = /^(\/en\/blog|\/ar\/blog)/.test($page.url.pathname);
-	let header = isBlog ? 'h3' : 'h4';
+	let isBlog = $derived(/^(\/en\/blog|\/ar\/blog)/.test($page.url.pathname));
+	let header = $derived(isBlog ? 'h3' : 'h4');
 </script>
 
 <a

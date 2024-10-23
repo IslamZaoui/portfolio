@@ -1,14 +1,12 @@
 <script lang="ts">
 	import * as m from '@i18n';
 
-	export let experience: Experience;
-	export let index: number;
-
-	$: background = index === 0 ? 'bg-primary' : 'bg-muted';
+	let { experience, index } = $props<{ experience: Experience; index: number }>();
+	let background = $derived(index === 0 ? 'bg-primary' : 'bg-muted');
 </script>
 
 <li class="mb-10 ms-4">
-	<div class="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border {background}" />
+	<div class="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border {background}"></div>
 	<div class="flex flex-row items-center gap-2">
 		<div class="text-md font-medium text-primary">{experience.title}</div>
 		{#if index === 0}

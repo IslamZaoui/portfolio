@@ -1,6 +1,6 @@
 // copied from https://github.com/jdgamble555/sveltekit-vercel-og
 import { ImageResponse as VercelOGImageResponse } from '@vercel/og';
-import type { ComponentProps, ComponentType, SvelteComponent } from 'svelte';
+import type { ComponentProps, Component } from 'svelte';
 import { html } from 'satori-html';
 
 function unescapeHtml(html: string) {
@@ -12,7 +12,7 @@ function unescapeHtml(html: string) {
 		.replace(/&#039;/g, "'");
 }
 
-export interface SvelteComponentSSR<T extends SvelteComponent> {
+export interface SvelteComponentSSR<T extends Component<ComponentProps<T>>> {
 	render: (props?: ComponentProps<T>) => SvelteRenderResult;
 }
 
@@ -25,9 +25,9 @@ export interface SvelteRenderResult {
 	head: string;
 }
 
-export class ImageResponse<T extends SvelteComponent> extends VercelOGImageResponse {
+export class ImageResponse<T extends Component<ComponentProps<T>>> extends VercelOGImageResponse {
 	constructor(
-		component: ComponentType<T>,
+		component: T,
 		options?: ConstructorParameters<typeof VercelOGImageResponse>[1],
 		props?: ComponentProps<T>
 	) {

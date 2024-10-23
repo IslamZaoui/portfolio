@@ -5,9 +5,9 @@
 	import ArrowUpIcon from 'lucide-svelte/icons/arrow-up';
 	import { fade } from 'svelte/transition';
 
-	export let showAtPixel = 100;
+	let { showAtPixel = 100 } = $props<{ showAtPixel?: number }>();
 	let scrollHeight = 0;
-	let showGotoTop = false;
+	let showGotoTop = $state(false);
 
 	function scrollToTop() {
 		window.scrollTo({
@@ -34,7 +34,7 @@
 	<div in:fade out:fade>
 		<Button
 			size="icon"
-			on:click={scrollToTop}
+			onclick={scrollToTop}
 			title="Go to top"
 			class="fixed bottom-4 right-4 z-50 rounded-xl transition-transform duration-300 hover:translate-y-[-10px]
 			md:bottom-6"

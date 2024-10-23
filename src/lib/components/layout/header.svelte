@@ -7,7 +7,7 @@
 	import SocialLinks from './links/social-links.svelte';
 	import NavLinks from './links/nav-links.svelte';
 
-	$: isBlogPost = /^\/(ar\/|en\/)?blog\/[\w-]+$/.test($page.data.url);
+	let isBlogPost = $derived(/^\/(ar\/|en\/)?blog\/[\w-]+$/.test($page.data.url));
 </script>
 
 <div class="my-8 flex flex-col items-start justify-between gap-2">

@@ -10,10 +10,7 @@ export const handle = sequence(
 		headers: {
 			...rules.defaultHeaders,
 			'X-XSS-Protection': '1; mode=block',
-			'Access-Control-Allow-Origin': SITE_URL,
-			'Cross-Origin-Embedder-Policy': 'require-corp',
-			'Cross-Origin-Opener-Policy': 'same-origin',
-			'Cross-Origin-Resource-Policy': 'cross-origin'
+			'Access-Control-Allow-Origin': [SITE_URL]
 		},
 		csp: {
 			directives: {
