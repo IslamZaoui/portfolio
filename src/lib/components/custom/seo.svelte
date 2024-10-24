@@ -11,6 +11,7 @@
 	let { title = 'Islam Zaoui Portfolio', description = SITE_DESCRIPTION[languageTag()] }: Props = $props();
 	let url = $derived(new URL($page.url.pathname, SITE_URL).href);
 	let fullTitle = $derived(title ? `${title} | ${SITE_NAME}` : SITE_NAME);
+	let ogImageURL = new URL('/assets/banner.webp', SITE_URL).href;
 </script>
 
 <svelte:head>
@@ -24,14 +25,14 @@
 	<meta property="og:description" content={description} />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={url} />
-	<meta property="og:image" content="/assets/banner.webp" />
+	<meta property="og:image" content={ogImageURL} />
 	<meta property="og:site_name" content={SITE_NAME} />
 	<meta property="og:locale" content={languageTag()} />
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={fullTitle} />
 	<meta name="twitter:description" content={description} />
-	<meta name="twitter:image" content="/assets/banner.webp" />
+	<meta name="twitter:image" content={ogImageURL} />
 
 	<link rel="canonical" href={url} />
 </svelte:head>
