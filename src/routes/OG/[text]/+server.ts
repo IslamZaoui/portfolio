@@ -1,5 +1,5 @@
 import { ImageResponse } from './response';
-import OG from './og.svelte';
+import OGHTML from './og.html?raw';
 
 const height = 630;
 const width = 1200;
@@ -18,15 +18,9 @@ function flipArabicText(text: string) {
 
 export const GET = async ({ params }) => {
 	const text = isStringArabic(params.text) ? flipArabicText(params.text) : params.text;
-
-	return new ImageResponse(
-		OG,
-		{
-			width,
-			height
-		},
-		{
-			text
-		}
-	);
+	const htmlString = OGHTML.replace('{{text}}', text);
+	return new ImageResponse(htmlString, {
+		width,
+		height
+	});
 };

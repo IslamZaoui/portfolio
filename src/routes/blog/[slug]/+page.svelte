@@ -11,7 +11,7 @@
 	let Content = $derived(data.content);
 </script>
 
-<Head title={data.meta.title} description={data.meta.description} image="/OG/{data.meta.title}" />
+<Head title={data.meta.title} description={data.meta.description} />
 
 <header class="flex w-full flex-col gap-3">
 	<a href="/blog" class="flex items-center text-[16px]" title={m.BACK()}>
