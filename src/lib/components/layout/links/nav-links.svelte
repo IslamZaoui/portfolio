@@ -32,15 +32,11 @@
 	]);
 
 	let selectedIndex = $derived(nav.findIndex((item) => item.selected));
-	let navRefs: HTMLAnchorElement[] = [];
-	let position = $state({ width: 0, left: 0, opacity: 0 });
-
-	$effect(() => {
-		position = {
-			width: navRefs[selectedIndex]?.offsetWidth ?? 0,
-			left: navRefs[selectedIndex]?.offsetLeft ?? 0,
-			opacity: navRefs[selectedIndex] ? 1 : 0
-		};
+	let navRefs = $state<HTMLAnchorElement[]>([]);
+	let position = $derived({
+		width: navRefs[selectedIndex]?.offsetWidth ?? 0,
+		left: navRefs[selectedIndex]?.offsetLeft ?? 0,
+		opacity: navRefs[selectedIndex] ? 1 : 0
 	});
 </script>
 
