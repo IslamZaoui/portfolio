@@ -1,7 +1,7 @@
 [
 	{
 		"id": "portfolio",
-		"path": "docs/content",
+		"path": "user/posts",
 		"schema": {
 			"path": ".svelte-kit/markdoc_schema.js",
 			"type": "esm",
