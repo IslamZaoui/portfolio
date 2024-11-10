@@ -7,3 +7,8 @@
   description: 'منصة تعليمية إلكترونية.'
   url: 'https://github.com/IslamZaoui/Intellect'
   icon: '/assets/icons/intellect.png'
+
+- name: 'SecureKit'
+  description: 'مكتبة SvelteKit لحماية مستخدميك من هجمات XSS.' 
+  url: 'https://github.com/islamzaoui/securekit'
+  icon: '/assets/icons/securekit.png'
