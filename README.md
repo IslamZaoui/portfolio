@@ -1,67 +1,38 @@
-<p align="center">
-<a href="https://islamzaoui.top"><img src=https://github.com/islamzaoui/portfolio/blob/main/static/assets/pwa-512x512.png width=96 hieght=96 style="border-radius: 9999px; object-fit: cover;" /></a>
-</p>
+# sv
 
-<h1 align="center">Islam Zaoui</h1>
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-<p align="center">
-Simply Awesome <b>Blazingly Fast</b> Portfolio built with <b>SvelteKit</b> and <b>❤</b>
-</p>
+## Creating a project
 
-## Used Technologies
-
-- **SvelteKit**: A framework for building web applications.
-- **TypeScript**: A superset of JavaScript that adds static types.
-- **Tailwind CSS**: A utility-first CSS framework for styling.
-- **Vite**: A build tool that provides a fast development environment.
-- **Paraglide JS**: For internationalization and localization.
-- **Markdoc**: A preprocessor for markdown documents.
-
-## Features
-
-- **Responsive Design**: Optimized for both desktop and mobile devices.
-- **Fast Loading Times**: Built with performance in mind.
-- **SEO Friendly**: Includes meta tags and structured data for better search engine visibility.
-- **Multi-language Support**: Available in English and Arabic.
-- **Contact Form**: Allows users to reach out directly through the website.
-- **Dynamic Content**: Fetches and displays blog posts, projects, and experiences dynamically.
-
-## Get Started
-
-### Clone Repository
+If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-git clone https://github.com/IslamZaoui/portfolio.git
+# create a new project in the current directory
+npx sv create
+
+# create a new project in my-app
+npx sv create my-app
 ```
 
-### Rename `.env.example` to `.env`
+## Developing
 
-```plaintext
-# Private
-STATIC_FORM_KEY = "your static form key"
-```
-
-you can get your key from [StaticForm](https://www.staticforms.xyz/)
-
-### Install Dependencies
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
-bun install
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-you can use yarn or pnpm
+## Building
 
-### Run Development Server
+To create a production version of your app:
 
 ```bash
-bun dev
+npm run build
 ```
 
-## Acknowledges
+You can preview the production build with `npm run preview`.
 
-- [ansubkhan](https://ansubkhan.com/) for the inspiration
-- [shadcn-svelte](https://github.com/shadcn-svelte) best UI library
-
-## License
-
-This project is licensed under the GNU GPLv3 License. See the [LICENSE](LICENSE) file for more details.
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
