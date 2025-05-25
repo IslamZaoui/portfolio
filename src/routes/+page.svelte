@@ -28,8 +28,15 @@
 	<h2 class="text-2xl font-bold">Contact</h2>
 	<p class="text-justify">
 		Have a project idea or a question? Feel free to reach out via
-		<a class="anchor" href="mailto:contact@islamzaoui.top">email</a> or social media above. I'm always
-		happy to discuss potential collaborations or help where I can.
+		<a
+			aria-label="Send me an email at contact@islamzaoui.top"
+			title="Send me an email at contact@islamzaoui.top"
+			class="anchor"
+			href="mailto:contact@islamzaoui.top"
+		>
+			email
+		</a>
+		or social media above. I'm always happy to discuss potential collaborations or help where I can.
 	</p>
 
 	<div class="mt-6 md:mt-8">

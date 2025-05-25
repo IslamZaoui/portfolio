@@ -23,7 +23,14 @@
 
 	<footer class="mt-16 p-4 pb-6 text-center text-sm">
 		© {new Date().getFullYear()} - All Rights Reserved -
-		<a href="https://github.com/islamzaoui/portfolio" target="_blank" rel="noopener noreferrer">
+		<a
+			class="anchor"
+			href="https://github.com/islamzaoui/portfolio"
+			target="_blank"
+			rel="noopener noreferrer"
+			title="Visit this site github repository"
+			aria-label="Visit this site github repository (opens in new tab)"
+		>
 			source code
 		</a>
 	</footer>
