@@ -77,7 +77,7 @@
 		<Form.FieldErrors />
 	</Form.Field>
 
-	<div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+	<div class="flex flex-row justify-between gap-4">
 		<Button
 			title="send message"
 			type="submit"

@@ -157,7 +157,7 @@
 		scrollbar-gutter: stable both-edges;
 		scrollbar-color: var(--primary) var(--background);
 
-		@apply border-border outline-ring/50;
+		@apply border-border outline-ring/50 select-none;
 	}
 
 	body {

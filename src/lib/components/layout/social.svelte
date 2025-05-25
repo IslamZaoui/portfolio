@@ -17,7 +17,7 @@
 	};
 </script>
 
-<div class="flex w-full gap-3">
+<div class="flex gap-4">
 	{#each Object.entries(socials) as [key, value]}
 		<a
 			href={value.link}
