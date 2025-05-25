@@ -6,8 +6,6 @@
 	import { zod } from 'sveltekit-superforms/adapters';
 	import { superForm } from 'sveltekit-superforms/client';
 
-	import type { RecaptchaStatus } from '@/components/recaptcha.svelte';
-
 	import Recaptcha from '@/components/recaptcha.svelte';
 	import Button from '@/components/ui/button/button.svelte';
 	import * as Form from '@/components/ui/form';
@@ -25,85 +23,65 @@
 
 	const { form: formData, enhance, delayed, message } = form;
 
-	let recaptchaStatus: RecaptchaStatus | undefined = $state(undefined);
+	let recaptchaStatus = $state(false);
 
-	function onStatusChange(v: RecaptchaStatus) {
+	function onStatusChange(v: boolean) {
 		recaptchaStatus = v;
 	}
 </script>
 
-<form use:enhance method="post" action="/api/contact" class="flex w-full flex-col gap-4">
+<form use:enhance method="post" action="/api/contact" class="flex flex-col gap-6">
 	{#if $message}
 		<ContactAlert {...$message} />
 	{/if}
 
-	<div class="flex w-full flex-col gap-4 md:flex-row">
-		<Form.Field {form} name="name" class="group bg-muted w-full rounded-xl p-3">
+	<div class="flex flex-col gap-4 md:flex-row">
+		<Form.Field {form} name="name" class="w-full">
 			<Form.Control>
 				{#snippet children({ props })}
-					<Form.Label>Your Fullname</Form.Label>
-					<Input
-						class="bg-muted focus-visible:ring-card border-none focus-visible:ring-0 focus-visible:ring-offset-0"
-						autocomplete="name"
-						{...props}
-						bind:value={$formData.name}
-					/>
+					<Form.Label class="mb-1 text-lg font-semibold">Your Fullname</Form.Label>
+					<Input autocomplete="name" {...props} bind:value={$formData.name} />
 				{/snippet}
 			</Form.Control>
 			<Form.FieldErrors />
 		</Form.Field>
 
-		<Form.Field {form} name="email" class="bg-muted w-full rounded-xl p-3">
+		<Form.Field {form} name="email" class="w-full">
 			<Form.Control>
 				{#snippet children({ props })}
-					<Form.Label>Your Email</Form.Label>
-					<Input
-						autocomplete="email"
-						class="bg-muted focus-visible:ring-card border-none focus-visible:ring-0 focus-visible:ring-offset-0"
-						{...props}
-						bind:value={$formData.email}
-					/>
+					<Form.Label class="mb-1 text-lg font-semibold">Your Email</Form.Label>
+					<Input autocomplete="email" {...props} bind:value={$formData.email} />
 				{/snippet}
 			</Form.Control>
 			<Form.FieldErrors />
 		</Form.Field>
 	</div>
 
-	<Form.Field {form} name="subject" class="bg-muted rounded-xl p-3">
+	<Form.Field {form} name="subject">
 		<Form.Control>
 			{#snippet children({ props })}
-				<Form.Label>Subject</Form.Label>
-				<Input
-					class="bg-muted focus-visible:ring-card border-none focus-visible:ring-0 focus-visible:ring-offset-0"
-					{...props}
-					bind:value={$formData.subject}
-				/>
+				<Form.Label class="mb-1 text-lg font-semibold">Subject</Form.Label>
+				<Input {...props} bind:value={$formData.subject} />
 			{/snippet}
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
 
-	<Form.Field {form} name="message" class="bg-muted rounded-xl p-3">
+	<Form.Field {form} name="message">
 		<Form.Control>
 			{#snippet children({ props })}
-				<Form.Label>Message</Form.Label>
-				<Textarea
-					rows={7}
-					cols={0}
-					class="bg-muted focus-visible:ring-card border-none focus-visible:ring-0 focus-visible:ring-offset-0"
-					{...props}
-					bind:value={$formData.message}
-				/>
+				<Form.Label class="mb-1 text-lg font-semibold">Message</Form.Label>
+				<Textarea rows={7} class="resize-none" {...props} bind:value={$formData.message} />
 			{/snippet}
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
 
-	<div class="flex w-full justify-between">
+	<div class="flex flex-col items-center justify-between gap-4 md:flex-row">
 		<Button
 			title="send message"
 			type="submit"
-			disabled={$delayed || recaptchaStatus !== 'success'}
+			disabled={$delayed || !recaptchaStatus}
 			class="w-[150px] space-x-2 rounded-xl"
 		>
 			{#if $delayed}
@@ -114,6 +92,8 @@
 			<span>Submit</span>
 		</Button>
 
-		<Recaptcha {onStatusChange} bind:token={$formData['g-recaptcha-response']} />
+		<div class="flex w-full justify-end md:w-auto">
+			<Recaptcha {onStatusChange} bind:token={$formData['g-recaptcha-response']} />
+		</div>
 	</div>
 </form>

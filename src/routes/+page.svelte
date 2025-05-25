@@ -33,5 +33,7 @@
 		collaborations or help where I can.
 	</p>
 
-	<ContactForm {data} />
+	<div class="mt-6 md:mt-8">
+		<ContactForm {data} />
+	</div>
 </section>

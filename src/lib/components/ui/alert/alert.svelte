@@ -1,7 +1,7 @@
 <script lang="ts" module>
-	import type {VariantProps} from 'tailwind-variants';
+	import type { VariantProps } from 'tailwind-variants';
 
-import { tv  } from 'tailwind-variants';
+	import { tv } from 'tailwind-variants';
 
 	export const alertVariants = tv({
 		base: 'relative grid w-full grid-cols-[0_1fr] items-start gap-y-0.5 rounded-lg border px-4 py-3 text-sm has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current',
@@ -23,9 +23,9 @@ import { tv  } from 'tailwind-variants';
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	import type {WithElementRef} from '@/utils.js';
+	import type { WithElementRef } from '@/utils.js';
 
-import { cn  } from '@/utils.js';
+	import { cn } from '@/utils.js';
 
 	let {
 		ref = $bindable(null),

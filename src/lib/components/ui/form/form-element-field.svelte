@@ -9,9 +9,9 @@
 
 	import * as FormPrimitive from 'formsnap';
 
-	import type {WithElementRef, WithoutChildren} from '@/utils.js';
+	import type { WithElementRef, WithoutChildren } from '@/utils.js';
 
-import { cn   } from '@/utils.js';
+	import { cn } from '@/utils.js';
 
 	let {
 		ref = $bindable(null),

@@ -153,6 +153,10 @@
 
 @layer base {
 	* {
+		scrollbar-width: thin;
+		scrollbar-gutter: stable both-edges;
+		scrollbar-color: var(--primary) var(--background);
+
 		@apply border-border outline-ring/50;
 	}
 
@@ -161,6 +165,6 @@
 	}
 
 	a {
-		@apply font-semibold underline hover:no-underline;
+		@apply font-semibold underline underline-offset-2 hover:no-underline;
 	}
 }

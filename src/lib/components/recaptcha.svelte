@@ -1,35 +1,30 @@
-<script module lang="ts">
-	export type RecaptchaStatus = 'ready' | 'success' | 'error' | 'expired';
-</script>
-
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { PUBLIC_RECAPTCHA_SITE_KEY } from '$env/static/public';
-	import { mode } from 'mode-watcher';
 
 	interface Props {
 		token: string;
-		onStatusChange?: (v: RecaptchaStatus) => void;
+		onStatusChange?: (v: boolean) => void;
 	}
 
 	let { token = $bindable(''), onStatusChange }: Props = $props();
 
 	if (browser) {
 		window.onRecaptchaLoad = () => {
-			onStatusChange?.('ready');
+			onStatusChange?.(false);
 		};
 
 		window.onRecaptchaSuccess = (v) => {
 			token = v;
-			onStatusChange?.('success');
+			onStatusChange?.(true);
 		};
 
 		window.onRecaptchaExpired = () => {
-			onStatusChange?.('expired');
+			onStatusChange?.(false);
 		};
 
 		window.onRecaptchaError = () => {
-			onStatusChange?.('error');
+			onStatusChange?.(false);
 		};
 	}
 </script>
@@ -40,7 +35,8 @@
 
 <div
 	class="g-recaptcha"
-	data-theme={$mode ?? 'light'}
 	data-sitekey={PUBLIC_RECAPTCHA_SITE_KEY}
 	data-callback="onRecaptchaSuccess"
+	data-expired-callback="onRecaptchaExpired"
+	data-error-callback="onRecaptchaError"
 ></div>
