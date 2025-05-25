@@ -24,7 +24,8 @@
 			target="_blank"
 			rel="noreferrer"
 			class="transition-transform duration-300 ease-in-out hover:scale-[125%]"
-			title={key}
+			title={`Visit ${key} profile`}
+			aria-label={`Visit ${key} profile (opens in new tab)`}
 		>
 			{@render value.icon({ class: 'size-6' })}
 		</a>

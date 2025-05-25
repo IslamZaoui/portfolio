@@ -14,7 +14,7 @@
 <div class="min-h-screen px-4 antialiased">
 	<div class="mx-auto max-w-3xl space-y-4">
 		<Header />
-		<main class="flex flex-col gap-8">
+		<main class="flex flex-col gap-16">
 			{@render children()}
 		</main>
 	</div>
