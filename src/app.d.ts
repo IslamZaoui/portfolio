@@ -1,12 +1,22 @@
-// See https://svelte.dev/docs/kit/types#app.d.ts
-// for information about these interfaces
+type MessageType = 'info' | 'success' | 'warning' | 'error';
+
 declare global {
 	namespace App {
-		// interface Error {}
-		// interface Locals {}
-		// interface PageData {}
-		// interface PageState {}
-		// interface Platform {}
+		namespace Superforms {
+			interface Message {
+				type: MessageType;
+				text: string;
+			}
+		}
+	}
+
+	namespace globalThis {
+		interface Window {
+			onRecaptchaSuccess: (token: string) => void;
+			onRecaptchaLoad: () => void;
+			onRecaptchaExpired: () => void;
+			onRecaptchaError: () => void;
+		}
 	}
 }
 
