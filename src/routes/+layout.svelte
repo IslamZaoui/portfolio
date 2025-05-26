@@ -2,10 +2,10 @@
 	import '../app.css';
 
 	import '@fontsource-variable/geist-mono';
-	import { PUBLIC_SITE_URL } from '$env/static/public';
 	import { ModeWatcher } from 'mode-watcher';
 
 	import { Header } from '@/components/layout';
+	import { url } from '@/data';
 
 	const { children } = $props();
 </script>
@@ -29,8 +29,8 @@
 		content="Check out my portfolio of projects and experience in software development."
 	/>
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content={PUBLIC_SITE_URL} />
-	<meta property="og:image" content={`${PUBLIC_SITE_URL}/og-image.jpg`} />
+	<meta property="og:url" content={url} />
+	<meta property="og:image" content="" />
 	<meta property="og:site_name" content="Islam Zaoui" />
 	<meta property="og:locale" content="en" />
 
@@ -40,9 +40,9 @@
 		content="Check out my portfolio of projects and experience in software development."
 	/>
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:image" content={`${PUBLIC_SITE_URL}/og-image.jpg`} />
+	<meta name="twitter:image" content="" />
 
-	<link rel="canonical" href={PUBLIC_SITE_URL} />
+	<link rel="canonical" href={url} />
 </svelte:head>
 
 <ModeWatcher defaultMode="dark" />
