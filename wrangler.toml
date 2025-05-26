@@ -12,7 +12,3 @@ command = "bun run build"
 [[routes]]
 pattern = "islamzaoui.top/*"
 zone_name = "islamzaoui.top"
-
-[[routes]]
-pattern = "www.islamzaoui.top/*"
-zone_name = "islamzaoui.top"
