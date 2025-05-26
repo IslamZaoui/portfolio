@@ -1,0 +1,18 @@
+name = "portfolio"
+account_id = "a849c0279620f468f0300d2d1754909e"
+main = "./.cloudflare/worker.js"
+compatibility_date = "2021-11-12"
+
+[site]
+bucket = "./.cloudflare/public"
+
+[build]
+command = "bun run build"
+
+[[routes]]
+pattern = "islamzaoui.top/*"
+zone_name = "islamzaoui.top"
+
+[[routes]]
+pattern = "www.islamzaoui.top/*"
+zone_name = "islamzaoui.top"
