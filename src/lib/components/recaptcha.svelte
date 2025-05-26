@@ -30,7 +30,7 @@
 </script>
 
 <svelte:head>
-	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback" async defer></script>
+	<script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad" async defer></script>
 </svelte:head>
 
 <div

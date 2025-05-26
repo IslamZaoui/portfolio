@@ -5,9 +5,45 @@
 	import { ModeWatcher } from 'mode-watcher';
 
 	import { Header } from '@/components/layout';
+	import { PUBLIC_SITE_URL } from '$env/static/public';
 
 	const { children } = $props();
 </script>
+
+<svelte:head>
+	<title>Islam Zaoui - Full-Stack Web Developer</title>
+
+	<meta
+		name="description"
+		content="Check out my portfolio of projects and experience in software development."
+	/>
+	<meta
+		name="keywords"
+		content="Full-Stack Web Developer, Web Development, Software Engineer, Portfolio, Islam Zaoui"
+	/>
+	<meta name="author" content="Islam Zaoui" />
+
+	<meta property="og:title" content="Islam Zaoui - Full-Stack Web Developer" />
+	<meta
+		property="og:description"
+		content="Check out my portfolio of projects and experience in software development."
+	/>
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={PUBLIC_SITE_URL} />
+	<meta property="og:image" content={`${PUBLIC_SITE_URL}/og-image.jpg`} />
+	<meta property="og:site_name" content="Islam Zaoui" />
+	<meta property="og:locale" content="en" />
+
+	<meta name="twitter:title" content="Islam Zaoui - Full-Stack Web Developer" />
+	<meta
+		name="twitter:description"
+		content="Check out my portfolio of projects and experience in software development."
+	/>
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content={`${PUBLIC_SITE_URL}/og-image.jpg`} />
+
+	<link rel="canonical" href={PUBLIC_SITE_URL} />
+</svelte:head>
 
 <ModeWatcher defaultMode="dark" />
 
