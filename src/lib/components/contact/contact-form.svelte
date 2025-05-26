@@ -7,7 +7,6 @@
 	import { superForm } from 'sveltekit-superforms/client';
 
 	import Recaptcha from '@/components/recaptcha.svelte';
-	import Button from '@/components/ui/button/button.svelte';
 	import * as Form from '@/components/ui/form';
 	import { Input } from '@/components/ui/input';
 	import { Textarea } from '@/components/ui/textarea';
@@ -78,11 +77,11 @@
 	</Form.Field>
 
 	<div class="flex flex-row justify-between gap-4">
-		<Button
+		<Form.Button
+			class="w-[150px] space-x-2"
+			variant="outline"
 			title="send message"
-			type="submit"
 			disabled={$delayed || !recaptchaStatus}
-			class="w-[150px] space-x-2 rounded-xl"
 		>
 			{#if $delayed}
 				<Loading class="animate-spin" />
@@ -90,7 +89,7 @@
 				<SendIcon />
 			{/if}
 			<span>Submit</span>
-		</Button>
+		</Form.Button>
 
 		<div class="flex w-full justify-end md:w-auto">
 			<Recaptcha {onStatusChange} bind:token={$formData['g-recaptcha-response']} />

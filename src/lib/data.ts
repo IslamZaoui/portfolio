@@ -6,7 +6,7 @@ export const experiences: Experience[] = [
 		at: 'TechsSales'
 	},
 	{
-		title: 'Full-Stack Developer',
+		title: 'Full-Stack Web Developer',
 		at: 'Freelance'
 	}
 ];

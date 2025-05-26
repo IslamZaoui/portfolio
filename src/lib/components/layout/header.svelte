@@ -7,7 +7,7 @@
 
 <div class="my-6 flex flex-col items-start justify-between gap-2">
 	<div class="flex w-full flex-col gap-1">
-		<enhanced:img class="size-[60px] rounded-full" src="@/assets/pfp.png" alt="profile" />
+		<enhanced:img class="size-[60px]" src="@/assets/pfp.png" alt="profile" />
 		<h1 class="text-lg font-bold">Islam Zaoui</h1>
 		<p class="text-muted-foreground">Full Stack Web Developer</p>
 	</div>

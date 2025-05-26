@@ -2,10 +2,10 @@
 	import '../app.css';
 
 	import '@fontsource-variable/geist-mono';
+	import { PUBLIC_SITE_URL } from '$env/static/public';
 	import { ModeWatcher } from 'mode-watcher';
 
 	import { Header } from '@/components/layout';
-	import { PUBLIC_SITE_URL } from '$env/static/public';
 
 	const { children } = $props();
 </script>
