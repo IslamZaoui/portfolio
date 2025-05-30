@@ -11,7 +11,7 @@
 			icon: Icons.GithubIcon
 		},
 		youtube: {
-			link: 'https://www.youtube.com/@IslamZaoui_',
+			link: 'https://www.youtube.com/@IslamZaouiDev',
 			icon: Icons.YoutubeIcon
 		}
 	};
